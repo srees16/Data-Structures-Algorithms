@@ -69,7 +69,7 @@ public class CoreJavaWorkout {
 		double average = total/numArray.length;
 		return average;
 	}
-	
+		
 	//Find max no in array
 	private static void maxNo(int a[]) {
 		int temp,i;
