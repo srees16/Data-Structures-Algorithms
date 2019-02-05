@@ -2,6 +2,7 @@ package Algorithms;
 
 import java.util.Arrays;
 import java.util.*;
+
 /*Learn the below algorithms first
  * 1. Insertion Sort
  * 2. Selection Sort
@@ -10,6 +11,7 @@ import java.util.*;
  * 5. Quick Sort
  * 6. Heap Sort
  */
+
 public class SortAlgorithms {
 	
 	//Insertion Sort
