@@ -3,19 +3,20 @@ Consolidated code for all the Data Structures & Algorithms that I had worked whi
 
 Data Structures contained in the repository include:
 
-Array,
-Stack,
-Queue,
-LinkedList,
-DoublyLinkedList,
-Tree,
-Heap,
-HashMap,
-Trie and
-Graph. 
-Both for the integer and the object data types was coded.
+1. Array
+2. Stack
+3. Queue
+4. LinkedList
+5. DoublyLinkedList
+6. Tree
+7. Heap
+8. HashMap
+9. Trie
+10. Graph
+Both for the integer and the object data types.
 
-Algorithms contain basic sorting programs:
+Algorithms contain basic sorting programs that include:
+
 1. Insertion Sort
 2. Selection Sort
 3. Bubble Sort
