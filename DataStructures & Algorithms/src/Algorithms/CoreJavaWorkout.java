@@ -1,6 +1,5 @@
 package Algorithms;
 
-
 /*
 Exercises ref from:
 https://beginnersbook.com/2017/09/java-examples
