@@ -1,5 +1,5 @@
 # Data-Structures-Algorithms
-All the Data Structures &amp; Algorithms that I had worked as part of self-learning and practice of the concepts.
+Consolidated programs for all the Data Structures & Algorithms that I had worked while self-learning and practice of the concepts.
 
 Data Structures contained in the repository include:
 
