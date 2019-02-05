@@ -788,6 +788,36 @@ public class CoreJavaWorkout {
 			}
 		}
 	}
+	
+	
+	//Find the difference between the largest and smallest values in an array of integers. The length of the array must be 1 and above
+	
+	
+	//Compute the average value of an array of integers except the largest and smallest values
+	
+	
+	/*
+	 Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
+	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
+	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
+	 */
+	
+	
+	//Find the majority element from an given array of integers containing duplicates
+	
+	
+	//Find smallest and second smallest elements of a given array
+	
+	
+	//Remove duplicate elements from an array
+	
+	
+	/*Remove the duplicate elements of a given array and return the new length of the array.
+	Sample: [20, 20, 30, 40, 50, 50, 50]. After removing the duplicate elements the program should return 4 as the new length of the array*/
+	
+	
+	//Find the number of even and odd integers in a given array of integers
+	
 
 	//The great Main method!
 	public static void main(String[] args) {
