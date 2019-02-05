@@ -208,19 +208,19 @@ public class CoreJavaWorkout {
 	//Display prime numbers between 1 and 100 or 1 and n
 	private static void first100PrimeNos(int primesUpto) { //Needs improvement
 		System.out.print(2 + ", " + 3 + ", " + 5);
-		for (int i=5; i<primesUpto; i++) {
+		for (int i =5; i < primesUpto; i++) {
 			if (i % 2 != 0 && i % 3 != 0 && i % 5 !=0) {
-				System.out.print(", "+i);
+				System.out.print(", " + i);
 			}
 		} 
 	}
 
 	//Reverse a String using Recursion
 	public static String reverseString(String word) {
-		if (word.length()<=1) {
+		if (word.length() <= 1) {
 			return word;
 		} else {
-			return reverseString(word.substring(1))+word.charAt(0);
+			return reverseString(word.substring(1)) + word.charAt(0);
 		}
 	}
 
