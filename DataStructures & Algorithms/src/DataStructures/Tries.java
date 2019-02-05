@@ -49,6 +49,7 @@ public static class Node {
 			}
 			return child.findCount(s, index+1);
 		}
+		
 	}
 	
 	public static void main(String[] args) {
