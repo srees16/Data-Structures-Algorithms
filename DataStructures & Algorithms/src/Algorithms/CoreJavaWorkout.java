@@ -224,22 +224,9 @@ public class CoreJavaWorkout {
 		}
 	}
 
-	//Reverse a number using for, while loop and recursion
-	private static void numReverseFor(int num) {
-		for(int i = 0; i < num; i++) {
-	  
-		}
-	}
-	
-	//Reverse a number. For 12345, output should be 54321
-			/*int x=785;
-			while (x>0) {
-				int d = x/10;
-				int k = x%10; 
-				x=d;
-				System.out.print(k);
-			}*/
-	private static void numReverse(int number) {
+	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
+
+	private static void numReverseWhile(int number) {
 		int n = 654;  //Prefer this bcoz its more intuitive
 		while (n > 0) {
 			int digit = n % 10;
@@ -247,18 +234,19 @@ public class CoreJavaWorkout {
 			n = n/10; 
 			digit = n;
 		}
+		/*int x=785; //less intuitive approach
+		while (x>0) {
+			int d = x/10;
+			int k = x%10; 
+			x=d;
+			System.out.print(k);
+		}*/
 	}
-			
-			/*int no=4356;
-			while(no>0) {
-				int digit=no%10;
-				System.out.print(digit);
-				no=no/10;
-				digit=no;
-			}*/
-
-	private static void numReverseWhile(int num) {
-		
+	
+	private static void numReverseFor(int num) {
+		for(int i = 0; i < num; i++) {
+	  
+		}
 	}
 
 	private static void numReverseRecursion(int num) {
