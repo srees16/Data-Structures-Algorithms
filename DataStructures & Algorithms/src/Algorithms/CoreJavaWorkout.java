@@ -239,13 +239,15 @@ public class CoreJavaWorkout {
 				x=d;
 				System.out.print(k);
 			}*/
-			/*int n = 654;  //Prefer this bcoz its more intuitive
-			while (n>0) {
-				int digit = n%10;
-				System.out.print(digit);
-				n = n/10; 
-				digit=n;
-				}*/
+	private static void numReverse(int number) {
+		int n = 654;  //Prefer this bcoz its more intuitive
+		while (n > 0) {
+			int digit = n % 10;
+			System.out.print(digit);
+			n = n/10; 
+			digit = n;
+		}
+	}
 			
 			/*int no=4356;
 			while(no>0) {
