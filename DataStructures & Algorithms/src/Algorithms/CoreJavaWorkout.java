@@ -49,7 +49,7 @@ import java.util.Stack;
 import org.junit.Test;
 
 public class CoreJavaWorkout {
-
+	
 	//Sum of elements of an array
 	private static void sumOfArray() {
 		int array[] = {5,2,8,6,};
