@@ -13,6 +13,7 @@ Data Structures contained in the repository include:
 8. HashMap
 9. Trie
 10. Graph
+
 Both for the integer and the object data types.
 
 Algorithms contain basic sorting programs that include:
