@@ -34,6 +34,7 @@ each element of array A is an integer within the range [-1,000,000..1,000,000]
 
 > Print all possible combinations of r elements in a given array of size n. Ref:https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n
 
+
 */
 
 import java.util.Arrays;
@@ -49,7 +50,7 @@ import java.util.Stack;
 import org.junit.Test;
 
 public class CoreJavaWorkout {
-	
+
 	//Sum of elements of an array
 	private static void sumOfArray() {
 		int array[] = {5,2,8,6,};
@@ -69,7 +70,7 @@ public class CoreJavaWorkout {
 		double average = total/numArray.length;
 		return average;
 	}
-		
+	
 	//Find max no in array
 	private static void maxNo(int a[]) {
 		int temp,i;
