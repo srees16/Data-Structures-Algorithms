@@ -216,11 +216,12 @@ public class CoreJavaWorkout {
 	}
 
 	//Reverse a String using Recursion
-	private static String reverseString(String word) {
-		if(word.isEmpty()) {
+	public static String reverseString(String word) {
+		if (word.length()<=1) {
 			return word;
+		} else {
+			return reverseString(word.substring(1))+word.charAt(0);
 		}
-		return reverseString(word.substring(1))+word.charAt(0);
 	}
 
 	//Reverse a number using for, while loop and recursion
@@ -229,6 +230,30 @@ public class CoreJavaWorkout {
 	  
 		}
 	}
+	
+	//Reverse a number. For 12345, output should be 54321
+			/*int x=785;
+			while (x>0) {
+				int d = x/10;
+				int k = x%10; 
+				x=d;
+				System.out.print(k);
+			}*/
+			/*int n = 654;  //Prefer this bcoz its more intuitive
+			while (n>0) {
+				int digit = n%10;
+				System.out.print(digit);
+				n = n/10; 
+				digit=n;
+				}*/
+			
+			/*int no=4356;
+			while(no>0) {
+				int digit=no%10;
+				System.out.print(digit);
+				no=no/10;
+				digit=no;
+			}*/
 
 	private static void numReverseWhile(int num) {
 		
@@ -328,6 +353,11 @@ public class CoreJavaWorkout {
 			return checkPalindrome(word.substring(1, word.length()-1));
 		}
 		return false;
+	}
+	
+	//Using string builder class
+	public static boolean checkPalindromes(String word) {
+		return word.equals(new StringBuilder(word).reverse().toString());
 	}
 
 	//Using Stack
