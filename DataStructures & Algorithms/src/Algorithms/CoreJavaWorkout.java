@@ -58,7 +58,7 @@ public class CoreJavaWorkout {
 		}
 		System.out.println(count);
 	}
-	 
+	
 	//Calculate average of numbers of an Array
 	private static double averageOfArray(double numArray[]) {
 		double total=0;
