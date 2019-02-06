@@ -98,8 +98,7 @@ public class CoreJavaWorkout {
 		//return -1;
 	}
 	
-	//https://www.sanfoundry.com/java-program-find-number-non-repeated-elements-array
-	private static int[] findAllNonRepeats() {
+	private static int[] findAllNonRepeats() { //https://www.sanfoundry.com/java-program-find-number-non-repeated-elements-array
 		int flag=0,count=0;
 		Scanner s=new Scanner(System.in);
 		System.out.println("Enter how many elements in array");
