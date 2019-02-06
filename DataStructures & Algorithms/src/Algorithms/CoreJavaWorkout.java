@@ -130,7 +130,7 @@ public class CoreJavaWorkout {
 		return A;
 	}
 	
-	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x/
+	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
 		HashSet<Integer> hset=new HashSet<>();
 		Arrays.sort(a);
 		System.out.println("Pair of given no "+no+" is ");
@@ -224,7 +224,6 @@ public class CoreJavaWorkout {
 	}
 
 	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
-
 	private static void numReverseWhile(int number) {
 		int n = 654;  //Prefer this bcoz its more intuitive
 		while (n > 0) {
@@ -270,8 +269,7 @@ public class CoreJavaWorkout {
 		}
 	}
 
-	//Check if leap year
-	/*1. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
+	//Check if leap year. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
 	private static void isLeapYear(int year) {
 		boolean isLeap=false;
 		if(year % 4 == 0) {
@@ -561,28 +559,6 @@ public class CoreJavaWorkout {
 		}
 	}
 
-	//Find Largest of three numbers
-	private static void findLargest(int x, int y, int z) {
-		if(x > y && x > z) {
-			System.out.println(x + " is the biggest");
-		} else if(y > x && y > z) {
-			System.out.println(y + " is the biggest");
-		} else {
-			System.out.println(z + " is the biggest");
-		}
-	}
-
-	//Find Smallest of three numbers
-	private static void findSmallest(int x, int y, int z) {
-		if(x < y && x < z) {
-			System.out.println(x + " is the smallest");
-		} else if(y < x && y < z) {
-			System.out.println(y + " is the smallest");
-		} else {
-			System.out.println(z + " is the smallest");
-		}
-	}
-
 	//Reverse the words and also letters in a sentence
 	private static void sentenceReverse(String sentence) {
 		String words[] = sentence.split(" ");
@@ -708,7 +684,29 @@ public class CoreJavaWorkout {
 			index += 1;
 		}
 		System.out.println(Arrays.toString(elements));
-	} 
+	}
+	
+	//Find Largest of three numbers
+	private static void findLargest(int x, int y, int z) {
+		if(x > y && x > z) {
+			System.out.println(x + " is the biggest");
+		} else if(y > x && y > z) {
+			System.out.println(y + " is the biggest");
+		} else {
+			System.out.println(z + " is the biggest");
+		}
+	}
+
+	//Find Smallest of three numbers
+	private static void findSmallest(int x, int y, int z) {
+		if(x < y && x < z) {
+			System.out.println(x + " is the smallest");
+		} else if(y < x && y < z) {
+			System.out.println(y + " is the smallest");
+		} else {
+			System.out.println(z + " is the smallest");
+		}
+	}
 
 	//Find the largest and smallest elements of an array
 	private static void findMinMaxElements() {
