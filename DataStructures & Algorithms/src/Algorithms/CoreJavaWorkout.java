@@ -745,7 +745,6 @@ public class CoreJavaWorkout {
 			if(min > myArray[i]) {
 				min = myArray[i];
 			}
-			
 		}
 	}
 
