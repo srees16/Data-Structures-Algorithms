@@ -731,6 +731,24 @@ public class CoreJavaWorkout {
 		System.out.println("Difference of largest & smallest in the array " + Arrays.toString(myArray) + " is " + difference);
 	}
 
+	//Compute the average value of an array of integers except the largest and smallest values
+	private static void avgOfArray() {
+		int myArray[] = {98,26,288,78,11,99,500,6};
+		int max = myArray[0];
+		int min = myArray[0];
+		int avg = 0;
+		int sum = 0;
+		for(int i = 1; i < myArray.length; i++) {
+			if(max < myArray[i]) {
+				max = myArray[i];
+			}
+			if(min > myArray[i]) {
+				min = myArray[i];
+			}
+			
+		}
+	}
+
 	//Find the second largest element in an array
 	private static void secondLargest() {
 		int myArray[] = {98,13,66,26,28,78,11,99};
@@ -807,9 +825,6 @@ public class CoreJavaWorkout {
 			}
 		}
 	}
-	
-	
-	//Compute the average value of an array of integers except the largest and smallest values
 	
 	
 	/*
