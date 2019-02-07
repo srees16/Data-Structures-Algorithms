@@ -808,7 +808,10 @@ public class CoreJavaWorkout {
 	
 	
 	//Find the difference between the largest and smallest values in an array of integers. The length of the array must be 1 and above
-	
+	private static void differenceOfLargestSmallest() {
+		int x[] = {98,10,13,66,26,78,11,99};
+		
+	}
 	
 	//Compute the average value of an array of integers except the largest and smallest values
 	
