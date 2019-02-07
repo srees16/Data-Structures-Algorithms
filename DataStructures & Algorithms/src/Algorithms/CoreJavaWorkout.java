@@ -711,6 +711,7 @@ public class CoreJavaWorkout {
 	//Find the largest and smallest elements of an array
 	private static void findMinMaxElements() {
 		int myArray[] = {98,26,288,78,11,99,500,6};
+		int difference;
 		//Using Java 8 Streams
 		int max = Arrays.stream(myArray).max().getAsInt();
 		int min = Arrays.stream(myArray).min().getAsInt();
@@ -725,8 +726,9 @@ public class CoreJavaWorkout {
 				maxi = myArray[i];
 			}
 		}
-	 	System.out.println("Min is " + mini + " max is " + maxi);
 	 	System.out.println("Min is " + min + " max is " + max);
+		difference = max - min;
+		System.out.println("Difference of largest & smallest in the array " + Arrays.toString(myArray) + " is " + difference);
 	}
 
 	//Find the second largest element in an array
@@ -807,12 +809,6 @@ public class CoreJavaWorkout {
 	}
 	
 	
-	//Find the difference between the largest and smallest values in an array of integers. The length of the array must be 1 and above
-	private static void differenceOfLargestSmallest() {
-		int x[] = {98,10,13,66,26,78,11,99};
-		
-	}
-	
 	//Compute the average value of an array of integers except the largest and smallest values
 	
 	
@@ -886,10 +882,10 @@ public class CoreJavaWorkout {
 		removeElement(2);
 		//insertElement(53, 2);
 		copyArrayTo();
-		findMinMaxElements();
 		secondLargest();
 		System.out.println(duplicateElements());
 		commonIntegerElements();
 		commonStringElements();*/
+		findMinMaxElements();
 	}
 }
