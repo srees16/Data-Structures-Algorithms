@@ -748,7 +748,7 @@ public class CoreJavaWorkout {
 	//Find the second smallest element in an array
 	private static void secondSmallest() {
 		int array[] = {23,54,85,37,16,97};
-	 
+		
 	}
 
 	private static void secondSmallest2 () {
