@@ -812,6 +812,21 @@ public class CoreJavaWorkout {
 		}
 	}
 
+	/*Remove duplicate elements from an array and return the new length of the array.
+	After removing the duplicate elements the program should return 4 as the new length of the array*/
+	private static void removeDuplicates() {
+		boolean isDuplicate = false;
+		int A[] = {20, 20, 30, 40, 50, 50};
+		int i;
+		for(i = 0; i < A.length-1; i++) {
+			if(A[i] == A[i+1]) {
+				isDuplicate = true;
+			}
+		}
+		if(isDuplicate)
+			System.out.println(A[i] + " is common element");
+	}
+	
 	//Find the common elements between two arrays (string values)
 	private static void commonStringElements() {
 		String x[] = {"Hi", "Hello", "Bye"};
@@ -825,25 +840,18 @@ public class CoreJavaWorkout {
 		}
 	}
 	
-	
 	/*
-	 Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
+	Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
 	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
 	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
-	 */
+	*/
+	
 	
 	
 	//Find the majority element from an given array of integers containing duplicates
 	
 	
 	//Find smallest and second smallest elements of a given array
-	
-	
-	//Remove duplicate elements from an array
-	
-	
-	/*Remove the duplicate elements of a given array and return the new length of the array.
-	Sample: [20, 20, 30, 40, 50, 50, 50]. After removing the duplicate elements the program should return 4 as the new length of the array*/
 	
 	
 	//Find the number of even and odd integers in a given array of integers
@@ -900,6 +908,7 @@ public class CoreJavaWorkout {
 		System.out.println(duplicateElements());
 		commonIntegerElements();
 		commonStringElements();*/
-		findMinMaxElements();
+		//findMinMaxElements();
+		removeDuplicates();
 	}
 }
