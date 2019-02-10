@@ -795,7 +795,7 @@ public class CoreJavaWorkout {
 				}
 			}
 		}
-	 return false;
+		return false;
 	}
 
 	//Find common elements between two arrays (integers)
@@ -816,16 +816,31 @@ public class CoreJavaWorkout {
 	private static void removeDuplicates() {
 		boolean isDuplicate = false;
 		int A[] = {20, 20, 30, 40, 50, 50};
-		int i;
-		for(i = 0; i < A.length-1; i++) {
-			if(A[i] == A[i+1]) {
-				isDuplicate = true;
+		for(int i = 0; i < A.length-1; i++) {
+			for(int j = i+1; j < A.length-1; ++j) {
+				if(A[i] == A[j]) {
+					isDuplicate = true;
+				}
+			}
+			if(isDuplicate) {
+				A[i] = A[i+1];
+				arrayResize(A);
 			}
 		}
-		if(isDuplicate)
-			System.out.println(A[i] + " is common element");
+		System.out.println(Arrays.toString(A));
 	}
 	
+	private static int arrayResize(int A[]) {
+		int array[] = {20, 20, 30, 40, 50, 50};
+		int index = 1;
+		for(int i = 1; i < array.length; i++) {
+			if(array[i] != array[index - 1]) {
+				array[index++] = array[i];
+			}
+		}
+		return index;
+	}
+
 	//Find the common elements between two arrays (string values)
 	private static void commonStringElements() {
 		String x[] = {"Hi", "Hello", "Bye"};
@@ -839,13 +854,6 @@ public class CoreJavaWorkout {
 		}
 	}
 	
-	/*
-	Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
-	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
-	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
-	*/
-	
-	
 	
 	//Find the majority element from an given array of integers containing duplicates
 	private static void majorityDuplicateElement() {
@@ -857,6 +865,14 @@ public class CoreJavaWorkout {
 			}
 		}
 	}
+	
+	
+	/*
+	Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
+	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
+	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
+	*/
+	
 	
 	//Find the number of even and odd integers in a given array of integers
 	private static void countEvenOdds() {
@@ -927,6 +943,8 @@ public class CoreJavaWorkout {
 		//findMinMaxElements();
 		//removeDuplicates();
 		//countEvenOdds();
-		majorityDuplicateElement();
+		//majorityDuplicateElement();
+		//removeDuplicates();
+		
 	}
 }
