@@ -909,6 +909,6 @@ public class CoreJavaWorkout {
 		commonIntegerElements();
 		commonStringElements();*/
 		//findMinMaxElements();
-		removeDuplicates();
+		//removeDuplicates();
 	}
 }
