@@ -802,7 +802,6 @@ public class CoreJavaWorkout {
 	private static void commonIntegerElements() {
 		int x[] = {98,10,13,66,26,78,11,99};
 		int y[] = {43,78,22,99,22};
-	 
 		for(int i = 0; i < x.length; i++) {
 			for(int j = 0; j < y.length; j++) {
 				if(x[i] == y[j]) {
@@ -849,13 +848,30 @@ public class CoreJavaWorkout {
 	
 	
 	//Find the majority element from an given array of integers containing duplicates
-	
-	
-	//Find smallest and second smallest elements of a given array
-	
+	private static void majorityDuplicateElement() {
+		int x[] = {98,10,13,66,10,78,11,99,98,11,13,99,98,10,63};
+		int countDuplicate = 0;
+		for(int i = 0; i < x.length-1; i++) {
+			if(x[i] == x[i+1]) {
+				
+			}
+		}
+	}
 	
 	//Find the number of even and odd integers in a given array of integers
-	
+	private static void countEvenOdds() {
+		int x[] = {98,10,13,66,26,78,11,99};
+		int countEven = 0;
+		int countOdd = 0;
+		for(int i = 0; i < x.length; i++) {
+			if(x[i] % 2 ==0) {
+				countEven++;
+			} else {
+				countOdd++;
+			}
+		}
+		System.out.println("No of even nos " + countEven + " and odd nos " + countOdd);
+	}
 
 	//The great Main method!
 	public static void main(String[] args) {
@@ -909,6 +925,8 @@ public class CoreJavaWorkout {
 		commonIntegerElements();
 		commonStringElements();*/
 		//findMinMaxElements();
-		removeDuplicates();
+		//removeDuplicates();
+		//countEvenOdds();
+		majorityDuplicateElement();
 	}
 }
