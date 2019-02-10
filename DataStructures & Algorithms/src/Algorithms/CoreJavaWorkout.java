@@ -874,6 +874,16 @@ public class CoreJavaWorkout {
 	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
 	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
 	*/
+	private static void longestSequence() {
+		int array[] = {49, 1, 3, 200, 2, 4, 70, 5};
+		Set<Integer> mySet = new HashSet<>();
+		for(int i : array)
+			mySet.add(i);
+		int longestSequenceLength = 0;
+		for(int i : array) {
+			int length = 1;
+		}
+	}
 	
 	
 	//Find the number of even and odd integers in a given array of integers
