@@ -87,15 +87,15 @@ public class StackObject {
 		Employee e1 = new Employee("Adam", 415554, 23);
 		Employee e2 = new Employee("Bob", 432554, 13);
 		Employee e3 = new Employee("Charlie", 485354, 81);
-		StackObject so = new StackObject();
-		so.push(e1);
-		so.push(e2);
-		so.push(e3);
-		so.print();
-		so.peek();
+		StackObject stack = new StackObject();
+		stack.push(e1);
+		stack.push(e2);
+		stack.push(e3);
+		stack.print();
+		stack.peek();
 		System.out.println("====");
-		so.pop();
-		so.print();
-		System.out.println(so.search("Bob"));
+		stack.pop();
+		stack.print();
+		System.out.println(stack.search("Bob"));
 	}
 }
