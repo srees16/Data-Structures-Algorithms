@@ -841,6 +841,20 @@ public class CoreJavaWorkout {
 		return index;
 	}
 
+	//Find the majority element from an given array of integers containing duplicates
+	private static void majorityDuplicateElement() {
+		int x[] = {98,10,13,66,10,78,11,99,98,11,13,99,98,10,63};
+		int countDuplicate = 0;
+		for(int i = 0; i < x.length-1; i++) {
+			for(int j = i+1; j < x.length-1; j++) {
+				if(x[i] == x[j]) {
+					countDuplicate++;
+				}
+			}
+		}
+		System.out.println();
+	}
+	
 	//Find the common elements between two arrays (string values)
 	private static void commonStringElements() {
 		String x[] = {"Hi", "Hello", "Bye"};
@@ -853,20 +867,8 @@ public class CoreJavaWorkout {
 			}
 		}
 	}
-	
-	
-	//Find the majority element from an given array of integers containing duplicates
-	private static void majorityDuplicateElement() {
-		int x[] = {98,10,13,66,10,78,11,99,98,11,13,99,98,10,63};
-		int countDuplicate = 0;
-		for(int i = 0; i < x.length-1; i++) {
-			if(x[i] == x[i+1]) {
-				
-			}
-		}
-	}
-	
-	
+
+
 	/*
 	Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
 	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
