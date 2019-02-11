@@ -62,7 +62,6 @@ public class QueueInt {
 	}
 	
 	public boolean search(int item) {
-		int f = front;
 		if(!isEmpty()) {
 			for(int i = 0; i <= rear; i++) {
 				if(queue[i] == item) {
