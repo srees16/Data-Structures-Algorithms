@@ -1,12 +1,12 @@
 package DataStructures;
 
-public class DoublyLinkedListObject {
+public class DoublyLinkedListObject { //Bug with insertPre method. Also need to write code for sorting
 
 	private Node head;
 	
 	private class Node {
 		Node prev;
-		Student stuData;
+		Student student;
 		Node next;
 	}
 	
@@ -18,7 +18,7 @@ public class DoublyLinkedListObject {
 	
 	public Student addPrev(Student student) {
 		Node n=new Node();
-		n.stuData = student;
+		n.student = student;
 		n.prev=null;
 		n.next=head;
 		head=n;
@@ -31,7 +31,7 @@ public class DoublyLinkedListObject {
 		while(x.next!=null) {
 			x=x.next;
 		}
-		n.stuData=student;
+		n.student=student;
 		n.prev=x;
 		x.next=n;
 		n.next=null;
@@ -40,12 +40,12 @@ public class DoublyLinkedListObject {
 	
 	public boolean delete(String name) {
 		Node x=head.next;
-		if(x.stuData.getName().equalsIgnoreCase(name)) {
+		if(x.student.getName().equalsIgnoreCase(name)) {
 			x=x.next;
 			return true;
 		} else {
 			Node y=head.next.next;
-			while(y!=null && !(y.stuData.getName().equalsIgnoreCase(name))) {
+			while(y!=null && !(y.student.getName().equalsIgnoreCase(name))) {
 				break;
 			}
 			if(y!=null)
@@ -58,7 +58,7 @@ public class DoublyLinkedListObject {
 		try {
 			Node x=head.next;
 			while(x.next!=null || x.next==null) {
-				System.out.println(x.stuData);
+				System.out.println(x.student);
 				x=x.next;
 			}
 		} catch(java.lang.NullPointerException e) {
@@ -66,27 +66,46 @@ public class DoublyLinkedListObject {
 		}
 	}
 	
-	/*public boolean isPresent() {
-		
-	}*/
+	public boolean search(String name) {
+		Node x = head.next;
+			if(name.equalsIgnoreCase(x.student.stuName)) {
+				return true;
+			} else {
+				Node y = head.next;
+				while((y != null) && !(name.equalsIgnoreCase(y.student.stuName))) {
+					x = y;
+					y = y.next;
+				}
+				if(y != null) {
+					return true;
+				}
+			}
+		return false;
+	}
 	
 	
 	public static void main(String[] args) {
-		Student p1= new Student("Sita",0055,55);
-		Student p2= new Student("Rama",0256,15);
-		Student p3= new Student("Hanu",0041,95);
-		Student p4= new Student("Laksh",0712,40);
-		Student p5= new Student("Vali",2188,78);
-		Student p6= new Student("Luv",6588,23);
-		Student p7= new Student("Kush",8467,80);
-		DoublyLinkedListObject p=new DoublyLinkedListObject();
-		p.addPost(p1);
-		p.addPost(p2);
-		p.addPost(p3);
-		p.addPost(p4);
-		p.addPost(p5);
-		p.addPost(p6);
-		p.addPost(p7);
-		p.print();
+		Student student1 = new Student("Sita",0055,55);
+		Student student2 = new Student("Rama",0256,15);
+		Student student3 = new Student("Hanu",0041,95);
+		Student student4 = new Student("Laksh",0712,40);
+		Student student5 = new Student("Vali",2188,78);
+		Student student6 = new Student("Luv",6588,23);
+		Student student7 = new Student("Kush",8467,80);
+		Student student8 = new Student("Sugreva",4642,36);
+		
+		DoublyLinkedListObject doublyList=new DoublyLinkedListObject();
+		
+		doublyList.addPost(student1);
+		doublyList.addPost(student2);
+		doublyList.addPost(student3);
+		doublyList.addPost(student4);
+		doublyList.addPost(student5);
+		doublyList.addPost(student6);
+		doublyList.addPost(student7);
+		//doublyList.addPrev(student8);
+		doublyList.print();
+		System.out.println("==========");
+		System.out.println(doublyList.search("kush"));
 	}
 }

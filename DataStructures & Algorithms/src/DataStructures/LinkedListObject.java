@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class LinkedListObject { //Write code for sorting
+public class LinkedListObject { //Bug with insertPre method. Also need to write code for sorting
 
 	private Node head;
 	
@@ -110,6 +110,7 @@ public class LinkedListObject { //Write code for sorting
 		Student student5 = new Student("Vali",2188,78);
 		Student student6 = new Student("Luv",6588,23);
 		Student student7 = new Student("Kush",8467,80);
+		Student student8 = new Student("Sugreva",4642,36);
 		
 		LinkedListObject list = new LinkedListObject();
 		
