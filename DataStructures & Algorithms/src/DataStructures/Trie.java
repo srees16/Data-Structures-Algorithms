@@ -114,9 +114,9 @@ public class Trie { //Same as TrieJavaBlog but improved. Has 2 main methods, can
 		}
 	}
 	
-	
-	/*public static void main(String[] args) {
-		Trie trie=new Trie();
+	public static void main(String[] args) {
+		
+		/*Trie trie=new Trie();
 		trie.insert("bat");
 		trie.insert("cat");
 		trie.insert("bot");
@@ -130,10 +130,8 @@ public class Trie { //Same as TrieJavaBlog but improved. Has 2 main methods, can
 		Trie.printAllWords(trie.root, " ");
 		trie.remove("bot");
 		System.out.println();
-		Trie.printAllWords(trie.root, " ");
-	}*/
-	
-	public static void main(String[] args) {
+		Trie.printAllWords(trie.root, " ");*/
+		
 		Scanner scan=new Scanner(System.in);
 		Trie t=new Trie();
 		System.out.println("Welcome to Trie Test");
