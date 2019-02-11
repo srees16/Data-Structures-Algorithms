@@ -87,11 +87,6 @@ public class QueueObject {
 				f+=1;
 			}
 		}
-		/*if(!isEmpty()) {
-			for(int i = front; i < rear; i++) {
-				System.out.println(queue[i]);
-			}
-		}*/
 	}
 	
 	public static void main(String[] args) {
