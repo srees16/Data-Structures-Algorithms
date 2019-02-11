@@ -96,6 +96,6 @@ public class StackObject {
 		System.out.println("====");
 		stack.pop();
 		stack.print();
-		System.out.println(stack.search("Bob"));
+		System.out.println(stack.search("Job"));
 	}
 }
