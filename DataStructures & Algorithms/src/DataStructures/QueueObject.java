@@ -2,7 +2,7 @@ package DataStructures;
 
 public class QueueObject {
 
-	private Employee queue[];
+	private Student queue[];
 	private int front;
 	private int rear;
 	private int size;
@@ -11,31 +11,31 @@ public class QueueObject {
 		front = 0;
 		rear = 0;
 		size = 1;
-		queue = new Employee[size];
+		queue = new Student[size];
 	}
 	
 	private QueueObject(int size) {
 		front = 0;
 		rear = 0;
 		this.size = size;
-		queue = new Employee[this.size];
+		queue = new Student[this.size];
 	}
 	
-	public Employee enqueue(Employee employee) {
+	public Student enqueue(Student student) {
 		if(!isFull()) {
-			queue[rear] = employee;
+			queue[rear] = student;
 			rear = (rear + 1) % size;
 		} else {
 			reSize();
-			queue[rear] = employee;
+			queue[rear] = student;
 			rear = (rear + 1) % size;
 		}
-		return employee;
+		return student;
 	}
 	
-	public Employee dequeue() {
+	public Student dequeue() {
 		if(!isEmpty()) {
-			Employee employee = queue[front];
+			Student employee = queue[front];
 			front = (front + 1) % size;
 			return employee;
 		} else {
@@ -44,9 +44,9 @@ public class QueueObject {
 	}
 	
 	private void reSize() {
-		Employee tempQueue[] = queue;
+		Student tempQueue[] = queue;
 		size *= 2;
-		queue = new Employee[size];
+		queue = new Student[size];
 		for(int i = 0; i <= rear; i++) {
 			queue[i] = tempQueue[i];
 		}
@@ -63,7 +63,7 @@ public class QueueObject {
 	public boolean search(String name) {
 		if(!isEmpty()) {
 			for(int i = 0; i <= rear; i++) {
-				if(name.equalsIgnoreCase(queue[i].empName)) {
+				if(name.equalsIgnoreCase(queue[i].stuName)) {
 					return true;
 				}
 			}
@@ -90,10 +90,10 @@ public class QueueObject {
 	}
 	
 	public static void main(String[] args) {
-		Employee e1 = new Employee("Adam",415554,23);
-		Employee e2 = new Employee("Bob",432554,13);
-		Employee e3 = new Employee("Charlie",485354,81);
-		Employee e4 = new Employee("Don",155354,40);
+		Student e1 = new Student("Adam", 415554, 23);
+		Student e2 = new Student("Bob", 432554, 13);
+		Student e3 = new Student("Charlie", 485354, 81);
+		Student e4 = new Student("Don", 155354, 40);
 		QueueObject queue = new QueueObject();
 		queue.enqueue(e1);
 		queue.enqueue(e2);

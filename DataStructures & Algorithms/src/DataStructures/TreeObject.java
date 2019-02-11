@@ -5,7 +5,7 @@ public class TreeObject {
 	private Node root;
 	
 	private class Node {
-		Employee empData;
+		Student stuData;
 		Node lc;
 		Node rc;
 	}
@@ -14,9 +14,9 @@ public class TreeObject {
 		root=null;
 	}
 	
-	public Node insert(Employee emp) {
+	public Node insert(Student student) {
 		Node n=new Node();
-		n.empData=emp;
+		n.stuData=student;
 		n.lc=null;
 		n.rc=null;
 		if(root==null) {
@@ -26,13 +26,13 @@ public class TreeObject {
 			Node y=root;
 			while(y!=null) {
 				x=y;
-				if(emp.empName.compareToIgnoreCase(y.empData.getEmpName())<0) {
+				if(student.stuName.compareToIgnoreCase(y.stuData.getName())<0) {
 					y=y.lc;
 				} else {
 					y=y.rc;
 				}
 			}
-			if(emp.empName.compareToIgnoreCase(x.empData.getEmpName())<0) {
+			if(student.stuName.compareToIgnoreCase(x.stuData.getName())<0) {
 				x.lc=n;
 			} else {
 				x.rc=n;
@@ -42,7 +42,7 @@ public class TreeObject {
 	}
 	
 	public Node delete(Node n) {
-		if(!isPresent(n.empData.getEmpName())) {
+		if(!isPresent(n.stuData.getName())) {
 			throw new IllegalStateException("Not found!");
 		} else {
 			if(n.lc==null && n.rc==null) { //Case 1: if child nodes doesn't exist
@@ -57,7 +57,7 @@ public class TreeObject {
 				temp=null;
 			} else { //Case 3: if both child nodes exist
 				Node t=findMin(n.rc);
-				n.empData=t.empData;
+				n.stuData=t.stuData;
 				n.rc=t;
 			}
 			return n;
@@ -66,19 +66,19 @@ public class TreeObject {
 	
 	private boolean isPresent(String input) {
 		Node x=root;
-		if(input.compareToIgnoreCase(x.empData.getEmpName())==0) {
+		if(input.compareToIgnoreCase(x.stuData.getName())==0) {
 			return true;
 		} else {
 			Node y=root;
 			while(y!=null) {
 				x=y;
-				if(input.compareToIgnoreCase(y.empData.getEmpName())<0) {
+				if(input.compareToIgnoreCase(y.stuData.getName())<0) {
 					y=y.lc;
 				} else {
 					y=y.rc;
 				}
 			}
-			if(input.compareToIgnoreCase(x.empData.getEmpName())<0) {
+			if(input.compareToIgnoreCase(x.stuData.getName())<0) {
 				x.lc=x;
 			} else {
 				x.rc=x;
@@ -105,19 +105,19 @@ public class TreeObject {
 		Node x=root;
 		Node y=root;
 		while(x.lc!=null) {
-			if(input.compareToIgnoreCase(x.empData.getEmpName())==0) {
+			if(input.compareToIgnoreCase(x.stuData.getName())==0) {
 				break;
 			} else {
 				x=y;
-				if(input.compareToIgnoreCase(y.empData.getEmpName())<0) {
+				if(input.compareToIgnoreCase(y.stuData.getName())<0) {
 					y=y.lc;
 				} else {
 					y=y.rc;
 				}
 			}
 		}
-		System.out.println(x.lc.empData.getEmpName()+" with emp ID "+x.lc.empData.empId+" is of "+x.lc.empData.age+" years");
-		findChildNodes1(x.lc.empData.getEmpName()+" with emp ID "+x.lc.empData.empId+" is of "+x.lc.empData.age+" years");
+		System.out.println(x.lc.stuData.getName()+" with roll number "+x.lc.stuData.rollNo+" is of "+x.lc.stuData.cgpa+" with CGPA");
+		findChildNodes1(x.lc.stuData.getName()+" with roll number "+x.lc.stuData.rollNo+" is of "+x.lc.stuData.cgpa+" with CGPA");
 	}
 	
 	public void findChildNodes2(String s) {
@@ -221,12 +221,13 @@ public class TreeObject {
 	public void print(Node n) {
 		Node x=root;
 		while(x!=null) {
-			System.out.println(x.empData.toString());
+			System.out.println(x.stuData.toString());
 			print(x.lc);
 			print(x.rc);
 		}
 	}
 
 	public static void main(String[] args) {
+		
 	}
 }

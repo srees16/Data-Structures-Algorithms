@@ -6,7 +6,7 @@ public class DoublyLinkedListObject {
 	
 	private class Node {
 		Node prev;
-		Employee empData;
+		Student stuData;
 		Node next;
 	}
 	
@@ -16,36 +16,36 @@ public class DoublyLinkedListObject {
 		head.next=null;
 	}
 	
-	public Employee addPrev(Employee emp) {
+	public Student addPrev(Student student) {
 		Node n=new Node();
-		n.empData=emp;
+		n.stuData = student;
 		n.prev=null;
 		n.next=head;
 		head=n;
-		return emp;
+		return student;
 	}
 	
-	public Employee addPost(Employee emp) {
+	public Student addPost(Student student) {
 		Node n=new Node();
 		Node x=head;
 		while(x.next!=null) {
 			x=x.next;
 		}
-		n.empData=emp;
+		n.stuData=student;
 		n.prev=x;
 		x.next=n;
 		n.next=null;
-		return emp;
+		return student;
 	}
 	
 	public boolean delete(String name) {
 		Node x=head.next;
-		if(x.empData.getEmpName().equalsIgnoreCase(name)) {
+		if(x.stuData.getName().equalsIgnoreCase(name)) {
 			x=x.next;
 			return true;
 		} else {
 			Node y=head.next.next;
-			while(y!=null && !(y.empData.getEmpName().equalsIgnoreCase(name))) {
+			while(y!=null && !(y.stuData.getName().equalsIgnoreCase(name))) {
 				break;
 			}
 			if(y!=null)
@@ -58,7 +58,7 @@ public class DoublyLinkedListObject {
 		try {
 			Node x=head.next;
 			while(x.next!=null || x.next==null) {
-				System.out.println(x.empData);
+				System.out.println(x.stuData);
 				x=x.next;
 			}
 		} catch(java.lang.NullPointerException e) {
@@ -72,13 +72,13 @@ public class DoublyLinkedListObject {
 	
 	
 	public static void main(String[] args) {
-		Employee p1= new Employee("Sita",0055,55);
-		Employee p2= new Employee("Rama",0256,15);
-		Employee p3= new Employee("Hanu",0041,95);
-		Employee p4= new Employee("Laksh",0712,40);
-		Employee p5= new Employee("Vali",2188,78);
-		Employee p6= new Employee("Luv",6588,23);
-		Employee p7= new Employee("Kush",8467,80);
+		Student p1= new Student("Sita",0055,55);
+		Student p2= new Student("Rama",0256,15);
+		Student p3= new Student("Hanu",0041,95);
+		Student p4= new Student("Laksh",0712,40);
+		Student p5= new Student("Vali",2188,78);
+		Student p6= new Student("Luv",6588,23);
+		Student p7= new Student("Kush",8467,80);
 		DoublyLinkedListObject p=new DoublyLinkedListObject();
 		p.addPost(p1);
 		p.addPost(p2);

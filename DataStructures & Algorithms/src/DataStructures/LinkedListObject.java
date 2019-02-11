@@ -5,34 +5,34 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 	private Node head;
 	
 	private class Node {
-		Employee emp;
+		Student student;
 		Node next;
 	}
 	
 	private LinkedListObject() {
 		head=new Node();
-		head.emp=null;
+		head.student=null;
 		head.next=null;
 	}
 	
-	public Employee insertPre(Employee emp) {
+	public Student insertPre(Student student) {
 		Node n=new Node();
-		n.emp=emp;
+		n.student=student;
 		n.next=head;
 		head=n;
-		return emp;
+		return student;
 	}
 	
-	public Employee insertPost(Employee emp) {
+	public Student insertPost(Student student) {
 		Node n=new Node();
 		Node xNode=head;
 		while(xNode.next!=null) {
 			xNode=xNode.next;
 		}
-		n.emp=emp;
+		n.student=student;
 		n.next=null;
 		xNode.next=n;
-		return emp;
+		return student;
 	}
 	
 	public void delete(String name) {
@@ -40,11 +40,11 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 			throw new IllegalStateException("You cant delete wat aint there!");
 		} else {
 			Node x=head.next;
-			if(x.next.emp.getEmpName().equalsIgnoreCase(name)) {
+			if(x.next.student.getName().equalsIgnoreCase(name)) {
 				x=x.next;
 			} else {
 				Node y=head.next.next;
-				while((y!=null) && !(y.emp.getEmpName().equalsIgnoreCase(name))) {
+				while((y!=null) && !(y.student.getName().equalsIgnoreCase(name))) {
 					x=y;
 					y=y.next;
 				}
@@ -58,11 +58,11 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 	public boolean isPresent(String s) {
 		try {
 			Node x=head;
-			if(s.compareToIgnoreCase(x.emp.getEmpName())==0) {
+			if(s.compareToIgnoreCase(x.student.getName())==0) {
 				return true;
 			} else {
 				Node y=head.next;
-				while((y!=null) && !(s.compareToIgnoreCase(y.emp.getEmpName())==0)) {
+				while((y!=null) && !(s.compareToIgnoreCase(y.student.getName())==0)) {
 					x=y;
 					y=y.next;
 				}
@@ -76,14 +76,14 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 		return false;
 	}
 	
-	public boolean isPresents(String s) {
+	public boolean isPresents(String name) {
 		try {
 			Node x=head;
-			if(s.equalsIgnoreCase(x.emp.getEmpName())) {
+			if(name.equalsIgnoreCase(x.student.getName())) {
 				return true;
 			} else {
 				Node y=head.next;
-				while((y!=null) && !(s.equalsIgnoreCase(y.emp.getEmpName()))) {
+				while((y!=null) && !(name.equalsIgnoreCase(y.student.getName()))) {
 					x=y;
 					y=y.next;
 				}
@@ -101,7 +101,7 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 		try {
 			Node x=head.next;
 			while(x.next!=null || x.next==null) {
-				System.out.println(x.emp.toString()+" ");
+				System.out.println(x.student.toString()+" ");
 				x=x.next;
 			}
 		} catch(java.lang.NullPointerException e) {
@@ -127,13 +127,13 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 	}*/
 	
 	public static void main(String[] args) {
-		Employee p1= new Employee("Sita",0055,55);
-		Employee p2= new Employee("Rama",0256,15);
-		Employee p3= new Employee("Hanu",0041,95);
-		Employee p4= new Employee("Laksh",0712,40);
-		Employee p5= new Employee("Vali",2188,78);
-		Employee p6= new Employee("Luv",6588,23);
-		Employee p7= new Employee("Kush",8467,80);
+		Student p1= new Student("Sita",0055,55);
+		Student p2= new Student("Rama",0256,15);
+		Student p3= new Student("Hanu",0041,95);
+		Student p4= new Student("Laksh",0712,40);
+		Student p5= new Student("Vali",2188,78);
+		Student p6= new Student("Luv",6588,23);
+		Student p7= new Student("Kush",8467,80);
 		LinkedListObject p=new LinkedListObject();
 		p.insertPost(p1);
 		p.insertPost(p2);

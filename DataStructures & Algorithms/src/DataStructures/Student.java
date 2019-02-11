@@ -2,26 +2,26 @@ package DataStructures;
 
 public class Student {
 
-	private String name;
-	private String rollNo;
-	private double cgpa;
+	public String stuName;
+	public Integer rollNo;
+	public double cgpa;
 	
-	public Student(String name, String rollNo, double cgpa) {
-		this.name = name;
+	public Student(String stuName, Integer rollNo, double cgpa) {
+		this.stuName = stuName;
 		this.rollNo = rollNo;
 		this.cgpa = cgpa;
 	}
 	
 	public String getName() {
-		return name;
+		return stuName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String stuName) {
+		this.stuName = stuName;
 	}
-	public String getRollNo() {
+	public Integer getRollNo() {
 		return rollNo;
 	}
-	public void setRollNo(String rollNo) {
+	public void setRollNo(Integer rollNo) {
 		this.rollNo = rollNo;
 	}
 	public double getCgpa() {
@@ -33,6 +33,6 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student name=" + name + ", rollNo=" + rollNo + ", cgpa=" + cgpa;
+		return "Student name=" + stuName + ", rollNo=" + rollNo + ", cgpa=" + cgpa;
 	}
 }

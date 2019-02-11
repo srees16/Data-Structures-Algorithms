@@ -3,33 +3,33 @@ package DataStructures;
 public class StackObject {
 
 	private int top;
-	private Employee stack[];
+	private Student stack[];
 	private int size;
 	
 	private StackObject() {
 		top = -1;
 		size = 1;
-		stack = new Employee[size];
+		stack = new Student[size];
 	}
 	
 	private StackObject(int size) {
 		top = 1;
 		this.size = size;
-		stack = new Employee[this.size];
+		stack = new Student[this.size];
 	}
 	
 	private void reSize() {
 		if(isFull()) {
-			Employee temp[] = stack;
+			Student temp[] = stack;
 			size *= 2;
-			stack = new Employee[size];
+			stack = new Student[size];
 			for(int i = 0; i <= top; i++) {
 				stack[i] = temp[i];
 			}
 		}
 	}
 	
-	public Employee push(Employee item) {
+	public Student push(Student item) {
 		if(!isFull()) {
 			top++;
 			stack[top] = item;
@@ -43,7 +43,7 @@ public class StackObject {
 	
 	public void pop() {
 		if(!isEmpty()) {
-			Employee item = stack[top];
+			Student item = stack[top];
 			top--;
 		} else {
 			throw new IllegalStateException("No elements to pop");
@@ -67,7 +67,7 @@ public class StackObject {
 	public boolean search(String name) {
 		if(!isEmpty()) {
 			for(int i = 0; i <= top; i++) {
-				if(name.equals(stack[i].empName.toString())) {
+				if(name.equals(stack[i].stuName.toString())) {
 					return true;
 				}
 			}
@@ -84,9 +84,9 @@ public class StackObject {
 	}
 	
 	public static void main(String[] args) {
-		Employee e1 = new Employee("Adam", 415554, 23);
-		Employee e2 = new Employee("Bob", 432554, 13);
-		Employee e3 = new Employee("Charlie", 485354, 81);
+		Student e1 = new Student("Adam", 415554, 23);
+		Student e2 = new Student("Bob", 432554, 13);
+		Student e3 = new Student("Charlie", 485354, 81);
 		StackObject stack = new StackObject();
 		stack.push(e1);
 		stack.push(e2);
