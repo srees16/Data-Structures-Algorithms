@@ -4,6 +4,7 @@ package Algorithms;
 Exercises ref from:
 https://beginnersbook.com/2017/09/java-examples
 https://www.w3resource.com/java-exercises/array/index.php
+http://code-exercises.com/
 
 To Do:
 >	reverse an array
@@ -39,6 +40,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
@@ -870,9 +872,9 @@ public class CoreJavaWorkout {
 
 
 	/*
-	Find the length of the longest consecutive elements sequence from a given unsorted array of integers.
-	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
-	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
+	Find the length of the longest consecutive elements sequence from an unsorted array of integers.
+	Ex: [49, 1, 3, 200, 2, 4, 70, 5]
+	The longest consecutive elements sequence is [1, 2, 3, 4, 5], so it returns length as 5
 	*/
 	private static void longestIntegerSequence() {
 		int array[] = {49, 1, 3, 200, 2, 4, 70, 5};
@@ -888,22 +890,22 @@ public class CoreJavaWorkout {
 	//Find the longest common sub-sequence of two strings
 	private static String longestSubStringSequence() {
 		String s1 = "full"; String s2 = "powerfully";
-		String longestSequence = "";
+		String longestSubSequence = "";
 		for(int length = s1.length(); length > 0; length--) {
 			int startIndex = 0;
 			while(startIndex + length <= s1.length()) {
 				String current = s1.substring(startIndex, startIndex + length);
 				if(s2.contains(current)) {
-					longestSequence = current;
+					longestSubSequence = current;
 					break;
 				}
 				startIndex++;
 			}
-			if(longestSequence.length() != 0) {
+			if(longestSubSequence.length() != 0) {
 				break;
 			}
 		}
-		return longestSequence;
+		return longestSubSequence;
 	}
 	
 	//Find the number of even and odd integers in a given array of integers
@@ -919,6 +921,20 @@ public class CoreJavaWorkout {
 			}
 		}
 		System.out.println("No of even nos " + countEven + " and odd nos " + countOdd);
+	}
+	
+	//Average value of elements in list
+	private static double average(List<Integer> list) {
+		return list.stream()
+				.mapToInt(i -> i)
+				.average()
+				.getAsDouble();
+	}
+	
+	//Write a method that returns the nth element of a list. If the index of the element exceeds the list size, return -1
+	private static int getNthElement(List<Integer> list, int n) {
+		int elementIndex = 2 * (n + 1);
+		return elementIndex > list.size() - 1 ? -1 : list.get(elementIndex);
 	}
 
 	
