@@ -901,7 +901,7 @@ public class CoreJavaWorkout {
 		System.out.println("No of even nos " + countEven + " and odd nos " + countOdd);
 	}
 
-	//The great Main method!
+	
 	public static void main(String[] args) {
 				
 		int A[]={8,5,7,6,23,9,1,3,10,4,2,1,2,3,4};
