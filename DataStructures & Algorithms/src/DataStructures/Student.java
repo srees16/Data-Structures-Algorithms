@@ -33,6 +33,6 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student name=" + stuName + ", rollNo=" + rollNo + ", cgpa=" + cgpa;
+		return "Student name = " + stuName + ", rollNo = " + rollNo + ", cgpa = " + cgpa;
 	}
 }
