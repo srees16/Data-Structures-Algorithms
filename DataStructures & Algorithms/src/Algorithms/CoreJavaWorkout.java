@@ -874,7 +874,7 @@ public class CoreJavaWorkout {
 	Sample array: [49, 1, 3, 200, 2, 4, 70, 5] 
 	The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5
 	*/
-	private static void longestSequence() {
+	private static void longestIntegerSequence() {
 		int array[] = {49, 1, 3, 200, 2, 4, 70, 5};
 		Set<Integer> mySet = new HashSet<>();
 		for(int i : array)
@@ -885,6 +885,26 @@ public class CoreJavaWorkout {
 		}
 	}
 	
+	//Find the longest common sub-sequence of two strings
+	private static String longestSubStringSequence() {
+		String s1 = "full"; String s2 = "powerfully";
+		String longestSequence = "";
+		for(int length = s1.length(); length > 0; length--) {
+			int startIndex = 0;
+			while(startIndex + length <= s1.length()) {
+				String current = s1.substring(startIndex, startIndex + length);
+				if(s2.contains(current)) {
+					longestSequence = current;
+					break;
+				}
+				startIndex++;
+			}
+			if(longestSequence.length() != 0) {
+				break;
+			}
+		}
+		return longestSequence;
+	}
 	
 	//Find the number of even and odd integers in a given array of integers
 	private static void countEvenOdds() {
@@ -957,6 +977,6 @@ public class CoreJavaWorkout {
 		//countEvenOdds();
 		//majorityDuplicateElement();
 		//removeDuplicates();
-		
+		System.out.println(longestSubStringSequence());
 	}
 }
