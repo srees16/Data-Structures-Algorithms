@@ -1,7 +1,5 @@
 package DataStructures;
 
-import java.util.LinkedList;
-
 public class Trie2 {
 	
 public static class Node {
