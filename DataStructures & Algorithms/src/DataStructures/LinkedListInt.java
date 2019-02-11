@@ -60,21 +60,21 @@ public class LinkedListInt {
 	}
 	
 	private boolean isPresent(int item) {
-		Node x = head.next;
-		while(x != null) {
-			if(x.data == item) {
+		Node node = head.next;
+		while(node != null) {
+			if(node.data == item) {
 				return true;
 			}
-			x = x.next;
+			node = node.next;
 		}
 		return false;
 	}
 	
 	public void print() {
-		Node x = head.next;
-		while(x != null) {
-			System.out.println(x.data + " ");
-			x = x.next;
+		Node node = head.next;
+		while(node != null) {
+			System.out.println(node.data + " ");
+			node = node.next;
 		}
 	}
 	

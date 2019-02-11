@@ -6,8 +6,8 @@ public class TreeInt {
 	
 	private class Node {
 		int data;
-		Node lc;
-		Node rc;
+		Node leftChild;
+		Node rightChild;
 	}
 	
 	private TreeInt() {
@@ -15,100 +15,116 @@ public class TreeInt {
 	}
 	
 	public void insert(int data) {
-		Node n=new Node();
-		n.data=data;
-		n.lc=null;
-		n.rc=null;
-		if(root==null) {
-			root=n;
+		Node node = new Node();
+		node.data = data;
+		node.leftChild = null;
+		node.rightChild = null;
+		if(root == null) {
+			root = node;
 		} else {
-			Node x=root;
-			Node y=root;
-			while(y!=null) {
-				x=y;
-				if(y.data<=data) {
-					y=y.lc;
+			Node x = root;
+			Node y = root;
+			while(y != null) {
+				x = y;
+				if(y.data <= data) {
+					y = y.leftChild;
 				} else {
-					y=y.rc;
+					y = y.rightChild;
 				}
 			}
-			if(x.data<=data) {
-				x.lc=n;
+			if(x.data <= data) {
+				x.leftChild = node;
 			} else {
-				x.rc=n;
+				x.rightChild = node;
 			}
 		}
 	}
 	
-	public void delete(Node n) {
-		if(!isPresent(n.data)) {
+	public void delete(Node node) {
+		if(!isPresent(node.data)) {
 			throw new IllegalStateException("Element is not present");
 		} else {
-			if(n.lc==null && n.rc==null) {
-				n=null;
-			} else if(n.lc==null) {
-				Node temp=n;
-				n=n.rc;
+			if(node.leftChild == null && node.rightChild == null) {
+				node = null;
+			} else if(node.leftChild == null) {
+				Node temp = node;
+				node = node.rightChild;
 				temp=null;
-			} else if(n.rc==null) {
-				Node temp=n;
-				n=n.lc;
-				temp=null;
+			} else if(node.rightChild == null) {
+				Node temp = node;
+				node = node.leftChild;
+				temp = null;
 			} else {
-				Node x=findMin(n.rc);
-				n.data=x.data;
-				n.rc=x;
+				Node x = findMin(node.rightChild);
+				node.data=x.data;
+				node.rightChild = x;
 			}
 		}
 	}
 	
-	private Node findMin(Node n) {
-		while(n.lc!=null) {
-			n=n.lc;
+	private Node findMin(Node node) {
+		while(node.leftChild != null) {
+			node = node.leftChild;
 		}
-		return n;
+		return node;
 	}
 	
-	private Node findMax(Node n) {
-		while(n.rc!=null) {
-			n=n.rc;
+	private Node findMax(Node node) {
+		while(node.rightChild != null) {
+			node = node.rightChild;
 		}
-		return n;
+		return node;
 	}
 
-	private boolean isPresent(int input) {
-		Node x=root;
-		if(input==x.data) {
+	private boolean isPresent(int number) {
+		Node x = root;
+		if(number == x.data) {
 			return true;
 		} else {
-			Node y=root;
-			while(y!=null) {
-				x=y;
-				if(y.data<input) {
-					y=y.lc;
+			Node y = root;
+			while(y != null) {
+				x = y;
+				if(y.data < number) {
+					y = y.leftChild;
 				} else {
-					y=y.rc;
+					y = y.rightChild;
 				}
 			}
-			if(x.data<input) {
-				x.lc=x;
+			if(x.data < number) {
+				x.leftChild = x;
 			} else {
-				x.rc=x;
+				x.rightChild = x;
 			}
 		}
-		
 		return true;
 	}
 	
-	public void print(Node n) {
-		Node x=root;
-		while(x.lc!=null) {
+	public void print(Node node) {
+		Node x = root;
+		while(x.leftChild != null) {
 			System.out.println(x.data);
-			print(x.lc);
-			print(x.rc);
+			print(x.leftChild);
+			print(x.rightChild);
+		}
+	}
+
+	private void inorderTraversal(Node node) {
+		if(node != null) {
+			inorderTraversal(node.leftChild);
+			System.out.println(node.data);
+			inorderTraversal(node.rightChild);
 		}
 	}
 
 	public static void main(String[] args) {
+		TreeInt tree = new TreeInt();
+		tree.insert(84);
+		tree.insert(68);
+		tree.insert(74);
+		tree.insert(67);
+		tree.insert(51);
+		tree.insert(37);
+		
+		//tree.inOrder();
 	}
 }
