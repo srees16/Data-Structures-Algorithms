@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class QueueObject { //Rework on the search by name method, whozBack method
+public class QueueObject {
 
 	private Employee queue[];
 	private int front;
@@ -8,74 +8,75 @@ public class QueueObject { //Rework on the search by name method, whozBack metho
 	private int size;
 	
 	private QueueObject() {
-		front=0;
-		rear=0;
-		size=1;
-		queue=new Employee[size];
+		front = 0;
+		rear = 0;
+		size = 1;
+		queue = new Employee[size];
 	}
 	
 	private QueueObject(int size) {
-		front=0;
-		rear=0;
-		this.size=size;
-		queue=new Employee[this.size];
+		front = 0;
+		rear = 0;
+		this.size = size;
+		queue = new Employee[this.size];
 	}
 	
-	public Employee enq(Employee item) {
+	public Employee enqueue(Employee employee) {
 		if(!isFull()) {
-			queue[rear]=item;
-			rear=(rear+1)%size;
+			queue[rear] = employee;
+			rear = (rear + 1) % size;
 		} else {
 			reSize();
-			queue[rear]=item;
-			rear=(rear+1)%size;
+			queue[rear] = employee;
+			rear = (rear + 1) % size;
 		}
-		return item;
+		return employee;
 	}
 	
-	public Employee deq() {
+	public Employee dequeue() {
 		if(!isEmpty()) {
-			Employee item=queue[front];
-			front=(front+1)%size;
-			return item;
+			Employee employee = queue[front];
+			front = (front + 1) % size;
+			return employee;
 		} else {
 			throw new IllegalStateException("No items left to delete");
 		}
 	}
 	
 	private void reSize() {
-		Employee temp[]=queue;
-		size*=2;
-		queue=new Employee[size];
-		for(int i=0;i<=rear;i++) {
-			queue[i]=temp[i];
+		Employee tempQueue[] = queue;
+		size *= 2;
+		queue = new Employee[size];
+		for(int i = 0; i <= rear; i++) {
+			queue[i] = tempQueue[i];
 		}
 	}
 	
 	private boolean isEmpty() {
-		return front==rear;
+		return (front == rear);
 	}
 	
 	private boolean isFull() {
-		return size==queue.length;
+		return (size == queue.length);
 	}
 	
-	public void search(String name) {
-		int f=front;
-		if(f!=-1) {
-			for(int i=0;i<rear;i++) {
-				System.out.println(queue[f]);
-				f+=1;
+	public boolean search(String name) {
+		if(!isEmpty()) {
+			for(int i = 0; i < rear; i++) {
+				if(name.equalsIgnoreCase(queue[i].empName)) {
+					return true;
+				}
 			}
 		}
+		return false;
 	}
 	
-	public void whozBack() {
-		System.out.println(queue[rear]);
+	public void elementAtRear() {
+		System.out.println("Rear of the Queue is " + queue[--rear]);
 	}
 	
-	public void whozFront() {
-		System.out.println(queue[front]);
+	public void elementAtFront() {
+		System.out.println("Front of the Queue is " + queue[front]);
 	}
 	
 	public void print() {
@@ -86,23 +87,33 @@ public class QueueObject { //Rework on the search by name method, whozBack metho
 				f+=1;
 			}
 		}
+		/*if(!isEmpty()) {
+			for(int i = front; i < rear; i++) {
+				System.out.println(queue[i]);
+			}
+		}*/
 	}
 	
 	public static void main(String[] args) {
-		Employee e1=new Employee("Adam",415554,23);
-		Employee e2=new Employee("Bob",432554,13);
-		Employee e3=new Employee("Charlie",485354,81);
-		Employee e4=new Employee("Don",155354,40);
-		QueueObject qo=new QueueObject();
-		qo.enq(e1);
-		qo.enq(e2);
-		qo.enq(e3);qo.enq(e4);
-		qo.whozBack();
-		qo.print();
-		qo.deq();
+		Employee e1 = new Employee("Adam",415554,23);
+		Employee e2 = new Employee("Bob",432554,13);
+		Employee e3 = new Employee("Charlie",485354,81);
+		Employee e4 = new Employee("Don",155354,40);
+		QueueObject queue = new QueueObject();
+		queue.enqueue(e1);
+		queue.enqueue(e2);
+		queue.enqueue(e3);
+		queue.enqueue(e4);
+		queue.print();
+		System.out.println("========");
+		queue.elementAtFront();
+		queue.elementAtRear();
+		queue.dequeue();
+		System.out.println("========");
+		queue.print();
 		System.out.println();
-		qo.print();
-		System.out.println();
-		qo.whozFront();
+		queue.elementAtFront();
+		System.out.println("========");
+		System.out.println(queue.search("don"));
 	}
 }
