@@ -36,7 +36,7 @@ public class LinkedListObject { //Write code for sorting
 	}
 	
 	public void delete(String name) {
-		if(!isPresent(name)) {
+		if(!search(name)) {
 			throw new IllegalStateException("You cant delete wat aint there!");
 		} else {
 			Node x = head.next;
