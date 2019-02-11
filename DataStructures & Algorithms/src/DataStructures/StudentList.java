@@ -1,7 +1,5 @@
 package DataStructures;
 
-import DataStructures.StudentList.Node;
-
 public class StudentList {
 
 	private Node h;
