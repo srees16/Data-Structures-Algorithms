@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class LinkedListObject { //isPresent & isPresents has bug. Gives false always. Write code for sorting
+public class LinkedListObject { //Write code for sorting
 
 	private Node head;
 	
@@ -10,84 +10,63 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 	}
 	
 	private LinkedListObject() {
-		head=new Node();
-		head.student=null;
-		head.next=null;
+		head = new Node();
+		head.student = null;
+		head.next = null;
 	}
 	
 	public Student insertPre(Student student) {
-		Node n=new Node();
-		n.student=student;
-		n.next=head;
-		head=n;
+		Node n = new Node();
+		n.student = student;
+		n.next = head;
+		head = n;
 		return student;
 	}
 	
 	public Student insertPost(Student student) {
-		Node n=new Node();
-		Node xNode=head;
-		while(xNode.next!=null) {
-			xNode=xNode.next;
+		Node n = new Node();
+		Node xNode = head;
+		while(xNode.next != null) {
+			xNode = xNode.next;
 		}
-		n.student=student;
-		n.next=null;
-		xNode.next=n;
+		n.student = student;
+		n.next = null;
+		xNode.next = n;
 		return student;
 	}
 	
 	public void delete(String name) {
-		if(!isPresents(name)) {
+		if(!isPresent(name)) {
 			throw new IllegalStateException("You cant delete wat aint there!");
 		} else {
-			Node x=head.next;
+			Node x = head.next;
 			if(x.next.student.getName().equalsIgnoreCase(name)) {
-				x=x.next;
+				x = x.next;
 			} else {
-				Node y=head.next.next;
-				while((y!=null) && !(y.student.getName().equalsIgnoreCase(name))) {
-					x=y;
-					y=y.next;
+				Node y = head.next.next;
+				while((y != null) && !(y.student.getName().equalsIgnoreCase(name))) {
+					x = y;
+					y = y.next;
 				}
-				if(y!=null) {
-					x.next=y.next;
+				if(y != null) {
+					x.next = y.next;
 				}
 			}
 		}
 	}
 	
-	public boolean isPresent(String s) {
+	public boolean search(String name) {
 		try {
-			Node x=head;
-			if(s.compareToIgnoreCase(x.student.getName())==0) {
+			Node x = head.next;
+			if(name.equalsIgnoreCase(x.student.stuName)) {
 				return true;
 			} else {
-				Node y=head.next;
-				while((y!=null) && !(s.compareToIgnoreCase(y.student.getName())==0)) {
-					x=y;
-					y=y.next;
+				Node y = head.next;
+				while((y != null) && !(name.equalsIgnoreCase(y.student.stuName))) {
+					x = y;
+					y = y.next;
 				}
-				if(y!=null) {
-					return true;
-				}
-			}
-		} catch(java.lang.NullPointerException e) {
-			//System.out.println(e);
-		}
-		return false;
-	}
-	
-	public boolean isPresents(String name) {
-		try {
-			Node x=head;
-			if(name.equalsIgnoreCase(x.student.getName())) {
-				return true;
-			} else {
-				Node y=head.next;
-				while((y!=null) && !(name.equalsIgnoreCase(y.student.getName()))) {
-					x=y;
-					y=y.next;
-				}
-				if(y!=null) {
+				if(y != null) {
 					return true;
 				}
 			}
@@ -99,10 +78,10 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 	
 	public void print() {
 		try {
-			Node x=head.next;
-			while(x.next!=null || x.next==null) {
+			Node x = head.next;
+			while(x.next != null || x.next == null) {
 				System.out.println(x.student.toString()+" ");
-				x=x.next;
+				x = x.next;
 			}
 		} catch(java.lang.NullPointerException e) {
 			//System.out.println(e);
@@ -127,23 +106,27 @@ public class LinkedListObject { //isPresent & isPresents has bug. Gives false al
 	}*/
 	
 	public static void main(String[] args) {
-		Student p1= new Student("Sita",0055,55);
-		Student p2= new Student("Rama",0256,15);
-		Student p3= new Student("Hanu",0041,95);
-		Student p4= new Student("Laksh",0712,40);
-		Student p5= new Student("Vali",2188,78);
-		Student p6= new Student("Luv",6588,23);
-		Student p7= new Student("Kush",8467,80);
-		LinkedListObject p=new LinkedListObject();
-		p.insertPost(p1);
-		p.insertPost(p2);
-		p.insertPost(p3);
-		p.insertPost(p4);
-		p.insertPost(p5);
-		p.insertPost(p6);
-		p.insertPost(p7);
-		p.print();
-		System.out.println(p.isPresents("Vali"));
+		
+		Student student1 = new Student("Sita",0055,55);
+		Student student2 = new Student("Rama",0256,15);
+		Student student3 = new Student("Hanuma",0041,95);
+		Student student4 = new Student("Laksh",0712,40);
+		Student student5 = new Student("Vali",2188,78);
+		Student student6 = new Student("Luv",6588,23);
+		Student student7 = new Student("Kush",8467,80);
+		
+		LinkedListObject list = new LinkedListObject();
+		
+		list.insertPost(student1);
+		list.insertPost(student2);
+		list.insertPost(student3);
+		list.insertPost(student4);
+		list.insertPost(student5);
+		list.insertPost(student6);
+		list.insertPost(student7);
+		list.print();
+		System.out.println();
+		System.out.println(list.search("Hanuma"));
 		/*System.out.println();
 		p.delete("Hanu");
 		p.delete("Vali");
