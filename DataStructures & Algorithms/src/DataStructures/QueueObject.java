@@ -62,7 +62,7 @@ public class QueueObject {
 	
 	public boolean search(String name) {
 		if(!isEmpty()) {
-			for(int i = 0; i < rear; i++) {
+			for(int i = 0; i <= rear; i++) {
 				if(name.equalsIgnoreCase(queue[i].empName)) {
 					return true;
 				}
