@@ -56,8 +56,7 @@ public class LinkedListObject { //Write code for sorting
 	}
 	
 	public boolean search(String name) {
-		try {
-			Node x = head.next;
+		Node x = head.next;
 			if(name.equalsIgnoreCase(x.student.stuName)) {
 				return true;
 			} else {
@@ -70,9 +69,6 @@ public class LinkedListObject { //Write code for sorting
 					return true;
 				}
 			}
-		} catch(java.lang.NullPointerException e) {
-			//System.out.println(e);
-		}
 		return false;
 	}
 	
