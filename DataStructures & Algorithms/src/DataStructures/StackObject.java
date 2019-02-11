@@ -67,7 +67,7 @@ public class StackObject {
 	public boolean search(String name) {
 		if(!isEmpty()) {
 			for(int i = 0; i <= top; i++) {
-				if(name.equals(stack[i].stuName.toString())) {
+				if(name.equalsIgnoreCase(stack[i].stuName.toString())) {
 					return true;
 				}
 			}
@@ -96,6 +96,6 @@ public class StackObject {
 		System.out.println("====");
 		stack.pop();
 		stack.print();
-		System.out.println(stack.search("Job"));
+		System.out.println(stack.search("bob"));
 	}
 }
