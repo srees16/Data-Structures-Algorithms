@@ -7,7 +7,7 @@ public class StackInt {
 	private int size;
 	
 	private StackInt() {
-		top =- 1;
+		top = - 1;
 		size = 1;
 		stack = new int[size];
 	}
