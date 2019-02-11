@@ -937,9 +937,31 @@ public class CoreJavaWorkout {
 		return elementIndex > list.size() - 1 ? -1 : list.get(elementIndex);
 	}
 
+	//Segment a String into a sequence of words in a dictionary
+	private static void stringSplit(List<String> dict, String input, String output) {
+		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
+		String input = "snakesandladder";*/
+        if(input.length() == 0) { //if we have reached the end of the String, print the output String
+			System.out.println(output);
+			return;
+		} else {
+			for(int i = 1; i <= input.length(); i++) {
+				String prefix = input.substring(0, i); //consider all prefixes of current String
+				if(dict.contains(prefix)) { //if the prefix is present in the dictionary,add prefix to the output String and recurse for remaining String
+					stringSplit(dict, input.substring(i), output + prefix + " ");
+				}
+			}
+		}
+	}
+	
 	
 	public static void main(String[] args) {
-				
+		List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
+		String input = "snakesandladder";
+		System.out.println("Dictionary words are: " + dict);
+        System.out.println("String is: " + input);
+        stringSplit(dict, input, "");
+        
 		int A[]={8,5,7,6,23,9,1,3,10,4,2,1,2,3,4};
 		/*
 		findAllNonRepeat(A);
