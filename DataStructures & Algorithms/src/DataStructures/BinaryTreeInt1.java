@@ -29,19 +29,19 @@ public class BinaryTreeInt1 {
 	
 	private Node root;
 	
-	public void add(int data) {
-		root = addRecursive(root, data);
+	public void insert(int data) {
+		root = insertRecursive(root, data);
 	}
 
 	
-	private Node addRecursive(Node current, int data) {
+	private Node insertRecursive(Node current, int data) {
 		if(current == null) {
 			return new Node(data);
 		}
 		if(data < current.data) {
-			current.leftChild = addRecursive(current.leftChild, data);
+			current.leftChild = insertRecursive(current.leftChild, data);
 		} else if(data > current.data) {
-			current.rightChild = addRecursive(current.rightChild, data);
+			current.rightChild = insertRecursive(current.rightChild, data);
 		}
 		return current;
 	}
@@ -155,6 +155,16 @@ public class BinaryTreeInt1 {
 
 
 	public static void main(String[] args) {
+		
+		BinaryTreeInt1 tree = new BinaryTreeInt1();
+		
+		tree.insert(84);
+		tree.insert(68);
+		tree.insert(74);
+		tree.insert(67);
+		tree.insert(51);
+		tree.insert(37);
+		//tree.traverseInorder();
 
 	}
 
