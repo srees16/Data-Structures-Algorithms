@@ -55,10 +55,11 @@ public class DoublyLinkedListInt { //Add sorting method
 						y=y.next;
 					}
 				}
-				if(y!=null) {
+				if(y.data == item) {
 					x.next=y.next;
 				}
 			}
+			System.out.println("Your input " + item + " is deleted");
 		} else {
 			throw new IllegalStateException("Item "+item+" doesn't exist");
 		}

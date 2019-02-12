@@ -52,6 +52,7 @@ public class LinkedListObject { //Bug with insertPre method. Also need to write 
 					x.next = y.next;
 				}
 			}
+			System.out.println("Your input " + name + " is deleted");
 		}
 	}
 	
@@ -124,9 +125,10 @@ public class LinkedListObject { //Bug with insertPre method. Also need to write 
 		list.print();
 		System.out.println();
 		System.out.println(list.search("Hanuma"));
-		/*System.out.println();
-		p.delete("Hanu");
-		p.delete("Vali");
-		p.print();*/
+		list.delete("Vali");
+		list.print();
+		System.out.println();
+		list.delete("Hanu");
+		list.print();
 	}
 }
