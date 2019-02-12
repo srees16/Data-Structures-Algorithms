@@ -1,6 +1,6 @@
 # Data-Structures-Algorithms
-Consolidated code for all the Data Structures & Algorithms that I had worked while self-learning and practice of the concepts. 
-Code for DS are for both the integer and the object data types.
+Implementation of Data Structures & Algorithms in Java.
+Code for DS is for both the integer and the object data types.
 
 Data Structures contained in the repository include:
 
