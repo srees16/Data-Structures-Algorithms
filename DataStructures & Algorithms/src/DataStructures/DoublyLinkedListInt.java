@@ -5,14 +5,14 @@ public class DoublyLinkedListInt { //Add sorting method
 	private Node head;
 	
 	private class Node {
-		Node prev;
+		Node previous;
 		int data;
 		Node next;
 	}
 	
 	private DoublyLinkedListInt() {
 		head = new Node();
-		head.prev = null;
+		head.previous = null;
 		head.data = 0;
 		head.next = null;
 	}
@@ -20,8 +20,8 @@ public class DoublyLinkedListInt { //Add sorting method
 	public boolean insertPre(int item) {
 		Node node = new Node();
 		node.data = item;
-		node.prev = null;
-		head.prev = node;
+		node.previous = null;
+		head.previous = node;
 		node.next = head;
 		head = node;
 		return true;
@@ -34,7 +34,7 @@ public class DoublyLinkedListInt { //Add sorting method
 			x = x.next;
 		}
 		node.data = item;
-		node.prev = x;
+		node.previous = x;
 		x.next = node;
 		node.next = null;
 		return true;
