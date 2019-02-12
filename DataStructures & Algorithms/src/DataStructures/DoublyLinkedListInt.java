@@ -11,76 +11,76 @@ public class DoublyLinkedListInt { //Add sorting method
 	}
 	
 	private DoublyLinkedListInt() {
-		head=new Node();
-		head.prev=null;
-		head.data=0;
-		head.next=null;
+		head = new Node();
+		head.prev = null;
+		head.data = 0;
+		head.next = null;
 	}
 	
 	public boolean insertPre(int item) {
-		Node n=new Node();
-		n.data=item;
-		n.prev=null;
-		head.prev=n;
-		n.next=head;
-		head=n;
+		Node node = new Node();
+		node.data = item;
+		node.prev = null;
+		head.prev = node;
+		node.next = head;
+		head = node;
 		return true;
 	}
 	
 	public boolean insertPost(int item) {
-		Node n=new Node();
-		Node x=head;
-		while(x.next!=null) {
-			x=x.next;
+		Node node = new Node();
+		Node x = head;
+		while(x.next != null) {
+			x = x.next;
 		}
-		n.data=item;
-		n.prev=x;
-		x.next=n;
-		n.next=null;
+		node.data = item;
+		node.prev = x;
+		x.next = node;
+		node.next = null;
 		return true;
 	}
 
 	public void delete(int item) {
 		if(isPresent(item)) {
-			Node x=head;
-			if(x.data==item) {
-				x=x.next;
+			Node x = head;
+			if(x.data == item) {
+				x = x.next;
 			} else {
-				Node y=head.next;
+				Node y = head.next;
 				while(true) {
-					if(y==null || y.data==item) {
+					if(y == null || y.data == item) {
 						break;
 					} else {
-						x=y;
-						y=y.next;
+						x = y;
+						y = y.next;
 					}
 				}
 				if(y.data == item) {
-					x.next=y.next;
+					x.next = y.next;
 				}
 			}
 			System.out.println("Your input " + item + " is deleted");
 		} else {
-			throw new IllegalStateException("Item "+item+" doesn't exist");
+			throw new IllegalStateException("Item " + item + " doesn't exist");
 		}
 	}
 	
 	public boolean isPresent(int item) {
-		Node x=head;
-		while(x.next!=null) {
-			if(x.data==item)
+		Node x = head;
+		while(x.next != null) {
+			if(x.data == item)
 				return true;
-			x=x.next;
+			x = x.next;
 		}
 		return false;
 	}
 	
 	public void print() {
 		try {
-			Node x=head.next;
-			while(x!=null || x==null) {
+			Node x = head.next;
+			while(x != null || x == null) {
 				System.out.println(x.data);
-				x=x.next;
+				x = x.next;
 			}
 		} catch(java.lang.NullPointerException e) {
 			//System.out.println(e);
@@ -88,20 +88,22 @@ public class DoublyLinkedListInt { //Add sorting method
 	}
 	
 	public static void main(String[] args) {
-		DoublyLinkedListInt ll = new DoublyLinkedListInt();
-		ll.insertPost(56);
-		ll.insertPost(22);
-		ll.insertPost(68);
-		ll.insertPost(35);
-		ll.insertPost(73);
-		ll.insertPost(15);
-		ll.print();
+		
+		DoublyLinkedListInt doublyList = new DoublyLinkedListInt();
+		doublyList.insertPost(56);
+		doublyList.insertPost(22);
+		doublyList.insertPost(68);
+		doublyList.insertPost(35);
+		doublyList.insertPost(73);
+		doublyList.insertPost(15);
+		doublyList.print();
 		System.out.println("-----------");
-		ll.delete(22);
-		ll.print();
+		doublyList.delete(22);
+		doublyList.print();
 		System.out.println("-----------");
-		System.out.println(ll.isPresent(56));
+		System.out.println(doublyList.isPresent(56));
 		System.out.println("-----------");
-		ll.delete(65);
+		doublyList.delete(65);
 	}
+	
 }
