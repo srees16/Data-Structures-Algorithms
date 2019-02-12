@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class TreeInt {
+public class BinaryTreeInt {
 	
 	private Node root;
 	
@@ -10,7 +10,7 @@ public class TreeInt {
 		Node rightChild;
 	}
 	
-	private TreeInt() {
+	private BinaryTreeInt() {
 		root=null;
 	}
 	
@@ -117,7 +117,7 @@ public class TreeInt {
 	}
 
 	public static void main(String[] args) {
-		TreeInt tree = new TreeInt();
+		BinaryTreeInt tree = new BinaryTreeInt();
 		tree.insert(84);
 		tree.insert(68);
 		tree.insert(74);

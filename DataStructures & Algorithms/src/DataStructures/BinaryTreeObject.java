@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class TreeObject {
+public class BinaryTreeObject {
 	
 	private Node root;
 	
@@ -10,7 +10,7 @@ public class TreeObject {
 		Node rc;
 	}
 	
-	private TreeObject() {
+	private BinaryTreeObject() {
 		root=null;
 	}
 	
