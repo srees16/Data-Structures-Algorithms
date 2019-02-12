@@ -1,5 +1,18 @@
 package DataStructures;
 
+/*In Order Traversal:print with left child,then root,then right child
+Pre Order Traversal:print root,then left child, and then right child
+Post Order Traversal:print left, then right and then root
+*/
+	/*
+	 * method to insert an object
+	 * method to delete an object
+	 * method to find childs of a parent
+	 * method to find parent of a child
+	 * method to traverse 'in order'
+	 * 
+	 */
+
 public class BinaryTreeInt {
 	
 	private Node root;

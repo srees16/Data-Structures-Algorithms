@@ -1,11 +1,24 @@
 package DataStructures;
 
-import java.util.LinkedList;
-import java.util.Queue;
+/*In Order Traversal:print with left child,then root,then right child
+Pre Order Traversal:print root,then left child, and then right child
+Post Order Traversal:print left, then right and then root
+*/
+	/*
+	 * method to insert an object
+	 * method to delete an object
+	 * method to find childs of a parent
+	 * method to find parent of a child
+	 * method to traverse 'in order'
+	 * 
+	 */
 
 /*
  * Ref: https://github.com/eugenp/tutorials/tree/master/data-structures
 */
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTreeInt1 {
 	

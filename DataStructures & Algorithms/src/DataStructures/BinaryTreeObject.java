@@ -1,5 +1,18 @@
 package DataStructures;
 
+/*In Order Traversal:print with left child,then root,then right child
+Pre Order Traversal:print root,then left child, and then right child
+Post Order Traversal:print left, then right and then root
+*/
+	/*
+	 * method to insert an object
+	 * method to delete an object
+	 * method to find childs of a parent
+	 * method to find parent of a child
+	 * method to traverse 'in order'
+	 * 
+	 */
+
 public class BinaryTreeObject {
 	
 	private Node root;
@@ -100,8 +113,88 @@ public class BinaryTreeObject {
 		}
 		return true;
 	}
+
+	public Node findNode1(String key) {
+		Node node = root;
+		while(node != null) {
+			if(key.compareToIgnoreCase(node.student.getName()) == 0) {
+				break;
+			} else {
+				if(key.compareToIgnoreCase(node.student.getName()) < 0) {
+					node = node.lc;
+				} else {
+					node = node.rc;
+				}
+			}
+		}
+		System.out.println(node.student.toString());
+		return node;
+	}
 	
-	private void findChildNodes1(String input) {
+	//Using Do While loop
+	public void findNode2(String key) {
+		Node x=root;
+		Node y=root;
+		do{
+			if(key.compareToIgnoreCase(y.student.getName())==0) {
+				break;
+			}
+			x=y;
+			if(key.compareToIgnoreCase(y.student.getName())<0) {
+				y=y.lc;
+			} else {
+				y=y.rc;
+			}			
+		} while(y!=null);
+		System.out.println(x.student.getName());
+	}
+		
+	public Node findParentNode1(String key) {
+		Node x = root;
+		Node y = root;
+		while(y != null) {
+			if(key.compareToIgnoreCase(y.student.getName()) == 0) {
+				break;
+			}
+			x = y;
+			if(key.compareToIgnoreCase(y.student.getName()) < 0) {
+				y = y.lc;
+			} else {
+				y = y.rc;
+			}
+		}
+		System.out.println(x.student.getName());
+		return x;
+	}
+	
+	//Using Do While loop
+	public Node findParentNode2(String key) {
+		Node x=root;
+		Node y=root;
+		do {
+			if(key.compareToIgnoreCase(y.student.getName())==0) {
+				break;
+			}
+			x=y;
+			if(key.compareToIgnoreCase(x.student.getName())<0) {
+				y=y.lc;
+			} else {
+				y=y.rc;
+			}
+		}
+		/*while(y!=null);
+		System.out.println(x.data.getName());
+		return x;*/
+		while(y!=null);
+		System.out.println(x.student.getName());
+		if(y!=null) {
+			return x;
+		} else {
+			return null;
+		}
+	}
+	
+	private void findChildNodes(String input) {
 		Node x=root;
 		Node y=root;
 		while(x.lc!=null) {
@@ -117,113 +210,43 @@ public class BinaryTreeObject {
 			}
 		}
 		System.out.println(x.lc.student.getName()+" with roll number "+x.lc.student.rollNo+" is of "+x.lc.student.cgpa+" with CGPA");
-		findChildNodes1(x.lc.student.getName()+" with roll number "+x.lc.student.rollNo+" is of "+x.lc.student.cgpa+" with CGPA");
+		findChildNodes(x.rc.student.getName()+" with roll number "+x.rc.student.rollNo+" is of "+x.rc.student.cgpa+" with CGPA");
 	}
 	
-	public void findChildNodes2(String s) {
-		if(root!=null) {
-			System.out.println();
-		}
-	}
-	
-	public Node findNode(String key) {
-		Node n=root;
-		
-		return n;
-	}
-	
-	/*public void findChildren(Node n) {
-		Node x=root;
-		if(x!=null) {
-			System.out.println(x.pers);
-			findChildren(x.lc);
-			findChildren(x.rc);
-		}
-	}*/
-	
-	/*public void findChildren(String key) {
-		Node x=root;
-		Node y=root;
-		while(x.lc!=null) {
-			if(key.compareToIgnoreCase(x.data.getName())==0) {
-				break;
-			} else {
-				x=y;
-				if(key.compareToIgnoreCase(y.data.getName())<0) {
-					y=y.lc;
-				} else {
-					y=y.rc;
-				}
-			}
-		}
-		System.out.println(x.lc.data.getName()+" "+x.lc.data.getRollNo());
-		findChildren(x.rc.data.getName()+" "+x.lc.data.getRollNo());
-	}*/
-	
-	/*public Node findParent(String key) {
-		Node x=root;
-		Node y=root;
-		do {
-			if((key.compareTo(y.pers.getName())==0)) {
-				break;
-			}
-			x=y;
-			if(key.compareToIgnoreCase(y.pers.getName())<0) {
-				y=y.lc;
-			}
-			else {
-				y=y.rc;
-			}
-		} while(y!=null);
-		System.out.println(x.pers.getName());
-		if(y!=null) {
-			return x;
-		} else {
-			return null;
-		}
-	}*/
-	
-	/*public Person getData(Node n) {
-		return n.pers;
-	}
-	*/
-	
-	/*public Node showNodeName(String key) {
-		Node r=root;
-		while(r!=root) {
-			if(key.compareToIgnoreCase(r.pers.getName())==0) {
-				break;
-			} if(key.compareToIgnoreCase(r.pers.getName())<0) {
-				r=r.lc;
-			} else {
-				r=r.rc;
-			}
-		}
-		return r;
-	}*/
-	
-	/*public void findNode(String key) {
+	public void findChildNodes(Node node) { //May be incorrect, need to validate
 		Node x=root;
 		while(x!=null) {
-			if(key.compareToIgnoreCase(x.data.getName())==0) {
-				break;
-			} else {
-				if(key.compareToIgnoreCase(x.data.getName())<0) {
-					x=x.lc;
-				} else {
-					x=x.rc;
-				}
-			}
+			System.out.println(x.student);
+			findChildNodes(x.lc);
+			findChildNodes(x.rc);
 		}
-		System.out.println(x.data.toString());
-	}*/
+	}
+	
+	public Student getNodeData(Node node) {
+		return node.student;
+	}	
 
-	public void print(Node n) {
-		Node x=root;
-		while(x!=null) {
-			System.out.println(x.student.toString());
-			print(x.lc);
-			print(x.rc);
+	private void traverseInorder(Node node) {
+		if(node != null) {
+			traverseInorder(node.lc);
+			System.out.println(" " + node.student);
+			traverseInorder(node.rc);
+		}
+	}
+
+	private void traversePreorder(Node node) {
+		if(node != null) {
+			System.out.println(" " + node.student);
+			traverseInorder(node.lc);
+			traverseInorder(node.rc);
+		}
+	}
+
+	private void traversePostorder(Node node) {
+		if(node != null) {
+			traverseInorder(node.lc);
+			traverseInorder(node.rc);
+			System.out.println(" " + node.student);
 		}
 	}
 
