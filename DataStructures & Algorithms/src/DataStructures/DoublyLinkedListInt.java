@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class DoublyLinkedListInt { //Add sorting method
+public class DoublyLinkedListInt { //Add method to sort
 
 	private Node head;
 	
