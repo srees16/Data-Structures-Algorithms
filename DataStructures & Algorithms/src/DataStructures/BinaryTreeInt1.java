@@ -1,0 +1,161 @@
+package DataStructures;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+/*
+ * Ref: https://github.com/eugenp/tutorials/tree/master/data-structures
+*/
+
+public class BinaryTreeInt1 {
+	
+	private class Node {
+		int data;
+		Node leftChild;
+		Node rightChild;
+		
+		private Node(int data) {
+			this.data = data;
+			leftChild = null;
+			rightChild = null;
+		}
+		
+		private Node() {
+			Node node = new Node();
+			node.leftChild = null;
+			node.rightChild = null;
+		}
+	}
+	
+	private Node root;
+	
+	public void add(int data) {
+		root = addRecursive(root, data);
+	}
+
+	
+	private Node addRecursive(Node current, int data) {
+		if(current == null) {
+			return new Node(data);
+		}
+		if(data < current.data) {
+			current.leftChild = addRecursive(current.leftChild, data);
+		} else if(data > current.data) {
+			current.rightChild = addRecursive(current.rightChild, data);
+		}
+		return current;
+	}
+	
+	public void delete(int data) {
+		root = deleteRecursive(root, data);
+	}
+
+
+	private Node deleteRecursive(Node current, int data) {
+		if(current == null) {
+			return null;
+		}
+		if(data == current.data) {
+			if(current.leftChild == null && current.rightChild == null) { // case 1: if there are no child nodes
+				return null;
+			}
+			if(current.rightChild == null) { //case 2: if there is only 1 child node
+				return current.leftChild;
+			}
+			/*if(current.leftChild == null) { //May be invalid case since if there is no left child node, there wont be a right child node
+				return current.rightChild;
+			}*/
+			int smallestValue = findSmallestValue(current.rightChild); // case 3: if there are both child nodes
+			current.data = smallestValue;
+			current.rightChild = deleteRecursive(current.rightChild, smallestValue);
+			return current;
+		}
+		if(data < current.data) {
+			current.leftChild = deleteRecursive(current.leftChild, data);
+			return current;
+		}
+		current.rightChild = deleteRecursive(current.rightChild, data);
+		return current;
+	}
+
+
+	private int findSmallestValue(Node root) {
+		return root.leftChild == null ? root.data : findSmallestValue(root.leftChild);
+	}
+	
+	private boolean isEmpty() {
+		return (root == null);
+	}
+	
+	private int getSize() {
+		return getSizeRecursive(root);
+	}
+
+
+	private int getSizeRecursive(Node current) {
+		return current == null ? 0 : getSizeRecursive(current.leftChild) + 1 + getSizeRecursive(current.rightChild);
+	}
+	
+	private boolean containsNode(int data) {
+		return containsNodeRecursive(root, data);
+	}
+
+
+	private boolean containsNodeRecursive(Node current, int data) {
+		if(current == null) {
+			return false;
+		}
+		if(data == current.data) {
+			return true;
+		}
+		return data < current.data ? containsNodeRecursive(current.leftChild, data) : containsNodeRecursive(current.rightChild, data);
+	}
+	
+	private void traverseInorder(Node node) {
+		if(node != null) {
+			traverseInorder(node.leftChild);
+			System.out.println(" " + node.data);
+			traverseInorder(node.rightChild);
+		}
+	}
+
+	private void traversePreorder(Node node) {
+		if(node != null) {
+			System.out.println(" " + node.data);
+			traverseInorder(node.leftChild);
+			traverseInorder(node.rightChild);
+		}
+	}
+
+	private void traversePostorder(Node node) {
+		if(node != null) {
+			traverseInorder(node.leftChild);
+			traverseInorder(node.rightChild);
+			System.out.println(" " + node.data);
+		}
+	}
+	
+	private void traverseLevelOrder() {
+		if(root == null) {
+			return;
+		}
+		Queue<Node> nodeQueue = new LinkedList<>();
+		nodeQueue.add(root);
+		while(!nodeQueue.isEmpty()) {
+			Node node = nodeQueue.remove();
+			System.out.println(" " + node.data);
+			if(node.leftChild != null) {
+				nodeQueue.add(node.leftChild);
+			}
+			if(node.leftChild != null) {
+				nodeQueue.add(node.rightChild);
+			}
+		}
+	}
+
+
+	public static void main(String[] args) {
+
+	}
+
+}
