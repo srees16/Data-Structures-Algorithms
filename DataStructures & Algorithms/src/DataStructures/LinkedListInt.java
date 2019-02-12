@@ -54,6 +54,7 @@ public class LinkedListInt {
 					x.next = y.next;
 				}
 			}
+			System.out.println("Your input " + item + " is deleted");
 		} else {
 			throw new IllegalStateException("Item not found");
 		}
