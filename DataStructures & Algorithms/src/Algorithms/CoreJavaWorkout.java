@@ -676,7 +676,6 @@ public class CoreJavaWorkout {
 		System.out.println();
 	}
 	
-
 	//Convert a char array to a string
 	private static void charArrayToString(char chars[]) {
 		/*Method using String class*/
@@ -699,7 +698,6 @@ public class CoreJavaWorkout {
 			}
 		}
 	}
-
 
 	/*
 	Find the length of the longest consecutive elements sequence from an unsorted array of integers.
@@ -753,8 +751,7 @@ public class CoreJavaWorkout {
 				//a[i]=new int[j];
 			}
 		}
-	}
-	
+	}	
 
 	//Linear Search to search an element in given list of elements
 	private static void linearSearch(int findNumber) { //Rework to throw exception for items absent in the list
@@ -844,7 +841,6 @@ public class CoreJavaWorkout {
 		}
 	}
 
-
 	/*Tribonacci Series using For & While loops*/
 
 	//Using For loop
@@ -878,6 +874,7 @@ public class CoreJavaWorkout {
 			thirdNo = fourthNo;
 		}
 	}
+	
 	//Check Armstrong number for 3 digits. Ref: https://www.guru99.com/java-program-check-armstrong-number.html
 	private static void checkArmstrongNo(int number) { //An Armstrong number is an integer if the sum of the cubes of its digits is equal to the number itself. Ex: 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371
 		int digit, digitCubeSum = 0, tempNumber;
