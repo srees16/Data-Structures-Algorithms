@@ -73,18 +73,6 @@ public class CoreJavaWorkout {
 		return average;
 	}
 	
-	//Find max no in array
-	private static void maxNo(int a[]) {
-		int temp,i;
-		for(i=0;i<a.length-1;i++) {
-			temp=i;
-			if(temp<i) {
-				i++;
-			}
-		}
-		System.out.println("Max no of the array is "+a[i]);
-	}
-	
 	//Find non repeating elements or duplicate nos in array
 	private static void findAllNonRepeat(int A[]) { //https://www.geeksforgeeks.org/non-repeating-element/
 		for(int i=0;i<A.length;i++) {
@@ -710,6 +698,18 @@ public class CoreJavaWorkout {
 		} else {
 			System.out.println(z + " is the smallest");
 		}
+	}
+	
+	//Find max no in array
+	private static void maxNo(int a[]) {
+		int temp,i;
+		for(i=0;i<a.length-1;i++) {
+			temp=i;
+			if(temp<i) {
+				i++;
+			}
+		}
+		System.out.println("Max no of the array is "+a[i]);
 	}
 
 	//Find the largest and smallest elements of an array
