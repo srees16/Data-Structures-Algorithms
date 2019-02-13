@@ -53,6 +53,73 @@ import org.junit.Test;
 
 public class CoreJavaWorkout {
 
+
+	//Find Sum of Natural Numbers
+	private static int sumOfNaturalNos(int numTill) {
+		int a = 0;
+		for(int i = 1; i <= numTill; i++) {
+			a = a + i;
+		}
+		return a;
+	}
+
+	//Sum of multiples of 3 and 5
+	static void oddMultiples(int x) {
+		int f=0;
+		for(int i=1;i<x;i++) {
+			if(i%3==0 || i%5==0) {
+				f+=i;//f=f+i
+				//System.out.println(i);
+			}
+		}
+		System.out.println("Multiples of odd numbers is "+f);
+	}
+
+
+	//Check if a number is Positive or Negative
+	private static void positiveOrNegative(int number) {
+		if(number <= 0) {
+			System.out.println("Negative no!");
+		} else {
+			System.out.println("Positive no!");
+		}
+	}
+
+	//Check Even or Odd Number
+	private static int checkEvenOrOdd(int num) {
+		if (num % 2 == 0) {
+			System.out.println("Even No");
+		} else {
+			System.out.println("Odd No");
+		}
+		return num;
+	}
+
+	//Find the number of even and odd integers in a given array of integers
+	private static void countEvenOdds() {
+		int x[] = {98,10,13,66,26,78,11,99};
+		int countEven = 0;
+		int countOdd = 0;
+		for(int i = 0; i < x.length; i++) {
+			if(x[i] % 2 ==0) {
+				countEven++;
+			} else {
+				countOdd++;
+			}
+		}
+		System.out.println("No of even nos " + countEven + " and odd nos " + countOdd);
+	}
+	
+	//Display prime numbers between 1 and 100 or 1 and n
+	private static void first100PrimeNos(int primesUpto) { //Needs improvement
+		System.out.print(2 + ", " + 3 + ", " + 5);
+		for (int i =5; i < primesUpto; i++) {
+			if (i % 2 != 0 && i % 3 != 0 && i % 5 !=0) {
+				System.out.print(", " + i);
+			}
+		} 
+	}
+
 	//Sum of elements of an array
 	private static void sumOfArray() {
 		int array[] = {5,2,8,6,};
@@ -62,7 +129,7 @@ public class CoreJavaWorkout {
 		}
 		System.out.println(count);
 	}
-	
+		
 	//Calculate average of numbers of an Array
 	private static double averageOfArray(double numArray[]) {
 		double total=0;
@@ -71,18 +138,6 @@ public class CoreJavaWorkout {
 		}
 		double average = total/numArray.length;
 		return average;
-	}
-	
-	//Find max no in array
-	private static void maxNo(int a[]) {
-		int temp,i;
-		for(i=0;i<a.length-1;i++) {
-			temp=i;
-			if(temp<i) {
-				i++;
-			}
-		}
-		System.out.println("Max no of the array is "+a[i]);
 	}
 	
 	//Find non repeating elements or duplicate nos in array
@@ -159,118 +214,44 @@ public class CoreJavaWorkout {
 			hset.add(a[i]);
 		}
 	}
-	
-	//Sum of multiples of 3 and 5
-	static void oddMultiples(int x) {
-		int f=0;
-		for(int i=1;i<x;i++) {
-			if(i%3==0 || i%5==0) {
-				f+=i;//f=f+i
-				//System.out.println(i);
-			}
-		}
-		System.out.println("Multiples of odd numbers is "+f);
-	}
 
-	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
-	private static int smallestMissingInteger(int a[]) {
-		int v1,v2;
-		for(int i=0;i<a.length;i++) {
-			if(a[i]<=0||a[i]>a.length) {
-				continue;
+	//Find if an array contains a specific value
+	private static boolean findElement(int element) {
+		int array[] = {5,2,8,6,};
+		boolean isFound = false;
+		for(int i = 0; i < array.length ; i++) {
+			if(element == array[i]) {
+				isFound = true;
 			} else {
-				v1=a[i];
-				while(a[v1-1]!=v1) {
-					v2=a[v1-1];
-					a[v1-1]=v1;
-					v1=v2;
-					if(v1<=0||v1>a.length) {
-						break;
-					}
-				}
+				isFound = false;
+			}
+			if(isFound == true) {
+				System.out.println("Element " + element + " found");
 			}
 		}
-		for(int i=0;i<a.length;i++) {
-			if(a[i]!=i+1) {
-				return i+1;
+		return false;
+	}
+
+	//Find the index of an array element
+	private static int findIndexOfElement(int element) { //Bug: Removed element's index replaced by its next element
+		int elements[] = {34,6,43,325,62};
+		for(int i = 0; i < elements.length; i++) {
+			if(element == elements[i]) {
+				return i;
 			}
 		}
-		return a.length+1;
+		return 0;
 	}
 
-	//Check Even or Odd Number
-	private static int checkEvenOrOdd(int num) {
-		if (num % 2 == 0) {
-			System.out.println("Even No");
-		} else {
-			System.out.println("Odd No");
+	//Remove a specific element from an array using index no
+	private static void removeElement(int element) {
+		int elements[] = {34,6,43,325,62};
+		int removeElement = element;
+		System.out.println(Arrays.toString(elements));
+		for(int i = removeElement; i < elements.length-1; i++) {
+			elements[i] = elements[i + 1];
 		}
-		return num;
-	}
-
-	//Display prime numbers between 1 and 100 or 1 and n
-	private static void first100PrimeNos(int primesUpto) { //Needs improvement
-		System.out.print(2 + ", " + 3 + ", " + 5);
-		for (int i =5; i < primesUpto; i++) {
-			if (i % 2 != 0 && i % 3 != 0 && i % 5 !=0) {
-				System.out.print(", " + i);
-			}
-		} 
-	}
-
-	//Reverse a String using Recursion
-	public static String reverseString(String word) {
-		if (word.length() <= 1) {
-			return word;
-		} else {
-			return reverseString(word.substring(1)) + word.charAt(0);
-		}
-	}
-
-	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
-	private static void numReverseWhile(int number) {
-		int n = 654;  //Prefer this bcoz its more intuitive
-		while (n > 0) {
-			int digit = n % 10;
-			System.out.print(digit);
-			n = n/10; 
-			digit = n;
-		}
-		/*int x=785; //less intuitive approach
-		while (x>0) {
-			int d = x/10;
-			int k = x%10; 
-			x=d;
-			System.out.print(k);
-		}*/
-	}
-	
-	private static void numReverseFor(int num) {
-		for(int i = 0; i < num; i++) {
-			
-		}
-	}
-
-	private static void numReverseRecursion(int num) {
-		
-	}
-
-	//Find Sum of Natural Numbers
-	private static int sumOfNaturalNos(int numTill) {
-		int a = 0;
-		for(int i = 1; i <= numTill; i++) {
-			a = a + i;
-		}
-		return a;
-	}
-
-	//Check if a number is Positive or Negative
-	private static void positiveOrNegative(int number) {
-		if(number <= 0) {
-			System.out.println("Negative no!");
-		} else {
-			System.out.println("Positive no!");
-		}
+		System.out.println(Arrays.toString(elements));
 	}
 
 	//Check if leap year. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
@@ -330,6 +311,73 @@ public class CoreJavaWorkout {
 				System.out.println("Character '" + ch + "' repeated " + characterCountMap.get(ch) + " times.");
 			}
 		}
+	}
+	
+	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
+	private static void numReverseWhile(int number) {
+		int n = 654;  //Prefer this bcoz its more intuitive
+		while (n > 0) {
+			int digit = n % 10;
+			System.out.print(digit);
+			n = n/10; 
+			digit = n;
+		}
+		/*int x=785; //less intuitive approach
+		while (x>0) {
+			int d = x/10;
+			int k = x%10; 
+			x=d;
+			System.out.print(k);
+		}*/
+	}
+	
+	private static void numReverseFor(int num) {
+		for(int i = 0; i < num; i++) {
+			
+		}
+	}
+
+	private static void numReverseRecursion(int num) {
+		
+	}
+
+	//Reverse an array
+	private static void reverseArray(/*int array[]*/) {
+		int array[] = {5,2,8,6,};
+		for(int i = array.length-1; i < 0; i--) {
+			System.out.print(array[i]);
+		}
+	}
+
+	private static void reverseArrayStack() {
+		int array[] = {5,2,8,6,};
+		Stack<Integer> stack = new Stack<>();
+		
+	}
+
+
+	//Reverse a String using Recursion
+	public static String reverseString(String word) {
+		if (word.length() <= 1) {
+			return word;
+		} else {
+			return reverseString(word.substring(1)) + word.charAt(0);
+		}
+	}
+	
+	//Reverse the words and also letters in a sentence
+	private static void sentenceReverse(String sentence) {
+		String words[] = sentence.split(" ");
+		String reverseSentence = "";
+		for(int i = 0; i < words.length; i++) {
+			String word = words[i];
+			String reverseWords = "";
+			for(int j = word.length()-1; j >= 0; j--) {
+				reverseWords = reverseWords + word.charAt(j);
+			}
+			reverseSentence = reverseSentence + reverseWords + " ";
+		}
+ 		System.out.println(reverseSentence);
 	}
 
 	/*Check if a string is palindrome using recursion, Stack, Queue, for and while loop*/
@@ -421,275 +469,6 @@ public class CoreJavaWorkout {
 		return factorialOf(n-1) * n;
 	}
 
-	//Convert a char array to a string
-	private static void charArrayToString(char chars[]) {
-		/*Method using String class*/
-		String myString = new String(chars);
-		System.out.println(myString);
-		/*Method using valueOf function*/
-		String myString2 = String.valueOf(chars);
-		System.out.println(myString2);
-	}
-
-	//Linear Search to search an element in given list of elements
-	private static void linearSearch(int findNumber) { //Rework to throw exception for items absent in the list
-		int numArray[] = {35, 14, 57, 19, 86, 46, 62};
-		for(int i = 0; i < numArray.length; i++) {
-			if(numArray[i] == findNumber) {
-				System.out.println(findNumber + " is present at location " + (i + 1));
-			}
-		}
-	}
-
-	private static void twoDimArray(int x,int y) {
-		for(int i=0;i<x;i++) {
-			int a[]=new int[i];
-			for(int j=0;j<y;j++) {
-				//a[i]=new int[j];
-			}
-		}
-	}
-
-	//Binary Search to search an element in given list of elements
-	private static void binarySearch(int findNumber) { //Doesn't work for few indices. Ref: https://beginnersbook.com/2014/04/java-program-to-perform-binary-search
-		int numArray[] = {35, 14, 57, 19, 86, 46, 62};
-		int first = 0;
-		int last = numArray.length-1;
-		int middle = (first + last)/2;
-	 
-		while(first <= last) {
-			if(numArray[middle] < findNumber) {
-				first = middle + 1;
-			} else if(numArray[middle] == findNumber) {
-				System.out.println(findNumber + " is located at " + (middle + 1));
-				break;
-			} else {
-				last = middle - 1;
-			}
-			middle = (first + last)/2;
-		}
-		if(first > last) {
-			System.out.println(findNumber + " item not found");
-		}
-	}
-
-	/*Fibonacci Series using For & While loops*/
-
-	//Using For loop
-	private static void fibonacciFor(int number) { //0, 1, 1, 2, 3, 5, 8, 13
-		int firstNo = 0;
-		int secondNo = 1;
-		int thirdNo;
-		System.out.print(0 + ", " + 1);
-		for(int i = 0; i < number; i++) {
-			thirdNo = firstNo + secondNo;
-			System.out.print(", " + thirdNo);
-			firstNo = secondNo;
-			secondNo = thirdNo;
-		}
-		//Smart way!
-		/*int index=0;
-		int next=1;
-		int incr=0;
-		System.out.print(index+","+next);			
-		for(int i=index;i<10;++i) {
-			incr=index+next;
-		System.out.print(","+incr);
-		index=next;
-		next=incr;
-		}*/
-		
-		//Even Fibonacci numbers
-		/*int index=0;
-		int next=1;
-		int incr=0;			
-		System.out.print(index+","+next);
-		for(int i=index;i<15;++i) {
-			if(i%2==0) {
-			System.out.print(i+",");
-			incr=index+next;
-			index=next;
-			next=incr;
-			}
-		}*/
-	}
-
-	//Using While loop
-	private static void fibonacciWhile(int number) { //0, 1, 1, 2, 3, 5, 8, 13  //Got bugs, rework needed
-		int firstNo = 0;
-		int secondNo = 1;
-		int thirdNo = 0;
-		System.out.print(0 + ", " + 1);
-		while(thirdNo < number) {
-			thirdNo = firstNo + secondNo;
-			System.out.print(", " + thirdNo);
-			firstNo = secondNo;
-			secondNo = thirdNo;
-		}
-	}
-
-
-	/*Tribonacci Series using For & While loops*/
-
-	//Using For loop
-	private static void tribonacciFor(int number) { //0, 1, 1, 2, 4, 7, 13, 24
-		int firstNo = 0;
-		int secondNo = 0;
-		int thirdNo = 1;
-		int fourthNo;
-		System.out.print(0 + ", " + 1 + ", " + 1 + ", ");
-		for(int i = 0; i < number; i++) {
-			fourthNo = firstNo + secondNo + thirdNo;
-			System.out.print(fourthNo + ", ");
-			firstNo = secondNo;
-			secondNo = thirdNo;
-			thirdNo = fourthNo;
-		}
-	}
-
-	//Using While loop
-	private static void tribonacciWhile(int number) { //0, 1, 1, 2, 4, 7, 13, 24 //Got bugs, rework needed
-		int firstNo = 0;
-		int secondNo = 0;
-		int thirdNo = 1;
-		int fourthNo = 0;
-		System.out.print(0 + ", " + 1 + ", ");
-		while(fourthNo < number) {
-			fourthNo = firstNo + secondNo + thirdNo;
-			System.out.print(fourthNo + ", ");
-			firstNo = secondNo;
-			secondNo = thirdNo;
-			thirdNo = fourthNo;
-		}
-	}
-
-	//Reverse the words and also letters in a sentence
-	private static void sentenceReverse(String sentence) {
-		String words[] = sentence.split(" ");
-		String reverseSentence = "";
-		for(int i = 0; i < words.length; i++) {
-			String word = words[i];
-			String reverseWords = "";
-			for(int j = word.length()-1; j >= 0; j--) {
-				reverseWords = reverseWords + word.charAt(j);
-			}
-			reverseSentence = reverseSentence + reverseWords + " ";
-		}
- 		System.out.println(reverseSentence);
-	}
-
-	//Reverse an array
-	private static void reverseArray(/*int array[]*/) {
-		int array[] = {5,2,8,6,};
-		for(int i = array.length-1; i < 0; i--) {
-			System.out.print(array[i]);
-		}
-	}
-
-	private static void reverseArrayStack() {
-		int array[] = {5,2,8,6,};
-		Stack<Integer> stack = new Stack<>();
-		
-	}
-
-	//Check Armstrong number for 3 digits. Ref: https://www.guru99.com/java-program-check-armstrong-number.html
-	private static void checkArmstrongNo(int number) { //An Armstrong number is an integer if the sum of the cubes of its digits is equal to the number itself. Ex: 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371
-		int digit, digitCubeSum = 0, tempNumber;
-		tempNumber = number;
-		while(tempNumber!=0) {
-			digit = tempNumber % 10;
-			digitCubeSum = digitCubeSum + (digit * digit * digit);
-			tempNumber /= 10;
-		}
-		if(number == digitCubeSum) {
-			System.out.println(number + " is an Armstrong number");
-		} else {
-			System.out.println(number + " is NOT an Armstrong number");
-		}
-	}
-
-	//Find GCD of two numbers
-	private static void gcdOfNumbers(int x, int y) { //
-	 
-	}
-
-	//Find if an array contains a specific value
-	private static boolean findElement(int element) {
-		int array[] = {5,2,8,6,};
-		boolean isFound = false;
-		for(int i = 0; i < array.length ; i++) {
-			if(element == array[i]) {
-				isFound = true;
-			} else {
-				isFound = false;
-			}
-			if(isFound == true) {
-				System.out.println("Element " + element + " found");
-			}
-		}
-		return false;
-	}
-
-	//Find the index of an array element
-	private static int findIndexOfElement(int element) { //Bug: Removed element's index replaced by its next element
-		int elements[] = {34,6,43,325,62};
-		for(int i = 0; i < elements.length; i++) {
-			if(element == elements[i]) {
-				return i;
-			}
-		}
-		return 0;
-	}
-
-	//Remove a specific element from an array using index no
-	private static void removeElement(int element) {
-		int elements[] = {34,6,43,325,62};
-		int removeElement = element;
-		System.out.println(Arrays.toString(elements));
-		for(int i = removeElement; i < elements.length-1; i++) {
-			elements[i] = elements[i + 1];
-		}
-		System.out.println(Arrays.toString(elements));
-	}
-
-	//Copy an array by iterating the array
-	private static void copyArrayTo() { //Rework needed to check how copy works if the destination array has no elements
-		int x[] = {3,64,67,22,56};
-		int y[] = {85,71,67,32,75};
-		for(int index = 0; index < x.length-1; index++) {
-			y[index] = x[index];
-		}
-		System.out.println(Arrays.toString(y));
-	}
-
-	//Copy an array by iterating the array
-	private static void copyArrayTo2() {
-		int x[] = {3,64,67,22,56};
-		int count =0;
-		int y[] = {85,71,67,32,75,5};
-		int k[]=new int[x.length+y.length];
-		for(int index = 0; index < (x.length+y.length); index++) {
-			if(index < x.length)
-				k[index] = x[index];
-			else{
-				k[index]=y[count];
-				count+=1;
-			}
-		}
-		System.out.println(Arrays.toString(k));
-	}
-	 
-	//Insert an element in a specific position into an array
-	private static void insertElement(int element, int index) {
-		int elements[] = {34, 6, 43, 325, 62};
-		for(int i = 0; i < elements.length-1; i++) {
-			elements[i] = elements[index];
-			elements[index] = element;
-			index += 1;
-		}
-		System.out.println(Arrays.toString(elements));
-	}
-	
 	//Find Largest of three numbers
 	private static void findLargest(int x, int y, int z) {
 		if(x > y && x > z) {
@@ -710,6 +489,44 @@ public class CoreJavaWorkout {
 		} else {
 			System.out.println(z + " is the smallest");
 		}
+	}
+
+	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
+	private static int smallestMissingInteger(int a[]) {
+		int v1,v2;
+		for(int i=0;i<a.length;i++) {
+			if(a[i]<=0||a[i]>a.length) {
+				continue;
+			} else {
+				v1=a[i];
+				while(a[v1-1]!=v1) {
+					v2=a[v1-1];
+					a[v1-1]=v1;
+					v1=v2;
+					if(v1<=0||v1>a.length) {
+						break;
+					}
+				}
+			}
+		}
+		for(int i=0;i<a.length;i++) {
+			if(a[i]!=i+1) {
+				return i+1;
+			}
+		}
+		return a.length+1;
+	}
+	
+	//Find max no in array
+	private static void maxNo(int a[]) {
+		int temp,i;
+		for(i=0;i<a.length-1;i++) {
+			temp=i;
+			if(temp<i) {
+				i++;
+			}
+		}
+		System.out.println("Max no of the array is "+a[i]);
 	}
 
 	//Find the largest and smallest elements of an array
@@ -845,7 +662,7 @@ public class CoreJavaWorkout {
 		return index;
 	}
 
-	//Find the majority element from an given array of integers containing duplicates
+	//Find the element that is repeated a majority no of times from an given array of integers containing duplicates
 	private static void majorityDuplicateElement() {
 		int x[] = {98,10,13,66,10,78,11,99,98,11,13,99,98,10,63};
 		int countDuplicate = 0;
@@ -857,6 +674,16 @@ public class CoreJavaWorkout {
 			}
 		}
 		System.out.println();
+	}
+	
+	//Convert a char array to a string
+	private static void charArrayToString(char chars[]) {
+		/*Method using String class*/
+		String myString = new String(chars);
+		System.out.println(myString);
+		/*Method using valueOf function*/
+		String myString2 = String.valueOf(chars);
+		System.out.println(myString2);
 	}
 	
 	//Find the common elements between two arrays (string values)
@@ -871,7 +698,6 @@ public class CoreJavaWorkout {
 			}
 		}
 	}
-
 
 	/*
 	Find the length of the longest consecutive elements sequence from an unsorted array of integers.
@@ -910,27 +736,202 @@ public class CoreJavaWorkout {
 		return longestSubSequence;
 	}
 	
-	//Find the number of even and odd integers in a given array of integers
-	private static void countEvenOdds() {
-		int x[] = {98,10,13,66,26,78,11,99};
-		int countEven = 0;
-		int countOdd = 0;
-		for(int i = 0; i < x.length; i++) {
-			if(x[i] % 2 ==0) {
-				countEven++;
-			} else {
-				countOdd++;
-			}
-		}
-		System.out.println("No of even nos " + countEven + " and odd nos " + countOdd);
-	}
-	
 	//Average value of elements in list
 	private static double average(List<Integer> list) {
 		return list.stream()
 				.mapToInt(i -> i)
 				.average()
 				.getAsDouble();
+	}
+
+	private static void twoDimArray(int x,int y) {
+		for(int i=0;i<x;i++) {
+			int a[]=new int[i];
+			for(int j=0;j<y;j++) {
+				//a[i]=new int[j];
+			}
+		}
+	}	
+
+	//Linear Search to search an element in given list of elements
+	private static void linearSearch(int findNumber) { //Rework to throw exception for items absent in the list
+		int numArray[] = {35, 14, 57, 19, 86, 46, 62};
+		for(int i = 0; i < numArray.length; i++) {
+			if(numArray[i] == findNumber) {
+				System.out.println(findNumber + " is present at location " + (i + 1));
+			}
+		}
+	}	
+
+	//Binary Search to search an element in given list of elements
+	private static void binarySearch(int findNumber) { //Doesn't work for few indices. Ref: https://beginnersbook.com/2014/04/java-program-to-perform-binary-search
+		int numArray[] = {35, 14, 57, 19, 86, 46, 62};
+		int first = 0;
+		int last = numArray.length-1;
+		int middle = (first + last)/2;
+	 
+		while(first <= last) {
+			if(numArray[middle] < findNumber) {
+				first = middle + 1;
+			} else if(numArray[middle] == findNumber) {
+				System.out.println(findNumber + " is located at " + (middle + 1));
+				break;
+			} else {
+				last = middle - 1;
+			}
+			middle = (first + last)/2;
+		}
+		if(first > last) {
+			System.out.println(findNumber + " item not found");
+		}
+	}
+
+	/*Fibonacci Series using For & While loops*/
+
+	//Using For loop
+	private static void fibonacciFor(int number) { //0, 1, 1, 2, 3, 5, 8, 13
+		int firstNo = 0;
+		int secondNo = 1;
+		int thirdNo;
+		System.out.print(0 + ", " + 1);
+		for(int i = 0; i < number; i++) {
+			thirdNo = firstNo + secondNo;
+			System.out.print(", " + thirdNo);
+			firstNo = secondNo;
+			secondNo = thirdNo;
+		}
+		//Smart way!
+		/*int index=0;
+		int next=1;
+		int incr=0;
+		System.out.print(index+","+next);			
+		for(int i=index;i<10;++i) {
+			incr=index+next;
+		System.out.print(","+incr);
+		index=next;
+		next=incr;
+		}*/
+		
+		//Even Fibonacci numbers
+		/*int index=0;
+		int next=1;
+		int incr=0;			
+		System.out.print(index+","+next);
+		for(int i=index;i<15;++i) {
+			if(i%2==0) {
+			System.out.print(i+",");
+			incr=index+next;
+			index=next;
+			next=incr;
+			}
+		}*/
+	}
+
+	//Using While loop
+	private static void fibonacciWhile(int number) { //0, 1, 1, 2, 3, 5, 8, 13  //Got bugs, rework needed
+		int firstNo = 0;
+		int secondNo = 1;
+		int thirdNo = 0;
+		System.out.print(0 + ", " + 1);
+		while(thirdNo < number) {
+			thirdNo = firstNo + secondNo;
+			System.out.print(", " + thirdNo);
+			firstNo = secondNo;
+			secondNo = thirdNo;
+		}
+	}
+
+	/*Tribonacci Series using For & While loops*/
+
+	//Using For loop
+	private static void tribonacciFor(int number) { //0, 1, 1, 2, 4, 7, 13, 24
+		int firstNo = 0;
+		int secondNo = 0;
+		int thirdNo = 1;
+		int fourthNo;
+		System.out.print(0 + ", " + 1 + ", " + 1 + ", ");
+		for(int i = 0; i < number; i++) {
+			fourthNo = firstNo + secondNo + thirdNo;
+			System.out.print(fourthNo + ", ");
+			firstNo = secondNo;
+			secondNo = thirdNo;
+			thirdNo = fourthNo;
+		}
+	}
+
+	//Using While loop
+	private static void tribonacciWhile(int number) { //0, 1, 1, 2, 4, 7, 13, 24 //Got bugs, rework needed
+		int firstNo = 0;
+		int secondNo = 0;
+		int thirdNo = 1;
+		int fourthNo = 0;
+		System.out.print(0 + ", " + 1 + ", ");
+		while(fourthNo < number) {
+			fourthNo = firstNo + secondNo + thirdNo;
+			System.out.print(fourthNo + ", ");
+			firstNo = secondNo;
+			secondNo = thirdNo;
+			thirdNo = fourthNo;
+		}
+	}
+	
+	//Check Armstrong number for 3 digits. Ref: https://www.guru99.com/java-program-check-armstrong-number.html
+	private static void checkArmstrongNo(int number) { //An Armstrong number is an integer if the sum of the cubes of its digits is equal to the number itself. Ex: 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371
+		int digit, digitCubeSum = 0, tempNumber;
+		tempNumber = number;
+		while(tempNumber!=0) {
+			digit = tempNumber % 10;
+			digitCubeSum = digitCubeSum + (digit * digit * digit);
+			tempNumber /= 10;
+		}
+		if(number == digitCubeSum) {
+			System.out.println(number + " is an Armstrong number");
+		} else {
+			System.out.println(number + " is NOT an Armstrong number");
+		}
+	}
+
+	//Find GCD of two numbers
+	private static void gcdOfNumbers(int x, int y) { //
+	 
+	}
+
+	//Copy an array by iterating the array
+	private static void copyArrayTo() { //Rework needed to check how copy works if the destination array has no elements
+		int x[] = {3,64,67,22,56};
+		int y[] = {85,71,67,32,75};
+		for(int index = 0; index < x.length-1; index++) {
+			y[index] = x[index];
+		}
+		System.out.println(Arrays.toString(y));
+	}
+
+	//Copy an array by iterating the array
+	private static void copyArrayTo2() {
+		int x[] = {3,64,67,22,56};
+		int count =0;
+		int y[] = {85,71,67,32,75,5};
+		int k[]=new int[x.length+y.length];
+		for(int index = 0; index < (x.length+y.length); index++) {
+			if(index < x.length)
+				k[index] = x[index];
+			else{
+				k[index]=y[count];
+				count+=1;
+			}
+		}
+		System.out.println(Arrays.toString(k));
+	}
+	 
+	//Insert an element in a specific position into an array
+	private static void insertElement(int element, int index) {
+		int elements[] = {34, 6, 43, 325, 62};
+		for(int i = 0; i < elements.length-1; i++) {
+			elements[i] = elements[index];
+			elements[index] = element;
+			index += 1;
+		}
+		System.out.println(Arrays.toString(elements));
 	}
 	
 	//Write a method that returns the nth element of a list. If the index of the element exceeds the list size, return -1
@@ -954,8 +955,7 @@ public class CoreJavaWorkout {
 				}
 			}
 		}
-	}
-	
+	}	
 	
 	public static void main(String[] args) {
 		List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
