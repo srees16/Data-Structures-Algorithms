@@ -122,7 +122,7 @@ public class CoreJavaWorkout {
 
 	//Sum of elements of an array
 	private static void sumOfArray() {
-		int array[] = {5,2,8,6,};
+		int array[] = {5,2,8,6,5,7,2,8,1,4};
 		int count = 0;
 		for (int i = 0; i < array.length; i++) {
 			count = count + array[i];
@@ -132,8 +132,8 @@ public class CoreJavaWorkout {
 		
 	//Calculate average of numbers of an Array
 	private static double averageOfArray(double numArray[]) {
-		double total=0;
-		for (int i=0;i<numArray.length;i++) {
+		double total = 0;
+		for (int i = 0;i < numArray.length;i++) {
 			total = total + numArray[i];
 		}
 		double average = total/numArray.length;
@@ -142,74 +142,61 @@ public class CoreJavaWorkout {
 	
 	//Find non repeating elements or duplicate nos in array
 	private static void findAllNonRepeat(int A[]) { //https://www.geeksforgeeks.org/non-repeating-element/
-		for(int i=0;i<A.length;i++) {
+		for(int i = 0; i < A.length; i++) {
 			int j;
-			for(j=0;j<A.length;j++) {
-				if(i!=j && A[i]==A[j]) {
+			for(j = 0; j < A.length; j++) {
+				if(i != j && A[i] == A[j]) {
 					break;
 				}
 			}
-			if(j==A.length) {
+			if(j == A.length) {
 				//return A[i];
-				System.out.print(A[i]+",");
+				System.out.print(A[i] + ",");
 			}
 		}
 		//return -1;
 	}
 	
 	private static int[] findAllNonRepeats() { //https://www.sanfoundry.com/java-program-find-number-non-repeated-elements-array
-		int flag=0,count=0;
-		Scanner s=new Scanner(System.in);
+		int flag = 0, count = 0;
+		Scanner s = new Scanner(System.in);
 		System.out.println("Enter how many elements in array");
-		int n=s.nextInt();
-		int A[]=new int[n];
+		int n = s.nextInt();
+		int A[] = new int[n];
 		System.out.println("Enter the elements");
-		for(int i=0;i<n;i++) {
-			A[i]=s.nextInt();
+		for(int i = 0; i < n; i++) {
+			A[i] = s.nextInt();
 		}
 		System.out.println("Non repeated elements are:");
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
-				if(i!=j) {
-					if(A[i]!=A[j]) {
-						flag=1;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				if(i != j) {
+					if(A[i] != A[j]) {
+						flag = 1;
 					} else {
-						flag=0;
+						flag = 0;
 						break;
 					}
 				}
 			}
-			if(flag==1) {
+			if(flag == 1) {
 				count++;
-				System.out.println(A[i]+" ");
+				System.out.println(A[i] + " ");
 			}
 		}
 		s.close();
-		System.out.println("No of non repeat elements "+count);
+		System.out.println("No of non repeat elements " + count);
 		return A;
 	}
-	
-	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
-		HashSet<Integer> hset=new HashSet<>();
+	//https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
+	private static void pairOfInput(int a[], int no) {
+		HashSet<Integer> hset = new HashSet<>();
 		Arrays.sort(a);
-		System.out.println("Pair of given no "+no+" is ");
-		for(int i=0;i<a.length-1;i++) {
-			int temp=no-a[i];
-			if(temp>=0 && hset.contains(temp)) {
-				System.out.println(temp+", "+a[i]);
-			}
-			hset.add(a[i]);
-		}
-	}
-	
-	private static void arrayOfInput(int a[],int no,int arrayLength) {
-		HashSet<Integer> hset=new HashSet<>();
-		Arrays.sort(a);
-		System.out.println("Pair of given no "+no+" is ");
-		for(int i=0;i<a.length-1;i++) {
-			int temp=no-a[i];
-			if(temp>=0&&hset.contains(temp)) {
-				System.out.println(a[i]+", "+temp);
+		System.out.println("Pair of given no " + no + " is ");
+		for(int i = 0; i < a.length-1; i++) {
+			int temp = no - a[i];
+			if(temp >= 0 && hset.contains(temp)) {
+				System.out.println(temp + ", " + a[i]);
 			}
 			hset.add(a[i]);
 		}
@@ -217,7 +204,7 @@ public class CoreJavaWorkout {
 
 	//Find if an array contains a specific value
 	private static boolean findElement(int element) {
-		int array[] = {5,2,8,6,};
+		int array[] = {5,2,8,6,4,3};
 		boolean isFound = false;
 		for(int i = 0; i < array.length ; i++) {
 			if(element == array[i]) {
@@ -233,7 +220,7 @@ public class CoreJavaWorkout {
 	}
 
 	//Find the index of an array element
-	private static int findIndexOfElement(int element) { //Bug: Removed element's index replaced by its next element
+	private static int findIndexOfElement(int element) {
 		int elements[] = {34,6,43,325,62};
 		for(int i = 0; i < elements.length; i++) {
 			if(element == elements[i]) {
@@ -244,14 +231,14 @@ public class CoreJavaWorkout {
 	}
 
 	//Remove a specific element from an array using index no
-	private static void removeElement(int element) {
-		int elements[] = {34,6,43,325,62};
+	private static void removeElement(int element) { //Bug: Removed element's index replaced by its next element
+		int elementsArray[] = {34,6,43,325,62};
 		int removeElement = element;
-		System.out.println(Arrays.toString(elements));
-		for(int i = removeElement; i < elements.length-1; i++) {
-			elements[i] = elements[i + 1];
+		System.out.println(Arrays.toString(elementsArray));
+		for(int i = removeElement; i < elementsArray.length-1; i++) {
+			elementsArray[i] = elementsArray[i + 1];
 		}
-		System.out.println(Arrays.toString(elements));
+		System.out.println(Arrays.toString(elementsArray));
 	}
 
 	//Check if leap year. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
@@ -300,7 +287,7 @@ public class CoreJavaWorkout {
 		char characters[] = word.toCharArray();
 		for(char ch : characters) {
 			if(characterCountMap.containsKey(ch)) {
-				characterCountMap.put(ch, characterCountMap.get(ch)+1);
+				characterCountMap.put(ch, characterCountMap.get(ch) + 1);
 			} else {
 				characterCountMap.put(ch, 1);
 			}
@@ -315,20 +302,13 @@ public class CoreJavaWorkout {
 	
 	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
 	private static void numReverseWhile(int number) {
-		int n = 654;  //Prefer this bcoz its more intuitive
+		int n = 654;  //Prefer this, more intuitive
 		while (n > 0) {
 			int digit = n % 10;
 			System.out.print(digit);
 			n = n/10; 
 			digit = n;
 		}
-		/*int x=785; //less intuitive approach
-		while (x>0) {
-			int d = x/10;
-			int k = x%10; 
-			x=d;
-			System.out.print(k);
-		}*/
 	}
 	
 	private static void numReverseFor(int num) {
@@ -343,14 +323,14 @@ public class CoreJavaWorkout {
 
 	//Reverse an array
 	private static void reverseArray(/*int array[]*/) {
-		int array[] = {5,2,8,6,};
+		int array[] = {98,26,288,78,11,99,500,6};
 		for(int i = array.length-1; i < 0; i--) {
 			System.out.print(array[i]);
 		}
 	}
 
 	private static void reverseArrayStack() {
-		int array[] = {5,2,8,6,};
+		int array[] = {98,26,288,78,11,99,500,6};
 		Stack<Integer> stack = new Stack<>();
 		
 	}
@@ -491,32 +471,6 @@ public class CoreJavaWorkout {
 		}
 	}
 
-	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
-	private static int smallestMissingInteger(int a[]) {
-		int v1,v2;
-		for(int i=0;i<a.length;i++) {
-			if(a[i]<=0||a[i]>a.length) {
-				continue;
-			} else {
-				v1=a[i];
-				while(a[v1-1]!=v1) {
-					v2=a[v1-1];
-					a[v1-1]=v1;
-					v1=v2;
-					if(v1<=0||v1>a.length) {
-						break;
-					}
-				}
-			}
-		}
-		for(int i=0;i<a.length;i++) {
-			if(a[i]!=i+1) {
-				return i+1;
-			}
-		}
-		return a.length+1;
-	}
-	
 	//Find max no in array
 	private static void maxNo(int a[]) {
 		int temp,i;
@@ -550,25 +504,6 @@ public class CoreJavaWorkout {
 	 	System.out.println("Min is " + min + " max is " + max);
 		difference = max - min;
 		System.out.println("Difference of largest & smallest in the array " + Arrays.toString(myArray) + " is " + difference);
-	}
-	
-	//Compute the average value of an array of integers except the largest and smallest values
-	private static void arrayAvgExceptLargestSmallest() { //Bug in summation, work on it
-		int myArray[] = {98,26,288,78,11,99,500,6};
-		int largest = myArray[0];
-		int smallest = myArray[0];
-		int avg = 0;
-		int sum = 0;
-		for(int i = 1; i < myArray.length; i++) {
-			if(largest < myArray[i]) {
-				largest = myArray[i];
-			}
-			if(smallest > myArray[i]) {
-				smallest = myArray[i];
-			}
-			sum = sum + myArray[i];
-		}
-		System.out.println("The sum is " + sum);
 	}
 
 	//Find the second largest element in an array
@@ -618,6 +553,52 @@ public class CoreJavaWorkout {
 		System.out.println("Max is " + myArray[myArray.length-2] + " min is " + myArray[0]);
 	}
 
+	//Compute the average value of an array of integers except the largest and smallest values
+	private static void arrayAvgExceptLargestSmallest() { //Bug in summation, work on it
+		int myArray[] = {98,26,288,78,11,99,500,6};
+		int largest = myArray[0];
+		int smallest = myArray[0];
+		int avg = 0;
+		int sum = 0;
+		for(int i = 1; i < myArray.length; i++) {
+			if(largest < myArray[i]) {
+				largest = myArray[i];
+			}
+			if(smallest > myArray[i]) {
+				smallest = myArray[i];
+			}
+			sum = sum + myArray[i];
+			avg = sum / myArray.length;
+		}
+		System.out.println("The sum is " + sum);
+	}
+
+	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
+	private static int smallestMissingInteger(int a[]) {
+		int v1, v2;
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] <= 0 || a[i] > a.length) {
+				continue;
+			} else {
+				v1 = a[i];
+				while(a[v1 - 1] != v1) {
+					v2 = a[v1 - 1];
+					a[v1 - 1] = v1;
+					v1 = v2;
+					if(v1 <= 0 || v1 > a.length) {
+						break;
+					}
+				}
+			}
+		}
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] != i + 1) {
+				return i + 1;
+			}
+		}
+		return a.length + 1;
+	}
+	
 	//Find the duplicate values of an array of integer values
 	private static boolean duplicateElements() {
 		int myArray[] = {98,10,13,66,26,78,11,99}; 
