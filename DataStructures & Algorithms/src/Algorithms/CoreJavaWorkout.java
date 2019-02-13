@@ -529,7 +529,7 @@ public class CoreJavaWorkout {
 		System.out.println("Max no of the array is "+a[i]);
 	}
 
-	//Find the largest and smallest elements of an array
+	//Find the largest and smallest elements of an array and also the difference between them
 	private static void findMinMaxElements() {
 		int myArray[] = {98,26,288,78,11,99,500,6};
 		int difference;
@@ -537,58 +537,70 @@ public class CoreJavaWorkout {
 		int max = Arrays.stream(myArray).max().getAsInt();
 		int min = Arrays.stream(myArray).min().getAsInt();
 		//Using iteration/For loop
-		int mini = myArray[0];
-		int maxi = myArray[0];
+		int smallest = myArray[0];
+		int largest = myArray[0];
 		for(int i = 1; i < myArray.length; i++) {
-			if(mini > myArray[i]) {
-				mini = myArray[i];
+			if(smallest > myArray[i]) {
+				smallest = myArray[i];
 			}
-			if(maxi < myArray[i]) {
-				maxi = myArray[i];
+			if(largest < myArray[i]) {
+				largest = myArray[i];
 			}
 		}
 	 	System.out.println("Min is " + min + " max is " + max);
 		difference = max - min;
 		System.out.println("Difference of largest & smallest in the array " + Arrays.toString(myArray) + " is " + difference);
 	}
-
+	
 	//Compute the average value of an array of integers except the largest and smallest values
-	private static void avgOfArray() {
+	private static void arrayAvgExceptLargestSmallest() { //Bug in summation, work on it
 		int myArray[] = {98,26,288,78,11,99,500,6};
-		int max = myArray[0];
-		int min = myArray[0];
+		int largest = myArray[0];
+		int smallest = myArray[0];
 		int avg = 0;
 		int sum = 0;
 		for(int i = 1; i < myArray.length; i++) {
-			if(max < myArray[i]) {
-				max = myArray[i];
+			if(largest < myArray[i]) {
+				largest = myArray[i];
 			}
-			if(min > myArray[i]) {
-				min = myArray[i];
+			if(smallest > myArray[i]) {
+				smallest = myArray[i];
 			}
+			sum = sum + myArray[i];
 		}
+		System.out.println("The sum is " + sum);
 	}
 
 	//Find the second largest element in an array
 	private static void secondLargest() {
 		int myArray[] = {98,13,66,26,28,78,11,99};
-		int max = myArray[0];
-		int secondMax = myArray[0];
+		int firstLargest = myArray[0];
+		int secondLargest = myArray[0];
 		for(int i = 1; i < myArray.length; i++) {
-			if(max < myArray[i]) {
-				secondMax = max;
-				max = myArray[i];
-			} else if(myArray[i] > secondMax) {
-				secondMax = myArray[i];
+			if(firstLargest < myArray[i]) {
+				secondLargest = firstLargest;
+				firstLargest = myArray[i];
+			} else if(myArray[i] > secondLargest) {
+				secondLargest = myArray[i];
 			}
 		}
-		System.out.println(secondMax);
+		System.out.println("The second largest element in the array is " + secondLargest);
 	}
 
 	//Find the second smallest element in an array
 	private static void secondSmallest() {
-		int array[] = {23,54,85,37,16,97};
-		
+		int array[] = {98,13,66,26,28,78,11,99};
+		int firstSmallest = array[0];
+		int secondSmallest = array[0];
+		for(int i = 1; i < array.length; i++) {
+			if(firstSmallest > array[i]) {
+				secondSmallest = firstSmallest;
+				firstSmallest = array[i];
+			} else if(array[i] < secondSmallest) {
+				secondSmallest = array[i];
+			}
+		}
+		System.out.println("The second largest element in the array is " + secondSmallest);
 	}
 
 	private static void secondSmallest2 () {
@@ -958,12 +970,12 @@ public class CoreJavaWorkout {
 	}	
 	
 	public static void main(String[] args) {
-		List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
+		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
 		System.out.println("Dictionary words are: " + dict);
         System.out.println("String is: " + input);
         stringSplit(dict, input, "");
-        
+        */
 		int A[]={8,5,7,6,23,9,1,3,10,4,2,1,2,3,4};
 		/*
 		findAllNonRepeat(A);
@@ -1013,10 +1025,11 @@ public class CoreJavaWorkout {
 		commonIntegerElements();
 		commonStringElements();*/
 		//findMinMaxElements();
+		arrayAvgExceptLargestSmallest();
 		//removeDuplicates();
 		//countEvenOdds();
 		//majorityDuplicateElement();
 		//removeDuplicates();
-		System.out.println(longestSubStringSequence());
+		//System.out.println(longestSubStringSequence());
 	}
 }
