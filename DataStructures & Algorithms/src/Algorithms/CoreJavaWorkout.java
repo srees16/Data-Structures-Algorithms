@@ -606,6 +606,29 @@ public class CoreJavaWorkout {
 		System.out.println("Max is " + myArray[myArray.length-2] + " min is " + myArray[0]);
 	}
 
+	//Find the first, second and third largest numbers of the array
+	private static void findThirdLargest() {
+		int array[] = {43,33,96,21,85,34,16};
+		int firstLargest = array[0];
+		int secondLargest = array[0];
+		int thirdLargest = array[0];
+		for(int i = 1; i < array.length; i++) {
+			if(firstLargest < array[i]) {
+				thirdLargest = secondLargest;
+				secondLargest = firstLargest;
+				firstLargest = array[i];
+			} else if(secondLargest < array[i]) {
+				thirdLargest = secondLargest;
+				secondLargest = array[i];
+			} else if(thirdLargest < array[i]) {
+				thirdLargest = array[i];
+			}
+		}
+		System.out.println("First largest is " + firstLargest);
+		System.out.println("Second largest is " + secondLargest);
+		System.out.println("Third largest is " + thirdLargest);
+	}
+	
 	//Find the duplicate values of an array of integer values
 	private static boolean duplicateElements() {
 		int myArray[] = {98,10,13,66,26,78,11,99}; 
