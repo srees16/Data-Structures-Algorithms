@@ -253,7 +253,44 @@ public class CoreJavaWorkout {
 		}
 		System.out.println(Arrays.toString(elements));
 	}
-
+	
+	//Find the largest distance between two neighboring numbers in an array
+	private static void largestDistanceOfArrayNeighbours() { //Bug if there is larger no at the end of index
+		int array[] = {43,33,96,21,85,34,16,1,62};
+		int largestDistance = 0;
+		for(int i = 0; i < array.length; i++) {
+			for(int j = i + 1; j < array.length; j++) {
+				if(array[i] - array[j] > largestDistance) {
+					largestDistance = array[i] - array[j];
+				}
+			}
+		}
+		System.out.print("Largest distance is ");
+		convertNegativeToPositive(largestDistance);
+	}
+	
+	private static void convertNegativeToPositive(int negativeNo) {
+		int marker = -1;
+		if(negativeNo < 0 )
+			negativeNo = negativeNo * marker;
+		System.out.println(negativeNo);
+	}
+	
+	//Find the smallest distance between two neighboring numbers in an array
+	private static void smallestDistanceOfArrayNeighbours() { //Bug if there is smaller no at the end of index
+		int array[] = {43,33,96,21,85,34,16,1};
+		int smallestDistance = 0;
+		for(int i = 0; i < array.length; i++) {
+			for(int j = i + 1; j < array.length; j++) {
+				if(array[j] - array[i] < smallestDistance) {
+					smallestDistance = array[i] - array[j];
+				}
+			}
+		}
+		System.out.print("Smallest distance is ");
+		convertNegativeToPositive(smallestDistance);
+	}
+	
 	//Check if leap year. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
 	private static void isLeapYear(int year) {
 		boolean isLeap=false;
@@ -722,6 +759,24 @@ public class CoreJavaWorkout {
 		}
 	}
 
+	//Check if two phrases are anagrams of each other
+	private static boolean isAnagram() {
+		String s1 = "Desperation";
+		String s2 = "A Rope Ends It";
+		if(s1.length() != s2.length()) {
+			return false;
+		}
+		s1 = sortCharacters(s1);
+		s2 = sortCharacters(s2);
+		return s1.equals(s2);
+	}
+	
+	private static String sortCharacters(String phrase) {
+		char [] charArray = phrase.toLowerCase().toCharArray();
+		Arrays.sort(charArray);
+		return String.valueOf(charArray);
+	}
+
 	/*
 	Find the length of the longest consecutive elements sequence from an unsorted array of integers.
 	Ex: [49, 1, 3, 200, 2, 4, 70, 5]
@@ -1041,6 +1096,9 @@ public class CoreJavaWorkout {
 		//majorityDuplicateElement();
 		//removeDuplicates();
 		//System.out.println(longestSubStringSequence());
-		findTopThreeLargest();
+		//largestDistanceOfArrayNeighbours();
+		//smallestDistanceOfArrayNeighbours();
+		//findTopThreeLargest();
+		System.out.println(isAnagram());
 	}
 }
