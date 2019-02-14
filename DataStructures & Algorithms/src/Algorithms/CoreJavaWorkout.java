@@ -606,6 +606,29 @@ public class CoreJavaWorkout {
 		System.out.println("Max is " + myArray[myArray.length-2] + " min is " + myArray[0]);
 	}
 
+	//Find the first, second and third largest numbers of the array
+	private static void findTopThreeLargest() {
+		int array[] = {43,33,96,21,85,34,16};
+		int firstLargest = array[0];
+		int secondLargest = array[0];
+		int thirdLargest = array[0];
+		for(int i = 1; i < array.length; i++) {
+			if(firstLargest < array[i]) {
+				thirdLargest = secondLargest;
+				secondLargest = firstLargest;
+				firstLargest = array[i];
+			} else if(secondLargest < array[i]) {
+				thirdLargest = secondLargest;
+				secondLargest = array[i];
+			} else if(thirdLargest < array[i]) {
+				thirdLargest = array[i];
+			}
+		}
+		System.out.println("First largest is " + firstLargest);
+		System.out.println("Second largest is " + secondLargest);
+		System.out.println("Third largest is " + thirdLargest);
+	}
+
 	//Find the duplicate values of an array of integer values
 	private static boolean duplicateElements() {
 		int myArray[] = {98,10,13,66,26,78,11,99}; 
@@ -958,11 +981,11 @@ public class CoreJavaWorkout {
 	}	
 	
 	public static void main(String[] args) {
-		List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
+		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
 		System.out.println("Dictionary words are: " + dict);
         System.out.println("String is: " + input);
-        stringSplit(dict, input, "");
+        stringSplit(dict, input, "");*/
         
 		int A[]={8,5,7,6,23,9,1,3,10,4,2,1,2,3,4};
 		/*
@@ -1017,6 +1040,7 @@ public class CoreJavaWorkout {
 		//countEvenOdds();
 		//majorityDuplicateElement();
 		//removeDuplicates();
-		System.out.println(longestSubStringSequence());
+		//System.out.println(longestSubStringSequence());
+		findTopThreeLargest();
 	}
 }
