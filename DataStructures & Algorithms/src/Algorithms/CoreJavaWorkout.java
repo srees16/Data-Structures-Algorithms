@@ -54,7 +54,6 @@ import org.junit.Test;
 @SuppressWarnings("unused")
 public class CoreJavaWorkout {
 
-
 	//Find Sum of Natural Numbers
 	private static int sumOfNaturalNos(int numTill) {
 		int a = 0;
@@ -75,7 +74,6 @@ public class CoreJavaWorkout {
 		}
 		System.out.println("Multiples of odd numbers is "+f);
 	}
-
 
 	//Check if a number is Positive or Negative
 	private static void positiveOrNegative(int number) {
@@ -223,6 +221,52 @@ public class CoreJavaWorkout {
 		System.out.println();
 	}
 	
+	
+	//Find the duplicate values of an array of integer values
+	private static boolean duplicateElements() {
+		int myArray[] = {98,10,13,66,26,78,11,99}; 
+		for(int i = 0; i < myArray.length; i++) {
+			for(int j = i+1; j < myArray.length; j++) {
+				if(myArray[i] == myArray[j]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	//Find common elements between two arrays (integers)
+	private static void commonIntegerElements() {
+		int x[] = {98,10,13,66,26,78,11,99};
+		int y[] = {43,78,22,99,22};
+		for(int i = 0; i < x.length; i++) {
+			for(int j = 0; j < y.length; j++) {
+				if(x[i] == y[j]) {
+					System.out.println(x[i]);
+				}
+			}
+		}
+	}
+
+	/*Remove duplicate elements from an array and return the new length of the array.
+	After removing the duplicate elements the program should return 4 as the new length of the array*/
+	private static void removeDuplicates() {
+		boolean isDuplicate = false;
+		int A[] = {20, 20, 30, 40, 50, 50};
+		for(int i = 0; i < A.length-1; i++) {
+			for(int j = i+1; j < A.length-1; ++j) {
+				if(A[i] == A[j]) {
+					isDuplicate = true;
+				}
+			}
+			if(isDuplicate) {
+				A[i] = A[i + 1];
+				arrayResize(A);
+			}
+		}
+		System.out.println(Arrays.toString(A));
+	}
+	
 	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
 		HashSet<Integer> hset = new HashSet<>();
 		Arrays.sort(a);
@@ -287,84 +331,7 @@ public class CoreJavaWorkout {
 		}
 		System.out.println(Arrays.toString(elements));
 	}
-	
-	//Find the largest distance between two neighboring numbers in an array
-	private static void largestDistanceOfArrayNeighbours() { //Bug if there is larger no at the end of index
-		int array[] = {43,33,96,21,85,34,16,1,62};
-		int largestDistance = 0;
-		for(int i = 0; i < array.length; i++) {
-			for(int j = i + 1; j < array.length; j++) {
-				if(array[i] - array[j] > largestDistance) {
-					largestDistance = array[i] - array[j];
-				}
-			}
-		}
-		System.out.print("Largest distance is ");
-		convertNegativeToPositive(largestDistance);
-	}
-	
-	private static void convertNegativeToPositive(int negativeNo) {
-		int marker = -1;
-		if(negativeNo < 0 )
-			negativeNo = negativeNo * marker;
-		System.out.println(negativeNo);
-	}
-	
-	//Find the smallest distance between two neighboring numbers in an array
-	private static void smallestDistanceOfArrayNeighbours() { //Bug if there is smaller no at the end of index
-		int array[] = {43,33,96,21,85,34,16,1};
-		int smallestDistance = 0;
-		for(int i = 0; i < array.length; i++) {
-			for(int j = i + 1; j < array.length; j++) {
-				if(array[j] - array[i] < smallestDistance) {
-					smallestDistance = array[i] - array[j];
-				}
-			}
-		}
-		System.out.print("Smallest distance is ");
-		convertNegativeToPositive(smallestDistance);
-	}
-	
-	//Check if leap year. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
-	private static void isLeapYear(int year) {
-		boolean isLeap=false;
-		if(year % 4 == 0) {
-			if(year % 100 == 0) {
-				if(year % 400 == 0)
-					isLeap = true;
-				else
-					isLeap = false;
-			} else {
-				isLeap = true;
-			}
-		} else {
-			isLeap = false;
-		}
-		if (isLeap == true) {
-			System.out.println("Its a leap year!");
-		} else {
-			System.out.println("Its not a leap year!");
-		}
-	}
 
-	//Find ASCII code of a character
-	private static void findAsciiOfCharacter(char ch) {
-		char c = ch;
-		int asciiCode = c;
-		int asciiValue = (int)c;
-		System.out.println("ASCII code is " + asciiCode + " and ASCII value is " + asciiValue);
-	}
-
-	/*//Get local IP address
-	private static void getIP() {
-	 	try {
-	  		InetAddress myIp = InetAddress.getLocalHost();
-	 	} catch (UnknownHostException e) {
-	  		e.printStackTrace();
-	 	}
-	 System.out.println("IP Address is " + myIp.getHostAddress());
-	}*/
-	
 	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
 	private static void numReverseWhile(int number) {
 		int n = 654;  //Prefer this bcoz its more intuitive
@@ -543,32 +510,6 @@ public class CoreJavaWorkout {
 		}
 	}
 
-	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
-	private static int smallestMissingInteger(int a[]) {
-		int v1, v2;
-		for(int i = 0; i < a.length; i++) {
-			if(a[i] <= 0 || a[i] > a.length) {
-				continue;
-			} else {
-				v1 = a[i];
-				while(a[v1-1] != v1) {
-					v2 = a[v1-1];
-					a[v1-1] = v1;
-					v1 = v2;
-					if(v1 <= 0 || v1 > a.length) {
-						break;
-					}
-				}
-			}
-		}
-		for(int i = 0; i < a.length; i++) {
-			if(a[i] != i + 1) {
-				return i + 1;
-			}
-		}
-		return a.length + 1;
-	}
-	
 	//Find max no in array
 	private static void maxNo(int a[]) {
 		int temp, i;
@@ -580,7 +521,44 @@ public class CoreJavaWorkout {
 		}
 		System.out.println("Max no of the array is " + a[i]);
 	}
-
+	
+	//Find the largest distance between two neighboring numbers in an array
+	private static void largestDistanceOfArrayNeighbours() { //Bug if there is larger no at the end of index
+		int array[] = {43,33,96,21,85,34,16,1,62};
+		int largestDistance = 0;
+		for(int i = 0; i < array.length; i++) {
+			for(int j = i + 1; j < array.length; j++) {
+				if(array[i] - array[j] > largestDistance) {
+					largestDistance = array[i] - array[j];
+				}
+			}
+		}
+		System.out.print("Largest distance is ");
+		convertNegativeToPositive(largestDistance);
+	}
+	
+	private static void convertNegativeToPositive(int negativeNo) {
+		int marker = -1;
+		if(negativeNo < 0 )
+			negativeNo = negativeNo * marker;
+		System.out.println(negativeNo);
+	}
+	
+	//Find the smallest distance between two neighboring numbers in an array
+	private static void smallestDistanceOfArrayNeighbours() { //Bug if there is smaller no at the end of index
+		int array[] = {43,33,96,21,85,34,16,1};
+		int smallestDistance = 0;
+		for(int i = 0; i < array.length; i++) {
+			for(int j = i + 1; j < array.length; j++) {
+				if(array[j] - array[i] < smallestDistance) {
+					smallestDistance = array[i] - array[j];
+				}
+			}
+		}
+		System.out.print("Smallest distance is ");
+		convertNegativeToPositive(smallestDistance);
+	}
+	
 	//Find the largest and smallest elements of an array
 	private static void findMinMaxElements() {
 		int myArray[] = {98,26,288,78,11,99,500,6};
@@ -681,49 +659,35 @@ public class CoreJavaWorkout {
 		System.out.println("Third largest is " + thirdLargest);
 	}
 
-	//Find the duplicate values of an array of integer values
-	private static boolean duplicateElements() {
-		int myArray[] = {98,10,13,66,26,78,11,99}; 
-		for(int i = 0; i < myArray.length; i++) {
-			for(int j = i+1; j < myArray.length; j++) {
-				if(myArray[i] == myArray[j]) {
-					return true;
-				}
-			}
-		}
-		return false;
+	//Find the first, second and third largest numbers of the array
+	private static void findTopThreeSmallest() {
+		
 	}
-
-	//Find common elements between two arrays (integers)
-	private static void commonIntegerElements() {
-		int x[] = {98,10,13,66,26,78,11,99};
-		int y[] = {43,78,22,99,22};
-		for(int i = 0; i < x.length; i++) {
-			for(int j = 0; j < y.length; j++) {
-				if(x[i] == y[j]) {
-					System.out.println(x[i]);
+	
+	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
+	private static int smallestMissingInteger(int a[]) {
+		int v1, v2;
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] <= 0 || a[i] > a.length) {
+				continue;
+			} else {
+				v1 = a[i];
+				while(a[v1-1] != v1) {
+					v2 = a[v1-1];
+					a[v1-1] = v1;
+					v1 = v2;
+					if(v1 <= 0 || v1 > a.length) {
+						break;
+					}
 				}
 			}
 		}
-	}
-
-	/*Remove duplicate elements from an array and return the new length of the array.
-	After removing the duplicate elements the program should return 4 as the new length of the array*/
-	private static void removeDuplicates() {
-		boolean isDuplicate = false;
-		int A[] = {20, 20, 30, 40, 50, 50};
-		for(int i = 0; i < A.length-1; i++) {
-			for(int j = i+1; j < A.length-1; ++j) {
-				if(A[i] == A[j]) {
-					isDuplicate = true;
-				}
-			}
-			if(isDuplicate) {
-				A[i] = A[i + 1];
-				arrayResize(A);
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] != i + 1) {
+				return i + 1;
 			}
 		}
-		System.out.println(Arrays.toString(A));
+		return a.length + 1;
 	}
 	
 	private static int arrayResize(int A[]) {
@@ -864,7 +828,47 @@ public class CoreJavaWorkout {
 			System.out.println(findNumber + " item not found");
 		}
 	}
+	
+	//Check if leap year. If the year is evenly divisible by 4 and 100 and 400, then it is a leap year */ 
+	private static void isLeapYear(int year) {
+		boolean isLeap=false;
+		if(year % 4 == 0) {
+			if(year % 100 == 0) {
+				if(year % 400 == 0)
+					isLeap = true;
+				else
+					isLeap = false;
+			} else {
+				isLeap = true;
+			}
+		} else {
+			isLeap = false;
+		}
+		if (isLeap == true) {
+			System.out.println("Its a leap year!");
+		} else {
+			System.out.println("Its not a leap year!");
+		}
+	}
 
+	//Find ASCII code of a character
+	private static void findAsciiOfCharacter(char ch) {
+		char c = ch;
+		int asciiCode = c;
+		int asciiValue = (int)c;
+		System.out.println("ASCII code is " + asciiCode + " and ASCII value is " + asciiValue);
+	}
+
+	/*//Get local IP address
+	private static void getIP() {
+	 	try {
+	  		InetAddress myIp = InetAddress.getLocalHost();
+	 	} catch (UnknownHostException e) {
+	  		e.printStackTrace();
+	 	}
+	 System.out.println("IP Address is " + myIp.getHostAddress());
+	}*/
+	
 	/*Fibonacci Series using For & While loops*/
 
 	//Using For loop
