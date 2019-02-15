@@ -51,6 +51,7 @@ import java.util.Stack;
 
 import org.junit.Test;
 
+@SuppressWarnings("unused")
 public class CoreJavaWorkout {
 
 
