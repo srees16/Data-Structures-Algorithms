@@ -224,26 +224,26 @@ public class CoreJavaWorkout {
 	}
 	
 	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
-		HashSet<Integer> hset=new HashSet<>();
+		HashSet<Integer> hset = new HashSet<>();
 		Arrays.sort(a);
-		System.out.println("Pair of given no "+no+" is ");
-		for(int i=0;i<a.length-1;i++) {
-			int temp=no-a[i];
-			if(temp>=0 && hset.contains(temp)) {
-				System.out.println(temp+", "+a[i]);
+		System.out.println("Pair of given no " + no + " is ");
+		for(int i = 0; i < a.length-1; i++) {
+			int temp = no - a[i];
+			if(temp >= 0 && hset.contains(temp)) {
+				System.out.println(temp + ", " + a[i]);
 			}
 			hset.add(a[i]);
 		}
 	}
 	
 	private static void arrayOfInput(int a[],int no,int arrayLength) {
-		HashSet<Integer> hset=new HashSet<>();
+		HashSet<Integer> hset = new HashSet<>();
 		Arrays.sort(a);
-		System.out.println("Pair of given no "+no+" is ");
-		for(int i=0;i<a.length-1;i++) {
-			int temp=no-a[i];
-			if(temp>=0&&hset.contains(temp)) {
-				System.out.println(a[i]+", "+temp);
+		System.out.println("Pair of given no " + no + " is ");
+		for(int i = 0; i < a.length-1; i++) {
+			int temp = no - a[i];
+			if(temp >= 0 && hset.contains(temp)) {
+				System.out.println(a[i] + ", " + temp);
 			}
 			hset.add(a[i]);
 		}
@@ -417,7 +417,7 @@ public class CoreJavaWorkout {
 		}
 	}
 	
-	//Reverse the words and also letters in a sentence
+	//Reverse the words along with the letters in a sentence
 	private static void sentenceReverse(String sentence) {
 		String words[] = sentence.split(" ");
 		String reverseSentence = "";
@@ -518,7 +518,7 @@ public class CoreJavaWorkout {
 		if(n <= 1) {
 			return 1;
 		}
-		return factorialOf(n-1) * n;
+		return n * factorialOf(n-1);
 	}
 
 	//Find Largest of three numbers
@@ -545,40 +545,40 @@ public class CoreJavaWorkout {
 
 	//Smallest missing positive no. Ref: https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array-set-2
 	private static int smallestMissingInteger(int a[]) {
-		int v1,v2;
-		for(int i=0;i<a.length;i++) {
-			if(a[i]<=0||a[i]>a.length) {
+		int v1, v2;
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] <= 0 || a[i] > a.length) {
 				continue;
 			} else {
-				v1=a[i];
-				while(a[v1-1]!=v1) {
-					v2=a[v1-1];
-					a[v1-1]=v1;
-					v1=v2;
-					if(v1<=0||v1>a.length) {
+				v1 = a[i];
+				while(a[v1-1] != v1) {
+					v2 = a[v1-1];
+					a[v1-1] = v1;
+					v1 = v2;
+					if(v1 <= 0 || v1 > a.length) {
 						break;
 					}
 				}
 			}
 		}
-		for(int i=0;i<a.length;i++) {
-			if(a[i]!=i+1) {
-				return i+1;
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] != i + 1) {
+				return i + 1;
 			}
 		}
-		return a.length+1;
+		return a.length + 1;
 	}
 	
 	//Find max no in array
 	private static void maxNo(int a[]) {
-		int temp,i;
-		for(i=0;i<a.length-1;i++) {
-			temp=i;
-			if(temp<i) {
+		int temp, i;
+		for(i = 0; i < a.length-1; i++) {
+			temp = i;
+			if(temp < i) {
 				i++;
 			}
 		}
-		System.out.println("Max no of the array is "+a[i]);
+		System.out.println("Max no of the array is " + a[i]);
 	}
 
 	//Find the largest and smallest elements of an array
@@ -645,13 +645,13 @@ public class CoreJavaWorkout {
 
 	private static void secondSmallest2 () {
 		int myArray[] = {98,13,66,26,28,78,11,99};
-		for(int i=0;i<myArray.length;i++){
+		for(int i = 0; i < myArray.length; i++){
 			int elm = myArray[i];
-			for(int j=0;j<myArray.length;j++){
-				if(elm>myArray[j]){
+			for(int j = 0;j < myArray.length; j++){
+				if(elm > myArray[j]){
 					int a = myArray[i];
 					myArray[i] = myArray[j];
-					myArray[j]=a;
+					myArray[j] = a;
 				}
 			}
 		}
@@ -719,7 +719,7 @@ public class CoreJavaWorkout {
 				}
 			}
 			if(isDuplicate) {
-				A[i] = A[i+1];
+				A[i] = A[i + 1];
 				arrayResize(A);
 			}
 		}
@@ -823,10 +823,10 @@ public class CoreJavaWorkout {
 				.getAsDouble();
 	}
 
-	private static void twoDimArray(int x,int y) {
-		for(int i=0;i<x;i++) {
-			int a[]=new int[i];
-			for(int j=0;j<y;j++) {
+	private static void twoDimArray(int x, int y) {
+		for(int i = 0; i < x; i++) {
+			int a[] = new int[i];
+			for(int j = 0; j < y; j++) {
 				//a[i]=new int[j];
 			}
 		}
@@ -995,8 +995,8 @@ public class CoreJavaWorkout {
 			if(index < x.length)
 				k[index] = x[index];
 			else{
-				k[index]=y[count];
-				count+=1;
+				k[index] = y[count];
+				count += 1;
 			}
 		}
 		System.out.println(Arrays.toString(k));
