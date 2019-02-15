@@ -1,7 +1,7 @@
 package Algorithms;
 
 /*
-Exercises ref from:
+Exercises referenced from:
 https://beginnersbook.com/2017/09/java-examples
 https://www.w3resource.com/java-exercises/array/index.php
 http://code-exercises.com/
