@@ -189,6 +189,39 @@ public class CoreJavaWorkout {
 		return A;
 	}
 	
+	//Find duplicate/repeat Characters in a String
+	private static void findRepeatCharacters(String word) {
+		Map<Character, Integer> characterCountMap = new HashMap<>();
+		char characters[] = word.toCharArray();
+		for(char ch : characters) {
+			if(characterCountMap.containsKey(ch)) {
+				characterCountMap.put(ch, characterCountMap.get(ch)+1);
+			} else {
+				characterCountMap.put(ch, 1);
+			}
+		}
+		Set<Character> keys = characterCountMap.keySet();
+		for(Character ch : keys) {
+			if(characterCountMap.get(ch) > 1) {
+				System.out.println("Character '" + ch + "' repeated " + characterCountMap.get(ch) + " times.");
+			}
+		}
+	}
+
+	//Find the element that is repeated a majority no of times from an given array of integers containing duplicates
+	private static void majorityDuplicateElement() {
+		int x[] = {98,10,13,66,10,78,11,99,98,11,13,99,98,10,63};
+		int countDuplicate = 0;
+		for(int i = 0; i < x.length-1; i++) {
+			for(int j = i+1; j < x.length-1; j++) {
+				if(x[i] == x[j]) {
+					countDuplicate++;
+				}
+			}
+		}
+		System.out.println();
+	}
+	
 	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
 		HashSet<Integer> hset=new HashSet<>();
 		Arrays.sort(a);
@@ -330,25 +363,6 @@ public class CoreJavaWorkout {
 	 	}
 	 System.out.println("IP Address is " + myIp.getHostAddress());
 	}*/
-
-	//Find duplicate/repeat Characters in a String
-	private static void findRepeatCharacters(String word) {
-		Map<Character, Integer> characterCountMap = new HashMap<>();
-		char characters[] = word.toCharArray();
-		for(char ch : characters) {
-			if(characterCountMap.containsKey(ch)) {
-				characterCountMap.put(ch, characterCountMap.get(ch)+1);
-			} else {
-				characterCountMap.put(ch, 1);
-			}
-		}
-		Set<Character> keys = characterCountMap.keySet();
-		for(Character ch : keys) {
-			if(characterCountMap.get(ch) > 1) {
-				System.out.println("Character '" + ch + "' repeated " + characterCountMap.get(ch) + " times.");
-			}
-		}
-	}
 	
 	//Reverse a number using for, while loop and recursion. For 12345, output should be 54321
 	private static void numReverseWhile(int number) {
@@ -720,20 +734,6 @@ public class CoreJavaWorkout {
 			}
 		}
 		return index;
-	}
-
-	//Find the element that is repeated a majority no of times from an given array of integers containing duplicates
-	private static void majorityDuplicateElement() {
-		int x[] = {98,10,13,66,10,78,11,99,98,11,13,99,98,10,63};
-		int countDuplicate = 0;
-		for(int i = 0; i < x.length-1; i++) {
-			for(int j = i+1; j < x.length-1; j++) {
-				if(x[i] == x[j]) {
-					countDuplicate++;
-				}
-			}
-		}
-		System.out.println();
 	}
 	
 	//Convert a char array to a string
