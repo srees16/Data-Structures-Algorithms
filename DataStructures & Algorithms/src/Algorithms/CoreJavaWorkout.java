@@ -1105,5 +1105,6 @@ public class CoreJavaWorkout {
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
 		System.out.println(isAnagram());
+		//Tester
 	}
 }
