@@ -1067,7 +1067,6 @@ public class CoreJavaWorkout {
 		int numberB = 220;
 		int sumOfProperDivisorsOfNumberA = 0;
 		int sumOfProperDivisorsOfNumberB = 0;
-		int noOfProperDivisors;
 		for(int i = 1; i < numberA; i++) {
 			if(numberA % i == 0) {
 				sumOfProperDivisorsOfNumberA += i;
