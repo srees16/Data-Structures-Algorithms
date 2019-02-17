@@ -1043,6 +1043,48 @@ public class CoreJavaWorkout {
 		}
 	}
 	
+	//Find the proper divisors, no of proper divisors and their sum for an input number
+	private static void properDivisors() {
+		int N = 284;
+		int counter = 0;
+		int sumOfDivisors = 0;
+		System.out.print("Common divisors of " + N + " are ");
+		for(int i = 1; i < N; i++) {
+			if(N % i == 0) {
+				counter++;
+				sumOfDivisors += i;
+				System.out.print(i + " ");
+			}
+		}
+		System.out.println();
+		System.out.println("Number of proper divisors are " + counter);
+		System.out.println("Sum of divisors is " + sumOfDivisors);
+	}
+	
+	//Amicable numbers: Euler 21
+	private static void amicableNumbers() {
+		int numberA = 284;
+		int numberB = 220;
+		int sumOfProperDivisorsOfNumberA = 0;
+		int sumOfProperDivisorsOfNumberB = 0;
+		int noOfProperDivisors;
+		for(int i = 1; i < numberA; i++) {
+			if(numberA % i == 0) {
+				sumOfProperDivisorsOfNumberA += i;
+			}
+		}
+		for(int i = 1; i < numberB; i++) {
+			if(numberB % i == 0) {
+				sumOfProperDivisorsOfNumberB += i;
+			}
+		}
+		if(sumOfProperDivisorsOfNumberA == numberB && sumOfProperDivisorsOfNumberB == numberA) {
+			System.out.println("The numbers "+ numberA + " and " + numberB + " are Amicable");
+		} else {
+			System.out.println("The numbers "+ numberA + " and " + numberB + " are NOT Amicable");
+		}
+	}
+	
 	//Distinct Powers: Euler 29
 	private static void distinctPowersCount() {
 		int N = 5;
@@ -1120,6 +1162,8 @@ public class CoreJavaWorkout {
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
 		//System.out.println(isAnagram());
-		distinctPowersCount();
+		//distinctPowersCount();
+		//properDivisors();
+		amicableNumbers();
 	}
 }
