@@ -4,7 +4,8 @@ package Algorithms;
 Exercises referenced from:
 https://beginnersbook.com/2017/09/java-examples
 https://www.w3resource.com/java-exercises/array/index.php
-http://code-exercises.com/
+http://code-exercises.com
+https://projecteuler.net/archives
 
 Also refer for algorithms and other resourceful Java tutorials: https://github.com/eugenp/tutorials
 
