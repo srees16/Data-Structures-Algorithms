@@ -1,5 +1,7 @@
 package Algorithms;
 
+import java.math.BigInteger;
+
 /*
 Exercises referenced from:
 https://beginnersbook.com/2017/09/java-examples
@@ -1039,7 +1041,19 @@ public class CoreJavaWorkout {
 				}
 			}
 		}
-	}	
+	}
+	
+	//Distinct Powers: Euler 29
+	private static void distinctPowersCount() {
+		int N = 5;
+		Set<BigInteger> distinctPowers = new HashSet<>();
+		for(int i = 2; i <= N; i++) {
+			for(int j = 2; j <= N; j++) {
+				distinctPowers.add(BigInteger.valueOf(i).pow(j));
+			}
+		}
+		System.out.println(distinctPowers.size());
+	}
 	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
@@ -1105,6 +1119,7 @@ public class CoreJavaWorkout {
 		//largestDistanceOfArrayNeighbours();
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
-		System.out.println(isAnagram());
+		//System.out.println(isAnagram());
+		distinctPowersCount();
 	}
 }
