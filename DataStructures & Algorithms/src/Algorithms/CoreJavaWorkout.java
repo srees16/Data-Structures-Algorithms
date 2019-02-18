@@ -1111,7 +1111,7 @@ public class CoreJavaWorkout {
 	/*https://javaconceptoftheday.com/how-to-find-continuous-sub-array-whose-sum-is-equal-to-given-number*/
 	private static void subArrayEqualTo1() { //For repo	
 		int inputNumber = 60;
-		int inputArray[] = {5,10,15,20,6,4,10,20,30};
+		int inputArray[] = {5,10,15,20,6,4,16,8,30};
 		int sum = inputArray[0];
 		int start = 0;
 		System.out.println("Continuous sub array of " + Arrays.toString(inputArray) + " whose sum is " + inputNumber + " is " );
@@ -1134,7 +1134,7 @@ public class CoreJavaWorkout {
 	/*https://javaconceptoftheday.com/how-to-find-continuous-sub-array-whose-sum-is-equal-to-given-number*/
 	private static void subArrayEqualTo2() {
 		int inputNumber = 60;
-		int inputArray[] = {5,10,15,20,6,4,10,20,30};
+		int inputArray[] = {5,10,15,20,6,4,16,8,30};
 		int sum = 0;
 		System.out.println("Continuous sub array of " + Arrays.toString(inputArray) + " whose sum is " + inputNumber + " is " );
 		for(int i = 0; i < inputArray.length; i++) {
