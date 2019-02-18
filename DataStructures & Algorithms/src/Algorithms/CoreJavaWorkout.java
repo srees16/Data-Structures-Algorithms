@@ -256,7 +256,7 @@ public class CoreJavaWorkout {
 	}
 
 	/*Remove duplicate elements from an array and return the new length of the array.
-	After removing the duplicate elements the program should return 4 as the new length of the array*/
+	After removing the duplicate elements the program should return new length of the array*/
 	private static void removeDuplicates() {
 		boolean isDuplicate = false;
 		int A[] = {20, 20, 30, 40, 50, 50};
@@ -1107,6 +1107,56 @@ public class CoreJavaWorkout {
 			System.out.println(aNumberLessThanGiven);
 	}
 	
+	//Find continuous sub array whose sum is equal to given number, approach 1
+	/*https://javaconceptoftheday.com/how-to-find-continuous-sub-array-whose-sum-is-equal-to-given-number*/
+	private static void subArrayEqualTo1() { //For repo	
+		int inputNumber = 60;
+		int inputArray[] = {5,10,15,20,6,4,10,20,30};
+		int sum = inputArray[0];
+		int start = 0;
+		System.out.println("Continuous sub array of " + Arrays.toString(inputArray) + " whose sum is " + inputNumber + " is " );
+		for(int i = 1; i < inputArray.length; i++) {
+			sum += inputArray[i];
+			while(sum > inputNumber && start <= i - 1) {
+				sum -= inputArray[start];
+				start++;
+			}
+			if(sum == inputNumber) {
+				for(int j = start; j <= i; j++) {
+					System.out.print(inputArray[j] + ", ");
+				}
+				System.out.println();
+			}
+		}
+	}
+		
+	//Find continuous sub array whose sum is equal to given number, approach 2
+	/*https://javaconceptoftheday.com/how-to-find-continuous-sub-array-whose-sum-is-equal-to-given-number*/
+	private static void subArrayEqualTo2() {
+		int inputNumber = 60;
+		int inputArray[] = {5,10,15,20,6,4,10,20,30};
+		int sum = 0;
+		System.out.println("Continuous sub array of " + Arrays.toString(inputArray) + " whose sum is " + inputNumber + " is " );
+		for(int i = 0; i < inputArray.length; i++) {
+			sum = inputArray[i];
+			for(int j = i + 1; j < inputArray.length; j++) {
+				sum = sum + inputArray[j];
+				if(sum == inputNumber) {
+					for(int k = i; k <= j; k++) {
+						System.out.print(inputArray[k] + ", ");
+					}
+					System.out.println();
+				}
+				else if(sum < inputNumber) {
+					continue;
+				}
+				else if(sum > inputNumber) {
+					break;
+				}
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
@@ -1174,6 +1224,8 @@ public class CoreJavaWorkout {
 		//System.out.println(isAnagram());
 		//distinctPowersCount();
 		//properDivisors();
-		amicableNumbers();
+		//amicableNumbers();
+		//subArrayEqualTo1();
+		//subArrayEqualTo2();
 	}
 }
