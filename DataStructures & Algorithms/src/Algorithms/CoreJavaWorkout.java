@@ -1187,6 +1187,21 @@ public class CoreJavaWorkout {
 		}
 	}
 	
+	//Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum
+	private static void sumOfSquaresSquareOfSum() { //Euler 6
+		int sumTill = 10;
+		int sum = 0;
+		double sumOfSquares = 0;
+		double squareOfSum = 0;
+		for(int i = 1; i <= sumTill; i++) {
+			sum = sum + i;
+			double iSquares = Math.pow(i, 2);
+			squareOfSum = Math.pow(sum, 2);
+			sumOfSquares = sumOfSquares + iSquares;
+		}
+		System.out.println(sumOfSquares + ", " + squareOfSum + " and their difference is " + (squareOfSum - sumOfSquares));
+	}
+	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
@@ -1256,7 +1271,8 @@ public class CoreJavaWorkout {
 		//properDivisors();
 		//amicableNumbers();
 		//subArrayEqualTo1();
-		subArrayEqualTo2();
-		pairEqualsInput();
+		//subArrayEqualTo2();
+		//pairEqualsInput();
+		sumOfSquaresSquareOfSum();
 	}
 }
