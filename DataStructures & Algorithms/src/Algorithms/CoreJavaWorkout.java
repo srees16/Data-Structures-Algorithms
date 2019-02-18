@@ -1112,16 +1112,16 @@ public class CoreJavaWorkout {
 	private static void subArrayEqualTo1() { //For repo	
 		int inputNumber = 60;
 		int inputArray[] = {5,10,15,20,6,4,16,8,30};
-		int sum = inputArray[0];
-		int start = 0;
+		int sum = inputArray[0]; //Initializing sum with the first element of the inputArray
+		int start = 0; //Initializing starting point with 0
 		System.out.println("Continuous sub array of " + Arrays.toString(inputArray) + " whose sum is " + inputNumber + " is " );
-		for(int i = 1; i < inputArray.length; i++) {
-			sum += inputArray[i];
-			while(sum > inputNumber && start <= i - 1) {
-				sum -= inputArray[start];
-				start++;
+		for(int i = 1; i < inputArray.length; i++) { //Iterating through inputArray starting from second element
+			sum += inputArray[i]; //Adding inputArray[i] to the current 'sum'
+			while(sum > inputNumber && start <= i - 1) { //If sum is greater than inputNumber, while loop executes until sum becomes either smaller than or equal to inputNumber
+				sum -= inputArray[start]; //Removing starting elements from the 'sum'
+				start++; //Incrementing start by 1
 			}
-			if(sum == inputNumber) {
+			if(sum == inputNumber) { //If 'sum' is equal to 'inputNumber' then printing the sub array
 				for(int j = start; j <= i; j++) {
 					System.out.print(inputArray[j] + ", ");
 				}
@@ -1135,22 +1135,22 @@ public class CoreJavaWorkout {
 	private static void subArrayEqualTo2() {
 		int inputNumber = 60;
 		int inputArray[] = {5,10,15,20,6,4,16,8,30};
-		int sum = 0;
+		int sum = 0; //Initializing 'sum' to 0
 		System.out.println("Continuous sub array of " + Arrays.toString(inputArray) + " whose sum is " + inputNumber + " is " );
-		for(int i = 0; i < inputArray.length; i++) {
-			sum = inputArray[i];
+		for(int i = 0; i < inputArray.length; i++) { //Iterating through 'inputArray'
+			sum = inputArray[i]; //Assigning inputArray[i] to 'sum'
 			for(int j = i + 1; j < inputArray.length; j++) {
-				sum = sum + inputArray[j];
-				if(sum == inputNumber) {
+				sum = sum + inputArray[j]; //Adding inputArray[j] to 'sum'
+				if(sum == inputNumber) { //If 'sum' is equal to 'inputNumber' then printing the sub array
 					for(int k = i; k <= j; k++) {
 						System.out.print(inputArray[k] + ", ");
 					}
 					System.out.println();
 				}
-				else if(sum < inputNumber) {
+				else if(sum < inputNumber) { //if 'sum' is smaller than 'inputNumber', continue the loop
 					continue;
 				}
-				else if(sum > inputNumber) {
+				else if(sum > inputNumber) { //if 'sum' is greater than 'inputNumber', then break the loop
 					break;
 				}
 			}
@@ -1226,6 +1226,6 @@ public class CoreJavaWorkout {
 		//properDivisors();
 		//amicableNumbers();
 		//subArrayEqualTo1();
-		//subArrayEqualTo2();
+		subArrayEqualTo2();
 	}
 }
