@@ -191,7 +191,7 @@ public class CoreJavaWorkout {
 		return A;
 	}
 	
-	//Count duplicate/repeat of each character in a string and count their occurrences
+	//Find duplicate/repeat of each character in a string and count their occurrences
 		private static void duplicateCharacterCount() {
 			String word = "appreciation";
 			Map<Character, Integer> charactersMap = new HashMap<>();
