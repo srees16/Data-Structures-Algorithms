@@ -731,16 +731,42 @@ public class CoreJavaWorkout {
 		}
 	}
 
-	//Check if two phrases are anagrams of each other
-	private static boolean isAnagram() {
-		String s1 = "Desperation";
+	//Check if two sentences are anagrams: method 1
+	private static void isAnagram1() {
+		String s1 = "Desperation"; //School MASTER, The ClassROOM; Debit Card, Bad Credit; SiLeNt CAT, LisTen AcT; Mother In Law, Hitler Woman; ASTRONOMERS, NO MORE STARS; Desperation, A Rope Ends It;
 		String s2 = "A Rope Ends It";
+		s1 = s1.replaceAll("\\s", "");
+		s2 = s2.replaceAll("\\s", "");
+		boolean status = true;
 		if(s1.length() != s2.length()) {
-			return false;
+			status = false;
+		} else {
+			char c1[] = s1.toLowerCase().toCharArray();
+			char c2[] = s2.toLowerCase().toCharArray();
+			Arrays.sort(c1);
+			Arrays.sort(c2);
+			status = Arrays.equals(c1, c2);
 		}
-		s1 = sortCharacters(s1);
-		s2 = sortCharacters(s2);
-		return s1.equals(s2);
+		if(status) {
+			System.out.println(s1 + " and " + s2 + " are anagrams!");
+		} else {
+			System.out.println(s1 + " and " + s2 + " are NOT anagrams!");
+		}
+	}
+	
+	//Check if two sentences are anagrams: method 2
+	private static boolean isAnagram2() { //Bug in this
+		String s1 = "Mother In Law"; //Listen - Silent; Triangle - Integral
+		String s2 = "Hitler Woman";
+		String copyS1 = s1.replaceAll("\\s", "");
+		String copyS2 = s2.replaceAll("\\s", "");
+		if(copyS1.length() != copyS2.length()) {
+			return false;
+		} else {
+			copyS1 = sortCharacters(copyS1);
+			copyS2 = sortCharacters(copyS2);
+		}
+		return copyS1.equals(copyS2);
 	}
 	
 	private static String sortCharacters(String phrase) {
@@ -1266,13 +1292,14 @@ public class CoreJavaWorkout {
 		//largestDistanceOfArrayNeighbours();
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
-		//System.out.println(isAnagram());
+		isAnagram1();
+		System.out.println(isAnagram2());
 		//distinctPowersCount();
 		//properDivisors();
 		//amicableNumbers();
 		//subArrayEqualTo1();
 		//subArrayEqualTo2();
 		//pairEqualsInput();
-		sumOfSquaresSquareOfSum();
+		//sumOfSquaresSquareOfSum();
 	}
 }
