@@ -758,15 +758,15 @@ public class CoreJavaWorkout {
 	private static boolean isAnagram2() { //Bug in this
 		String s1 = "Mother In Law"; //Listen - Silent; Triangle - Integral
 		String s2 = "Hitler Woman";
-		String copyS1 = s1.replaceAll("\\s", "");
-		String copyS2 = s2.replaceAll("\\s", "");
-		if(copyS1.length() != copyS2.length()) {
+		s1 = s1.replaceAll("\\s", "");
+		s2 = s2.replaceAll("\\s", "");
+		if(s1.length() != s2.length()) {
 			return false;
 		} else {
-			copyS1 = sortCharacters(copyS1);
-			copyS2 = sortCharacters(copyS2);
+			s1 = sortCharacters(s1);
+			s2 = sortCharacters(s2);
 		}
-		return copyS1.equals(copyS2);
+		return s1.equals(s2);
 	}
 	
 	private static String sortCharacters(String phrase) {
