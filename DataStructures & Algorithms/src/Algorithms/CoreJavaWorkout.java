@@ -1164,5 +1164,6 @@ public class CoreJavaWorkout {
 		//distinctPowersCount();
 		//properDivisors();
 		amicableNumbers();
+		//Test
 	}
 }
