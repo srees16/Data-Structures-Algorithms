@@ -191,24 +191,28 @@ public class CoreJavaWorkout {
 		return A;
 	}
 	
-	//Find duplicate/repeat Characters in a String
-	private static void findRepeatCharacters(String word) {
-		Map<Character, Integer> characterCountMap = new HashMap<>();
-		char characters[] = word.toCharArray();
-		for(char ch : characters) {
-			if(characterCountMap.containsKey(ch)) {
-				characterCountMap.put(ch, characterCountMap.get(ch)+1);
-			} else {
-				characterCountMap.put(ch, 1);
+	//Count duplicate/repeat of each character in a string and count their occurrences
+		private static void duplicateCharacterCount() {
+			String word = "appreciation";
+			Map<Character, Integer> charactersMap = new HashMap<>();
+			char characters[] = word.toCharArray();
+			for(char ch : characters) {
+				if(charactersMap.containsKey(ch)) {
+					charactersMap.put(ch, charactersMap.get(ch) + 1);
+				} else {
+					charactersMap.put(ch, 1);
+				}
+				
+			}
+			Set<Character> keys = charactersMap.keySet();
+			for(char ch : keys) {
+				if(charactersMap.get(ch) > 1) {
+					System.out.println(ch + " repeated " + charactersMap.get(ch) + " times");
+				} else {
+					System.out.println(ch + " repeated " + charactersMap.get(ch) + " times");
+				}
 			}
 		}
-		Set<Character> keys = characterCountMap.keySet();
-		for(Character ch : keys) {
-			if(characterCountMap.get(ch) > 1) {
-				System.out.println("Character '" + ch + "' repeated " + characterCountMap.get(ch) + " times.");
-			}
-		}
-	}
 
 	//Find the element that is repeated a majority no of times from an given array of integers containing duplicates
 	private static void majorityDuplicateElement() {
@@ -1096,6 +1100,13 @@ public class CoreJavaWorkout {
 		System.out.println(distinctPowers.size());
 	}
 	
+	//Find largest number less than a given number
+	private static void numberLessThanInput() {
+		int inputNumber = 57;
+		int aNumberLessThanGiven = inputNumber - 1;
+			System.out.println(aNumberLessThanGiven);
+	}
+	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
@@ -1164,6 +1175,5 @@ public class CoreJavaWorkout {
 		//distinctPowersCount();
 		//properDivisors();
 		amicableNumbers();
-		//Test
 	}
 }
