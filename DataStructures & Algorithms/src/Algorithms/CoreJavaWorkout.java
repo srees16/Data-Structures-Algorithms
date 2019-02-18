@@ -1157,6 +1157,20 @@ public class CoreJavaWorkout {
 		}
 	}
 	
+	//Find all pairs of elements in an array whose sum is equal to given number
+	private static void pairEqualsInput() {
+		int array[] = {4,3,6,8,-2,5,11,2};
+		int inputNumber = 9;
+		System.out.println("Pair that adds upto " + inputNumber + " is ");
+		for(int i = 0; i < array.length - 1; i++) {
+			for(int j =  i + 1; j < array.length - 1; j++) {
+				if(inputNumber == array[i] + array[j]) {
+					System.out.println(array[i] + ", " + array[j]);
+				}
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
@@ -1227,5 +1241,6 @@ public class CoreJavaWorkout {
 		//amicableNumbers();
 		//subArrayEqualTo1();
 		subArrayEqualTo2();
+		pairEqualsInput();
 	}
 }
