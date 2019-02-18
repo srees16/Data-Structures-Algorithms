@@ -1007,8 +1007,20 @@ public class CoreJavaWorkout {
 	}
 
 	//Find GCD of two numbers
-	private static void gcdOfNumbers(int x, int y) { //
-	 
+	private static void gcdOfNumbers() {
+		int x = 25; int y = 50;
+		for(int i = 1; i <= 10; i++) {
+			if(x % i == 0) {
+				System.out.print(i + ", ");
+			}
+		}
+	}
+	
+	//Multiples of a number
+	private static void multiplesOfNumber() {
+		int x = 30;
+		//2*2*3*3
+		
 	}
 
 	//Copy an array by iterating the array
@@ -1024,10 +1036,10 @@ public class CoreJavaWorkout {
 	//Copy an array by iterating the array
 	private static void copyArrayTo2() {
 		int x[] = {3,64,67,22,56};
-		int count =0;
+		int count = 0;
 		int y[] = {85,71,67,32,75,5};
-		int k[]=new int[x.length+y.length];
-		for(int index = 0; index < (x.length+y.length); index++) {
+		int k[] = new int[x.length + y.length];
+		for(int index = 0; index < (x.length + y.length); index++) {
 			if(index < x.length)
 				k[index] = x[index];
 			else{
@@ -1282,6 +1294,7 @@ public class CoreJavaWorkout {
 		System.out.println(duplicateElements());
 		commonIntegerElements();
 		commonStringElements();*/
+		gcdOfNumbers();
 		//findMinMaxElements();
 		//removeDuplicates();
 		//countEvenOdds();
@@ -1291,8 +1304,8 @@ public class CoreJavaWorkout {
 		//largestDistanceOfArrayNeighbours();
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
-		isAnagram1();
-		System.out.println(isAnagram2());
+		//isAnagram1();
+		//System.out.println(isAnagram2());
 		//distinctPowersCount();
 		//properDivisors();
 		//amicableNumbers();
