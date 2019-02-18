@@ -1171,6 +1171,22 @@ public class CoreJavaWorkout {
 		}
 	}
 	
+	//Random pair of three elements of an array whose sum is equal to given number
+	private static void pairOfThreeToSum() {
+		int inputArray[] = {25,30,6,10,15,20,4,35,5};
+		int inputSum = 54;
+		System.out.println("The pair is ");
+		for(int i = 0; i < inputArray.length; i++) {
+			for(int j = i + 1; j < inputArray.length; j++) {
+				for(int k = j + 1; k < inputArray.length; k++) {
+					if(inputSum == inputArray[i] + inputArray[j] + inputArray[k]) {
+						System.out.println(inputArray[i] + ", " + inputArray[j] + ", " + inputArray[k]);
+					}
+				}
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
