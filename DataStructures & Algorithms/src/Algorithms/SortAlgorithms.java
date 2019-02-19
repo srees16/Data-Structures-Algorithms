@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.*;
 
 /*Learn the below algorithms first
- * 1. Insertion Sort
- * 2. Selection Sort
- * 3. Bubble Sort
+ * 1. Selection Sort
+ * 2. Bubble Sort
+ * 3. Insertion Sort
  * 4. Merge Sort
  * 5. Quick Sort
  * 6. Heap Sort
