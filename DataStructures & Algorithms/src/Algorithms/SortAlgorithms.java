@@ -16,11 +16,12 @@ import java.util.*;
 public class SortAlgorithms {
 	
 	//Insertion Sort
-	public static int[] insertionSort(int array[]) {
-		int i, j, temp, key;
-		for(i = 1; i < array.length; i++) {
-			key = array[i];
-			j = i - 1;
+	private static String insertionSort() {
+		int array[] = {3,6,8,9,2,1,7,4};
+		int temp;
+		for(int i = 1; i < array.length; i++) {
+			int key = array[i];
+			int j = i - 1;
 			while(j >= 0 && key < array[j]) {
 				temp = array[j];
 				array[j] = array[j+1];
@@ -28,11 +29,12 @@ public class SortAlgorithms {
 				j--;
 			}
 		}
-		return array;
+		return Arrays.toString(array);
 	}
 	
 	//Selection Sort
-	public static int[] selectionSort(int array[] ) {
+	public static String selectionSort() {
+		int array[] = {3,6,8,9,2,1,7,4};
 		int i , j, minVal, minIndex, temp=0;
 		for(i = 0; i < array.length; i++) {
 			minVal = array[i];
@@ -49,11 +51,12 @@ public class SortAlgorithms {
 				array[minIndex] = temp;
 			}
 		}
-		return array;
+		return Arrays.toString(array);
 	}
 	
 	//Bubble Sort
-	public static int[] bubbleSort(int array[]) {
+	public static String bubbleSort() {
+		int array[] = {3,6,8,9,2,1,7,4};
 		int i, j, temp = 0;
 		for(i = 0; i < array.length-1; i++) {
 			for(j = 0; j < array.length - 1 - i; j++) {
@@ -64,15 +67,16 @@ public class SortAlgorithms {
 				}
 			}
 		}
-		return array;
+		return Arrays.toString(array);
 	}
 	
 	//Merge Sort
-	void mergesort(int array[]) {
+	static void mergesort() {
+		int array[] = {3,6,8,9,2,1,7,4};
 		mergesort(array, new int [array.length], 0 , array.length - 1);
 	}
 	
-	private void mergesort(int[] array, int temp[], int leftstart, int rightend) {
+	private static void mergesort(int[] array, int temp[], int leftstart, int rightend) {
 		if(leftstart >= rightend) {
 			return;
 		}
@@ -82,7 +86,7 @@ public class SortAlgorithms {
 		mergehalves(array, temp, leftstart, rightend);
 	}
 	
-	private void mergehalves(int[] array, int temp[], int leftstart, int rightend) {
+	private static void mergehalves(int[] array, int temp[], int leftstart, int rightend) {
 		int leftend = (leftstart + rightend) / 2;
 		int rightstart = leftend + 1;
 		int size = rightend - leftstart + 1;
@@ -141,7 +145,8 @@ public class SortAlgorithms {
 	}
 	
 	//Heap Sort. Ref: https://www.geeksforgeeks.org/heap-sort
-	private void heapSort(int array[]) {
+	private static void heapSort() {
+		int array[] = {3,6,8,9,2,1,7,4};
 		int n = array.length;
 		for(int i = n / 2 - 1; i >= 0; i--) {
 			heapify(array, n, i);
@@ -154,7 +159,7 @@ public class SortAlgorithms {
 		}
 	}
 
-	private void heapify(int[] array, int n, int i) {
+	private static void heapify(int[] array, int n, int i) {
 		int largest = i;
 		int l = 2 * i + 1;
 		int r = 2 * i + 2;
@@ -172,7 +177,8 @@ public class SortAlgorithms {
 		}
 	}
 	
-	private void printHeapSort(int array[]) {
+	private static void printHeapSort() {
+		int array[] = {3,6,8,9,2,1,7,4};
 		for(int i = 0; i < array.length; ++i) {
 			System.out.print(array[i] + " ");
 		}
@@ -181,13 +187,11 @@ public class SortAlgorithms {
 	
 	public static void main(String[] args) {
 
-		//Insertion sort
-		int list[] = {5,8,2,7,6,1};
-		insertionSort(list);
-		for(int n : list) {
-			System.out.println(n + " ");	
-		}
-		//System.out.println(selectionSort(list));
-		//System.out.println(bubbleSort(list));
+		System.out.println(insertionSort());
+		System.out.println(selectionSort());
+		System.out.println(bubbleSort());
+		//mergesort();
+		//heapSort();
+		//printHeapSort();
 	}
 }
