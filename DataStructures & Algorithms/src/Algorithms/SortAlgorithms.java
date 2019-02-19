@@ -15,23 +15,6 @@ import java.util.*;
 @SuppressWarnings("unused")
 public class SortAlgorithms {
 	
-	//Insertion Sort
-	private static String insertionSort() {
-		int array[] = {3,6,8,9,2,1,7,4};
-		int temp;
-		for(int i = 1; i < array.length; i++) {
-			int key = array[i];
-			int j = i - 1;
-			while(j >= 0 && key < array[j]) {
-				temp = array[j];
-				array[j] = array[j+1];
-				array[j+1] = temp;
-				j--;
-			}
-		}
-		return Arrays.toString(array);
-	}
-	
 	//Selection Sort
 	public static String selectionSort() {
 		int array[] = {3,6,8,9,2,1,7,4};
@@ -65,6 +48,23 @@ public class SortAlgorithms {
 					array[j] = array[j + 1];
 					array[j + 1] = temp;
 				}
+			}
+		}
+		return Arrays.toString(array);
+	}
+	
+	//Insertion Sort
+	private static String insertionSort() {
+		int array[] = {3,6,8,9,2,1,7,4};
+		int temp;
+		for(int i = 1; i < array.length; i++) {
+			int key = array[i];
+			int j = i - 1;
+			while(j >= 0 && key < array[j]) {
+				temp = array[j];
+				array[j] = array[j+1];
+				array[j+1] = temp;
+				j--;
 			}
 		}
 		return Arrays.toString(array);
