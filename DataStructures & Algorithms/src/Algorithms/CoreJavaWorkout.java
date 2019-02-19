@@ -11,6 +11,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
+import org.junit.Test;
 
 /*
 Exercises referenced from:
@@ -50,8 +51,6 @@ each element of array A is an integer within the range [-1,000,000..1,000,000]
 > Print all possible combinations of r elements in a given array of size n. Ref:https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n
 
 */
-
-import org.junit.Test;
 
 @SuppressWarnings("unused")
 public class CoreJavaWorkout {
