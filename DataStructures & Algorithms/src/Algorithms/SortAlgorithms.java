@@ -35,7 +35,7 @@ public class SortAlgorithms {
 	//Selection Sort
 	public static String selectionSort() {
 		int array[] = {3,6,8,9,2,1,7,4};
-		int i , j, minVal, minIndex, temp=0;
+		int i , j, minVal, minIndex, temp = 0;
 		for(i = 0; i < array.length; i++) {
 			minVal = array[i];
 			minIndex = i;
