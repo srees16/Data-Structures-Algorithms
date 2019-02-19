@@ -754,7 +754,7 @@ public class CoreJavaWorkout {
 	}
 	
 	//Check if two sentences are anagrams: method 2
-	private static boolean isAnagram2() { //Bug in this
+	private static boolean isAnagram2() {
 		String s1 = "Mother In Law"; //Listen - Silent; Triangle - Integral
 		String s2 = "Hitler Woman";
 		s1 = s1.replaceAll("\\s", "");
@@ -774,6 +774,10 @@ public class CoreJavaWorkout {
 		return String.valueOf(charArray);
 	}
 
+	//Check if two sentences are anagrams: method 2. Ref: https://javaconceptoftheday.com/anagram-program-in-java
+	private static void isAnagram3() {
+			
+	}
 	/*
 	Find the length of the longest consecutive elements sequence from an unsorted array of integers.
 	Ex: [49, 1, 3, 200, 2, 4, 70, 5]
@@ -1294,7 +1298,7 @@ public class CoreJavaWorkout {
 		System.out.println(duplicateElements());
 		commonIntegerElements();
 		commonStringElements();*/
-		gcdOfNumbers();
+		//gcdOfNumbers();
 		//findMinMaxElements();
 		//removeDuplicates();
 		//countEvenOdds();
@@ -1304,8 +1308,8 @@ public class CoreJavaWorkout {
 		//largestDistanceOfArrayNeighbours();
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
-		//isAnagram1();
-		//System.out.println(isAnagram2());
+		isAnagram1();
+		System.out.println(isAnagram2());
 		//distinctPowersCount();
 		//properDivisors();
 		//amicableNumbers();
