@@ -40,11 +40,10 @@ public class SortAlgorithms {
 	//Bubble Sort
 	public static String bubbleSort() {
 		int array[] = {3,6,8,9,2,1,7,4};
-		int i, j, temp = 0;
-		for(i = 0; i < array.length-1; i++) {
-			for(j = 0; j < array.length - 1 - i; j++) {
+		for(int i = 0; i < array.length-1; i++) {
+			for(int j = 0; j < array.length - 1 - i; j++) {
 				if(array[j] > array[j + 1]) {
-					temp = array[j];
+					int temp = array[j];
 					array[j] = array[j + 1];
 					array[j + 1] = temp;
 				}
