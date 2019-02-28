@@ -119,6 +119,17 @@ public class CoreJavaWorkout {
 			}
 		} 
 	}
+	
+	//Summation of primes below given number
+	private static void summationOfPrimes(int inputNumber) {
+		int sum = 10; //since the sum of 2  + 3 + 5 which are primes
+		for(int i = 2; i < inputNumber; i++) {
+			if(i % 2 != 0 && i % 3 != 0 && i % 5 != 0) {
+				sum += i;
+			}
+		}
+		System.out.println("Sum of all primes until the input number is " + sum);
+	}
 
 	//Sum of elements of an array
 	private static void sumOfArray() {
@@ -1307,8 +1318,8 @@ public class CoreJavaWorkout {
 		//largestDistanceOfArrayNeighbours();
 		//smallestDistanceOfArrayNeighbours();
 		//findTopThreeLargest();
-		isAnagram1();
-		System.out.println(isAnagram2());
+		//isAnagram1();
+		//System.out.println(isAnagram2());
 		//distinctPowersCount();
 		//properDivisors();
 		//amicableNumbers();
@@ -1316,6 +1327,7 @@ public class CoreJavaWorkout {
 		//subArrayEqualTo2();
 		//pairEqualsInput();
 		//sumOfSquaresSquareOfSum();
+		summationOfPrimes(20);
 		
 	}
 }
