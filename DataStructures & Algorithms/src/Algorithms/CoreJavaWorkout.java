@@ -113,7 +113,7 @@ public class CoreJavaWorkout {
 	//Display prime numbers between 1 and 100 or 1 and n
 	private static void first100PrimeNos(int primesUpto) { //Needs improvement
 		System.out.print(2 + ", " + 3 + ", " + 5);
-		for (int i =5; i < primesUpto; i++) {
+		for (int i = 5; i < primesUpto; i++) {
 			if (i % 2 != 0 && i % 3 != 0 && i % 5 !=0) {
 				System.out.print(", " + i);
 			}
