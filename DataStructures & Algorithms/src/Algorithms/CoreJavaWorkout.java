@@ -1253,6 +1253,19 @@ public class CoreJavaWorkout {
 		System.out.println(sumOfSquares + ", " + squareOfSum + " and their difference is " + (squareOfSum - sumOfSquares));
 	}
 	
+	//Longest Collatz sequence
+	private static void collatzSequence() {
+		int number = 10;
+		System.out.print(number + " ");
+		while(number > 1) {
+			if(number % 2 == 0) {
+				number = number / 2;
+			} else if(number % 2 != 0) {
+				number = 3 * number + 1;
+			}
+			System.out.print(number + " ");
+		}
+	}
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
@@ -1327,7 +1340,7 @@ public class CoreJavaWorkout {
 		//subArrayEqualTo2();
 		//pairEqualsInput();
 		//sumOfSquaresSquareOfSum();
-		summationOfPrimes(20);
-		
+		//summationOfPrimes(20);
+		collatzSequence();
 	}
 }
