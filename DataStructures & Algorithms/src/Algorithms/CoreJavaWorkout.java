@@ -1266,6 +1266,32 @@ public class CoreJavaWorkout {
 			System.out.print(number + " ");
 		}
 	}
+	
+	//Find an element which divides the array in two sub arrays with equal product
+	/*
+	 * Input : 2, 3, 4, 1, 4, 6
+		Output : 1
+		If 1 is the partition, 
+		Subarrays are : {2, 3, 4} and {4, 6}
+	 */
+	private static void subArraysWithEqualProduct() { //https://www.geeksforgeeks.org/find-an-element-which-divides-the-array-in-two-subarrays-with-equal-product
+		int array[] = {2, 3, 4, 1, 4, 6};
+		int dividingElement = array[1];
+		int productPre = 1;
+		int productPost = 1;
+		for(int i = 0; i < dividingElement - 1; i++) {
+			array[productPre] *= array[i];
+		}
+		for(int j = dividingElement + 1; j < array.length; j++) {
+			array[productPost] *= array[j];
+		}
+		if(productPre != productPost) {
+			dividingElement++;
+		}
+		System.out.println("Diving element is " + array[dividingElement]);	
+	}
+	
+	
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
@@ -1341,6 +1367,7 @@ public class CoreJavaWorkout {
 		//pairEqualsInput();
 		//sumOfSquaresSquareOfSum();
 		//summationOfPrimes(20);
-		collatzSequence();
+		//collatzSequence();
+		subArraysWithEqualProduct();
 	}
 }
