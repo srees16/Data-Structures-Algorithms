@@ -1369,5 +1369,6 @@ public class CoreJavaWorkout {
 		//summationOfPrimes(20);
 		//collatzSequence();
 		subArraysWithEqualProduct();
+		//Test
 	}
 }
