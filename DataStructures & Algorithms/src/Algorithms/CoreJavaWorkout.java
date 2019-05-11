@@ -1290,8 +1290,8 @@ public class CoreJavaWorkout {
 		}
 		System.out.println("Diving element is " + array[dividingElement]);	
 	}
-	
-	
+
+
 	public static void main(String[] args) {
 		/*List<String> dict = Arrays.asList("snake","snakes","and","sand","ladder"); //List of Strings to represent dictionary
 		String input = "snakesandladder";
