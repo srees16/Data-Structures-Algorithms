@@ -180,19 +180,34 @@ public class CoreJavaWorkout {
 	}
 	
 	//Find non repeating elements or duplicate nos in array
-	private static void findAllNonRepeat(int A[]) { //https://www.geeksforgeeks.org/non-repeating-element/
-		for(int i = 0; i < A.length; i++) {
+	private static void findAllNonRepeat(int Array[]) { //https://www.geeksforgeeks.org/non-repeating-element/
+		for(int i = 0; i < Array.length; i++) {
 			int j;
-			for(j = 0; j < A.length; j++) {
-				if(i != j && A[i] == A[j]) {
+			for(j = 0; j < Array.length; j++) {
+				if(i != j && Array[i] == Array[j]) {
 					break;
 				}
 			}
-			if(j == A.length) {
-				System.out.print(A[i] + ",");
+			if(j == Array.length) {
+				System.out.print(Array[i] + ",");
 			}
 		}
 		//return -1;
+	}
+	
+	//Find all the repeating elements or duplicate nos in array
+	private static void findAllRepeat(int Array[]) {
+		for(int i = 0; i < Array.length; i++) {
+			int j;
+			for(j = 0; j < Array.length; j++) {
+				if(i != j && Array[i] == Array[j]) {
+					break;
+				}
+			}
+			if(j != Array.length) {
+				System.out.print(Array[i] + ",");
+			}
+		}
 	}
 	
 	private static int[] findAllNonRepeats() { //https://www.sanfoundry.com/java-program-find-number-non-repeated-elements-array
@@ -228,27 +243,27 @@ public class CoreJavaWorkout {
 	}
 	
 	//Find duplicate/repeat of each character in a string and count their occurrences
-		private static void duplicateCharacterCount() {
-			String word = "appreciation";
-			Map<Character, Integer> charactersMap = new HashMap<>();
-			char characters[] = word.toCharArray();
-			for(char ch : characters) {
-				if(charactersMap.containsKey(ch)) {
-					charactersMap.put(ch, charactersMap.get(ch) + 1);
-				} else {
-					charactersMap.put(ch, 1);
-				}
-				
+	private static void duplicateCharacterCount() {
+		String word = "appreciation";
+		Map<Character, Integer> charactersMap = new HashMap<>();
+		char characters[] = word.toCharArray();
+		for(char ch : characters) {
+			if(charactersMap.containsKey(ch)) {
+				charactersMap.put(ch, charactersMap.get(ch) + 1);
+			} else {
+				charactersMap.put(ch, 1);
 			}
-			Set<Character> keys = charactersMap.keySet();
-			for(char ch : keys) {
-				if(charactersMap.get(ch) > 1) {
-					System.out.println(ch + " repeated " + charactersMap.get(ch) + " times");
-				} else {
-					System.out.println(ch + " repeated " + charactersMap.get(ch) + " times");
-				}
+			
+		}
+		Set<Character> keys = charactersMap.keySet();
+		for(char ch : keys) {
+			if(charactersMap.get(ch) > 1) {
+				System.out.println(ch + " repeated " + charactersMap.get(ch) + " times");
+			} else {
+				System.out.println(ch + " repeated " + charactersMap.get(ch) + " times");
 			}
 		}
+	}
 
 	//Find the element that is repeated a majority no of times from an given array of integers containing duplicates
 	private static void majorityDuplicateElement() {
@@ -310,7 +325,8 @@ public class CoreJavaWorkout {
 		System.out.println(Arrays.toString(A));
 	}
 	
-	private static void pairOfInput(int a[],int no) { //https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x
+	/*https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x*/
+	private static void pairOfInput(int a[],int no) {
 		HashSet<Integer> hset = new HashSet<>();
 		Arrays.sort(a);
 		System.out.println("Pair of given no " + no + " is ");
@@ -1327,7 +1343,8 @@ public class CoreJavaWorkout {
         stringSplit(dict, input, "");*/
         
 		int A[]={8,5,7,6,23,9,1,3,10,4,2,1,2,3,4};
-		evenOddCount();
+		findAllNonRepeat(A);
+		//evenOddCount();
 		/*
 		findAllNonRepeat(A);
 		findAllNonRepeats();
