@@ -66,14 +66,14 @@ public class CoreJavaWorkout {
 
 	//Sum of multiples of 3 and 5
 	static void oddMultiples(int x) {
-		int f=0;
-		for(int i=1;i<x;i++) {
-			if(i%3==0 || i%5==0) {
-				f+=i;//f=f+i
+		int f = 0;
+		for(int i = 1; i < x; i++) {
+			if(i % 3 == 0 || i % 5 == 0) {
+				f += i;//f=f+i
 				//System.out.println(i);
 			}
 		}
-		System.out.println("Multiples of odd numbers is "+f);
+		System.out.println("Multiples of odd numbers is " + f);
 	}
 
 	//Check if a number is Positive or Negative
@@ -97,11 +97,11 @@ public class CoreJavaWorkout {
 
 	//Find the number of even and odd integers in a given array of integers
 	private static void countEvenOdds() {
-		int x[] = {98,10,13,66,26,78,11,99};
+		int x[] = {98, 10, 13, 66, 26, 78, 11, 99};
 		int countEven = 0;
 		int countOdd = 0;
 		for(int i = 0; i < x.length; i++) {
-			if(x[i] % 2 ==0) {
+			if(x[i] % 2 == 0) {
 				countEven++;
 			} else {
 				countOdd++;
@@ -121,7 +121,6 @@ public class CoreJavaWorkout {
 			System.out.println("Even numbers are: ");
 			for(int i = 0; i < array.length; i++) {
 				if(array[i] % 2 == 0) {
-					//evenArray = Arrays.copyOf(array, array.length);
 					System.out.print(array[i] + " ");
 					evenCount++;
 				}
@@ -130,7 +129,6 @@ public class CoreJavaWorkout {
 			System.out.println("Odd numbers are: ");
 			for(int i = 0; i < array.length; i++) {
 				if(array[i] % 2 != 0) {
-					//evenArray = Arrays.copyOf(array, array.length);
 					System.out.print(array[i] + " ");
 					oddCount++;
 				}
@@ -163,7 +161,7 @@ public class CoreJavaWorkout {
 
 	//Sum of elements of an array
 	private static void sumOfArray() {
-		int array[] = {5,2,8,6,};
+		int array[] = {5, 2, 8, 6, 3};
 		int count = 0;
 		for (int i = 0; i < array.length; i++) {
 			count = count + array[i];
@@ -173,8 +171,8 @@ public class CoreJavaWorkout {
 		
 	//Calculate average of numbers of an Array
 	private static double averageOfArray(double numArray[]) {
-		double total=0;
-		for (int i=0;i<numArray.length;i++) {
+		double total = 0;
+		for (int i = 0; i < numArray.length; i++) {
 			total = total + numArray[i];
 		}
 		double average = total/numArray.length;
@@ -183,50 +181,49 @@ public class CoreJavaWorkout {
 	
 	//Find non repeating elements or duplicate nos in array
 	private static void findAllNonRepeat(int A[]) { //https://www.geeksforgeeks.org/non-repeating-element/
-		for(int i=0;i<A.length;i++) {
+		for(int i = 0; i < A.length; i++) {
 			int j;
-			for(j=0;j<A.length;j++) {
-				if(i!=j && A[i]==A[j]) {
+			for(j = 0; j < A.length; j++) {
+				if(i != j && A[i] == A[j]) {
 					break;
 				}
 			}
-			if(j==A.length) {
-				//return A[i];
-				System.out.print(A[i]+",");
+			if(j == A.length) {
+				System.out.print(A[i] + ",");
 			}
 		}
 		//return -1;
 	}
 	
 	private static int[] findAllNonRepeats() { //https://www.sanfoundry.com/java-program-find-number-non-repeated-elements-array
-		int flag=0,count=0;
-		Scanner s=new Scanner(System.in);
+		int flag = 0, count = 0;
+		Scanner s = new Scanner(System.in);
 		System.out.println("Enter how many elements in array");
-		int n=s.nextInt();
-		int A[]=new int[n];
+		int n = s.nextInt();
+		int A[] = new int[n];
 		System.out.println("Enter the elements");
-		for(int i=0;i<n;i++) {
-			A[i]=s.nextInt();
+		for(int i = 0; i < n; i++) {
+			A[i] = s.nextInt();
 		}
 		System.out.println("Non repeated elements are:");
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
-				if(i!=j) {
-					if(A[i]!=A[j]) {
-						flag=1;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				if(i != j) {
+					if(A[i] != A[j]) {
+						flag = 1;
 					} else {
-						flag=0;
+						flag = 0;
 						break;
 					}
 				}
 			}
-			if(flag==1) {
+			if(flag == 1) {
 				count++;
-				System.out.println(A[i]+" ");
+				System.out.println(A[i] + " ");
 			}
 		}
 		s.close();
-		System.out.println("No of non repeat elements "+count);
+		System.out.println("No of non repeat elements " + count);
 		return A;
 	}
 	
