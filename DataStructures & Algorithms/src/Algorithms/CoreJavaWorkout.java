@@ -179,7 +179,7 @@ public class CoreJavaWorkout {
 		return average;
 	}
 	
-	//Find non repeating elements or duplicate nos in array
+	//Find all the non repeating elements or duplicate nos in array
 	private static void findAllNonRepeat(int Array[]) { //https://www.geeksforgeeks.org/non-repeating-element/
 		for(int i = 0; i < Array.length; i++) {
 			int j;
@@ -189,7 +189,7 @@ public class CoreJavaWorkout {
 				}
 			}
 			if(j == Array.length) {
-				System.out.print(Array[i] + ",");
+				System.out.print(Array[i] + " ");
 			}
 		}
 		//return -1;
@@ -205,7 +205,7 @@ public class CoreJavaWorkout {
 				}
 			}
 			if(j != Array.length) {
-				System.out.print(Array[i] + ",");
+				System.out.print(Array[i] + " ");
 			}
 		}
 	}
