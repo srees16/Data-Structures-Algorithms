@@ -215,16 +215,16 @@ public class CoreJavaWorkout {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter how many elements in array");
 		int n = s.nextInt();
-		int A[] = new int[n];
+		int array[] = new int[n];
 		System.out.println("Enter the elements");
 		for(int i = 0; i < n; i++) {
-			A[i] = s.nextInt();
+			array[i] = s.nextInt();
 		}
-		System.out.println("Non repeated elements are:");
+		System.out.print("Non repeated elements are: ");
 		for(int i = 0; i < n; i++) {
 			for(int j = 0; j < n; j++) {
 				if(i != j) {
-					if(A[i] != A[j]) {
+					if(array[i] != array[j]) {
 						flag = 1;
 					} else {
 						flag = 0;
@@ -234,12 +234,13 @@ public class CoreJavaWorkout {
 			}
 			if(flag == 1) {
 				count++;
-				System.out.println(A[i] + " ");
+				System.out.print(array[i] + " ");
 			}
 		}
 		s.close();
-		System.out.println("No of non repeat elements " + count);
-		return A;
+		System.out.println();
+		System.out.println("No of non repeat elements are " + count);
+		return array;
 	}
 	
 	//Find duplicate/repeat of each character in a string and count their occurrences
