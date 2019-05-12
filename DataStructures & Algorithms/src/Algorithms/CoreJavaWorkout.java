@@ -110,6 +110,36 @@ public class CoreJavaWorkout {
 		System.out.println("No of even nos " + countEven + " and odd nos " + countOdd);
 	}
 	
+	//Find the number of even and odd integers in a given array of integers, and what are they?
+		public static void evenOddCount() {
+			int evenCount = 0;
+			int oddCount = 0;
+			int array[] = {54, 74, 23, 89, 12, 53, 76};
+			int evenArray[] = {};
+			int oddArray[] = {};
+			
+			System.out.println("Even numbers are: ");
+			for(int i = 0; i < array.length; i++) {
+				if(array[i] % 2 == 0) {
+					//evenArray = Arrays.copyOf(array, array.length);
+					System.out.print(array[i] + " ");
+					evenCount++;
+				}
+			}
+			System.out.println();
+			System.out.println("Odd numbers are: ");
+			for(int i = 0; i < array.length; i++) {
+				if(array[i] % 2 != 0) {
+					//evenArray = Arrays.copyOf(array, array.length);
+					System.out.print(array[i] + " ");
+					oddCount++;
+				}
+			}
+			System.out.println();
+			System.out.println("No of even integers are " + evenCount + " and the no of odd integers in the array are " + oddCount);
+			
+		}
+	
 	//Display prime numbers between 1 and 100 or 1 and n
 	private static void first100PrimeNos(int primesUpto) { //Needs improvement
 		System.out.print(2 + ", " + 3 + ", " + 5);
@@ -1300,6 +1330,7 @@ public class CoreJavaWorkout {
         stringSplit(dict, input, "");*/
         
 		int A[]={8,5,7,6,23,9,1,3,10,4,2,1,2,3,4};
+		evenOddCount();
 		/*
 		findAllNonRepeat(A);
 		findAllNonRepeats();
